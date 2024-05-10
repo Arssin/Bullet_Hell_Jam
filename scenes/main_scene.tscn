@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cdfiit0ddj7u1"]
+[gd_scene load_steps=2 format=3 uid="uid://cdfiit0ddj7u1"]
+
+[ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_vrhdb"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -7,8 +9,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vrhdb")
 
 [node name="HUD" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 285.0
@@ -17,14 +21,36 @@ offset_right = 325.0
 offset_bottom = 192.0
 
 [node name="Menu" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 285.0
-offset_top = 152.0
-offset_right = 325.0
-offset_bottom = 192.0
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.568704, 0.885324, 0.61279, 1)
+
+[node name="StartGame" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 114.0
+offset_right = 398.0
+offset_bottom = 171.0
+text = "Start"
 
 [node name="Main" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="MUSIC" type="AudioStreamPlayer2D" parent="."]
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="Menu/StartGame" to="." method="_on_start_game_pressed"]
