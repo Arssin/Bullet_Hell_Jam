@@ -9,9 +9,9 @@ class_name customFunctions
 ###
 
 func bullet_collide_body(body_rid:RID,body:Node,body_shape_index:int,local_shape_index:int,shared_area:Area2D, B:Dictionary, b:RID) -> void:
+	print(body_rid,body,shared_area,B,b)
 	## you can use B["props"]["damage"] to get the bullet's damage
 	## you can use B["props"]["<your custom data name>"] to get the bullet's custom data
-	pass
 
 
 func bullet_collide_area(area_rid:RID,area:Area2D,area_shape_index:int,local_shape_index:int,shared_area:Area2D) -> void:

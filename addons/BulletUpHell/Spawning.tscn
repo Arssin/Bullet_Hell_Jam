@@ -112,8 +112,15 @@ default_waiting = SubResource("Resource_7rfek")
 default_delete = SubResource("Resource_tl1ht")
 
 [node name="SharedAreas" type="Node2D" parent="."]
+visible = false
 
 [node name="0" type="Area2D" parent="SharedAreas"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="two" type="Area2D" parent="SharedAreas"]
+collision_layer = 8
+collision_mask = 192
 
 [node name="ShapeManager" type="AnimatedSprite2D" parent="."]
 visible = false

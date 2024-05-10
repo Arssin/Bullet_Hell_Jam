@@ -12,7 +12,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var position_mouse_x = get_global_mouse_position().x
-	
 	if position_mouse_x < global_position.x:
 		sprite_2d.flip_h = true
 		$CollisionShape2D.position.x = -0.5
@@ -21,6 +20,8 @@ func _physics_process(delta: float) -> void:
 		sprite_2d.flip_h = false
 		
 	move_and_slide()
+	
+
 
 	
 func _input(event: InputEvent) -> void:

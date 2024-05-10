@@ -8,3 +8,5 @@ func _physics_process(delta: float) -> void:
 func die():
 	if health <= 0:
 		queue_free()
+
+
