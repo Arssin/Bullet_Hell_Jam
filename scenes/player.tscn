@@ -63,7 +63,9 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_vtlnh")
+player_speed = 150
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_cbl21")
@@ -79,3 +81,5 @@ shape = SubResource("RectangleShape2D_b4vmx")
 libraries = {
 "": SubResource("AnimationLibrary_ofwwi")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]

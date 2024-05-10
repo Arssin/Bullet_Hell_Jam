@@ -10,7 +10,7 @@ func unload_level():
 
 func load_level(level_name: String):
 	unload_level()
-	var level_path := "res://levels/%s.tscn" % level_name
+	var level_path := "res://scenes/%s.tscn" % level_name
 	var level_resource := load(level_path)
 	if (level_resource):
 		var childrens = get_tree().root.get_children()
@@ -22,5 +22,4 @@ func load_level(level_name: String):
 				
 				
 func new_game():
-	get_tree().paused = false
 	GlobalManager.load_level("Level1")
