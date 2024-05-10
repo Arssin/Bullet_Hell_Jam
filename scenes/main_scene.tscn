@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdfiit0ddj7u1"]
+
+[ext_resource type="Texture2D" uid="uid://bqpes5ymbtyv7" path="res://icon.svg" id="1_rkaua"]
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(285, 152)
+texture = ExtResource("1_rkaua")
