@@ -3,6 +3,10 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+var rock := preload("res://player/player_projectile_rock.tscn")
+
+
+var player_can_attack = true
 
 @export var player_speed = 30
 
@@ -26,6 +30,11 @@ func _physics_process(delta: float) -> void:
 	
 func _input(event: InputEvent) -> void:
 	var input_direction = Input.get_vector("move_left","move_right","move_up", "move_down")
+	
+	if Input.is_action_just_pressed("attack") && player_can_attack:
+		shoot(rock)
+		$PlayerAttack.start()
+		player_can_attack = false
 
 	if input_direction:
 		animation_player.play("Run")
@@ -33,3 +42,16 @@ func _input(event: InputEvent) -> void:
 	else:
 		animation_player.play("Idle")
 		velocity = input_direction * 0
+		
+		
+
+func shoot(projectile):
+	var bullet = projectile.instantiate()
+	bullet.position = $".".global_position
+	bullet.direction = global_position.direction_to(get_global_mouse_position())
+	add_child(bullet)
+
+
+func _on_player_attack_timeout() -> void:
+	$PlayerAttack.stop()
+	player_can_attack = true
