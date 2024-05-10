@@ -64,6 +64,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
+collision_layer = 4
 script = ExtResource("1_vtlnh")
 player_speed = 150
 

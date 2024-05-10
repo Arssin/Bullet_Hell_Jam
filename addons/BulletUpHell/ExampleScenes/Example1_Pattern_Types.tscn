@@ -308,6 +308,7 @@ id = "shape"
 pattern = SubResource("NavigationPolygon_pxg84")
 
 [node name="SpawnPattern6" type="Path2D" parent="Patterns"]
+position = Vector2(-573.999, -427.997)
 curve = SubResource("Curve2D_qvlio")
 script = ExtResource("2_ah2t8")
 id = "area"
@@ -394,7 +395,7 @@ auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
 [node name="SpawnPoint6" type="Node2D" parent="SpawnPoints"]
-position = Vector2(746, 465)
+position = Vector2(197.003, 64.9991)
 script = ExtResource("11_iv1jv")
 active = true
 auto_pattern_id = "area"

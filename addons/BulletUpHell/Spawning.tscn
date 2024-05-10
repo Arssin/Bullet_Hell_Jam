@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dvf5gge2m2v2k" path="res://addons/BulletUpHell/Bullet/Sprites/Bullet_06.png" id="3_6fafs"]
 [ext_resource type="Texture2D" uid="uid://c8ovec1akgihy" path="res://addons/BulletUpHell/Bullet/Sprites/Bullet_11.png" id="4_gntuv"]
 [ext_resource type="AudioStream" uid="uid://bicgnko0preqq" path="res://addons/BulletUpHell/Bullet/Hit Hurt.wav" id="5_rada6"]
-[ext_resource type="Texture2D" uid="uid://mntjomb1lk2i" path="res://assets/test.png" id="6_4a32u"]
+[ext_resource type="Texture2D" uid="uid://dlt8jc3vvcp5l" path="res://assets/Projectile_1.png" id="6_0j1cd"]
 
 [sub_resource type="Resource" id="Resource_uhb1j"]
 script = ExtResource("2_4dc5c")
@@ -87,10 +87,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_4a32u")
+"texture": ExtResource("6_0j1cd")
 }],
 "loop": true,
-"name": &"Test1",
+"name": &"One",
 "speed": 5.0
 }]
 
@@ -100,7 +100,7 @@ animations = [{
 points = PackedVector2Array(0, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pyrf1"]
-radius = 5.0
+radius = 6.0
 
 [node name="BulletHellManager" type="Node2D"]
 z_index = 999
@@ -118,7 +118,7 @@ default_delete = SubResource("Resource_tl1ht")
 [node name="ShapeManager" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("1")
-animation = &"0"
+animation = &"One"
 
 [node name="0" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("2")
@@ -126,7 +126,7 @@ shape = SubResource("2")
 [node name="LaserBeam" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("3")
 
-[node name="Test1" type="CollisionShape2D" parent="ShapeManager"]
+[node name="One" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("CircleShape2D_pyrf1")
 
 [node name="SFX" type="Node2D" parent="."]
