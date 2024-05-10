@@ -236,7 +236,6 @@ func set_anim_states(a:animState, P:String="", id:String=""):
 	var col
 	var sfx
 	if a.texture == "": a.texture = arrayAnim["@"+P][ANIM.TEXTURE]
-	print(a.collision)
 	if a.collision == "": col = arrayAnim["@"+P][ANIM.COLLISION]
 	else: col = arrayShapes[a.collision]
 	if a.SFX == "": sfx = null
@@ -888,7 +887,6 @@ func modulate_bullet(b:Dictionary, texture:Texture):
 func _draw():
 	if Engine.is_editor_hint(): return
 	viewrect = get_viewport().get_visible_rect()
-	print(viewrect)
 
 	var texture:Texture; var b
 	

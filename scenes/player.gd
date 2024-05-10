@@ -25,8 +25,8 @@ func _physics_process(delta: float) -> void:
 
 	
 func _input(event: InputEvent) -> void:
-	var input_direction = Input.get_vector("move_left", "move_right","move_up", "move_down")
-	
+	var input_direction = Input.get_vector("move_left","move_right","move_up", "move_down")
+
 	if input_direction:
 		animation_player.play("Run")
 		velocity = input_direction * player_speed

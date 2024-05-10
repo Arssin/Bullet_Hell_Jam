@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cam84clue4rry"]
+
+[ext_resource type="Texture2D" uid="uid://cf8fa200s7y1y" path="res://assets/rock.png" id="1_sjxdr"]
+
+[node name="Player_Projectile_Rock" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sjxdr")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="ImpactDetector" type="Area2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
