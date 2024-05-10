@@ -889,8 +889,11 @@ func _draw():
 	viewrect = get_viewport().get_visible_rect()
 
 	var texture:Texture; var b
+	print(b, texture)
+	
 	for B in poolBullets.keys():
 		b = poolBullets[B]
+		
 
 		if B is Node2D:
 			if b["props"].has("speed"): B.queue_redraw()

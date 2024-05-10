@@ -116,7 +116,7 @@ var r_wait_for_shot_chances:float
 # draw
 # animations directly in
 
-var anim_idle_texture:String = "0"
+var anim_idle_texture:String = "Test1"
 var anim_spawn_texture:String
 var anim_waiting_texture:String
 var anim_delete_texture:String
