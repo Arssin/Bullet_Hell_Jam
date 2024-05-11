@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc5tjpexngnx5"]
+
+[ext_resource type="Texture2D" uid="uid://cjfbto5rsgwx1" path="res://assets/bar-fill.png" id="1_6kcx0"]
+[ext_resource type="Script" path="res://ui/health_bar.gd" id="1_r12ej"]
+[ext_resource type="Texture2D" uid="uid://7dkjla4ngxw5" path="res://assets/bar-over.png" id="2_6natk"]
+
+[node name="HealthBar" type="TextureProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 429.0
+offset_top = 327.0
+offset_right = -377.0
+offset_bottom = -290.0
+grow_horizontal = 2
+grow_vertical = 2
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("1_6kcx0")
+texture_over = ExtResource("2_6natk")
+texture_progress = ExtResource("1_6kcx0")
+tint_under = Color(0.439049, 0.439049, 0.439049, 1)
+tint_over = Color(0.187176, 0.187176, 0.187176, 1)
+tint_progress = Color(0.539924, 0.231745, 0.303392, 1)
+script = ExtResource("1_r12ej")

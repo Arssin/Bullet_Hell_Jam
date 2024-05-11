@@ -15,10 +15,10 @@ var player_can_attack = true
 
 
 func _ready() -> void:
-	PlayerGlobals.player_get_dmg.connect(_on_dmg_taken)
-	PlayerGlobals.player_dead.connect(_player_death)
 	health_bar.max_value = PlayerGlobals.player_max_health
 	health_bar.value = PlayerGlobals.player_max_health
+	PlayerGlobals.player_get_dmg.connect(_on_dmg_taken)
+	PlayerGlobals.player_dead.connect(_player_death)
 	animation_player.play("Idle")
 
 func _physics_process(delta: float) -> void:
