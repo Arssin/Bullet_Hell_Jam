@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://csp0pjl6er5ri"]
+[gd_scene load_steps=11 format=3 uid="uid://csp0pjl6er5ri"]
 
 [ext_resource type="Texture2D" uid="uid://cywkwubyf4ix8" path="res://assets/doors-1.png" id="1_g7oaj"]
+[ext_resource type="Script" path="res://scripts/doors.gd" id="1_y70io"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2srl"]
 atlas = ExtResource("1_g7oaj")
@@ -46,11 +47,16 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xdso5"]
-radius = 16.0
+radius = 26.0768
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md451"]
+size = Vector2(20, 22)
 
 [node name="Doors" type="Node2D"]
+script = ExtResource("1_y70io")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_aepja")
 frame = 4
 frame_progress = 1.0
@@ -62,3 +68,18 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_xdso5")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -40.0
+offset_top = -43.3333
+offset_right = 39.0
+offset_bottom = -20.3333
+text = "Test Label"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_md451")

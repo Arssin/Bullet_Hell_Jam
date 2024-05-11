@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://jy5vpxuewibb"]
+[gd_scene load_steps=6 format=3 uid="uid://jy5vpxuewibb"]
 
 [ext_resource type="Script" path="res://scripts/Level1.gd" id="1_v0v1c"]
 [ext_resource type="PackedScene" uid="uid://bwofc6vedhbhe" path="res://scenes/player.tscn" id="2_jqof1"]
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="2_u0jcd"]
 [ext_resource type="PackedScene" uid="uid://c02awfdwak6y3" path="res://enemies/totem.tscn" id="3_a8l6e"]
+[ext_resource type="PackedScene" uid="uid://csp0pjl6er5ri" path="res://scenes/doors.tscn" id="5_dm1nn"]
 
 [node name="Level1" type="Node2D"]
 position = Vector2(21, 87)
@@ -28,5 +29,14 @@ offset_top = 236.0
 offset_right = 702.0
 offset_bottom = 259.0
 text = "BOSS DIED!"
+
+[node name="Doors" type="Node2D" parent="."]
+visible = false
+
+[node name="Doors" parent="Doors" instance=ExtResource("5_dm1nn")]
+position = Vector2(581, 185)
+
+[node name="Doors2" parent="Doors" instance=ExtResource("5_dm1nn")]
+position = Vector2(765, 185)
 
 [connection signal="boss_died" from="Totem" to="." method="_on_totem_boss_died"]
