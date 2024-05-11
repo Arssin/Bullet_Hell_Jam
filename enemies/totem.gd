@@ -14,7 +14,6 @@ func die():
 	queue_free()
 		
 func get_hit(value):
-	print(value)
 	health = health - value
 	if health <= 0:
 		emit_signal("boss_died")

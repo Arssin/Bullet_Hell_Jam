@@ -17,6 +17,8 @@ func load_level(level_name: String):
 		for child in childrens:
 			if child.name == "MainScene":
 				var main = child.get_child(2)
+				SceneTransition.change_scene_to_file()
+				await SceneTransition.transition_finished
 				level_instance = level_resource.instantiate()
 				main.add_child(level_instance)
 				

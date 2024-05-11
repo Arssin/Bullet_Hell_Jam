@@ -5,12 +5,8 @@ extends Node2D
 @onready var doors: Node = $Doors
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-
 func _on_totem_boss_died() -> void:
+	$SpawnPoint.queue_free()
 	label_test.show()
 	show_doors()
 
