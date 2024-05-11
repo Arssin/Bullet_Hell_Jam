@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+PlayerGlobals="*res://scripts/PlayerGlobals.gd"
 Spawning="*res://addons/BulletUpHell/Spawning.tscn"
 GlobalManager="*res://scripts/GlobalManager.gd"
 

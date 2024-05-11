@@ -1,7 +1,10 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var health_bar: TextureProgressBar = $CanvasLayer/HealthBar
+
 
 var rock := preload("res://player/player_projectile_rock.tscn")
 
@@ -12,6 +15,10 @@ var player_can_attack = true
 
 
 func _ready() -> void:
+	PlayerGlobals.player_get_dmg.connect(_on_dmg_taken)
+	PlayerGlobals.player_dead.connect(_player_death)
+	health_bar.max_value = PlayerGlobals.player_max_health
+	health_bar.value = PlayerGlobals.player_max_health
 	animation_player.play("Idle")
 
 func _physics_process(delta: float) -> void:
@@ -55,3 +62,14 @@ func shoot(projectile):
 func _on_player_attack_timeout() -> void:
 	$PlayerAttack.stop()
 	player_can_attack = true
+
+	
+func update_player_healthbar(value):
+	health_bar.value = value
+
+func _on_dmg_taken(value):
+	update_player_healthbar(value)
+	
+func _player_death():
+	queue_free()
+	
