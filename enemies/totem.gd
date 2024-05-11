@@ -17,7 +17,10 @@ func get_hit(value):
 	print(value)
 	health = health - value
 	if health <= 0:
+		emit_signal("boss_died")
 		die()
 	else:
 		health_bar.update_healthbar(health)
+		
+signal boss_died
 	
