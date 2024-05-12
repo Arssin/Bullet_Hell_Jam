@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://ju5rw4wwp1jr"]
+
+[ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_l3tl7"]
+[ext_resource type="PackedScene" uid="uid://bw35yw126p5jb" path="res://scenes/cristal_enemy.tscn" id="2_t4fna"]
+
+[node name="Level4" type="Node2D"]
+
+[node name="MapCreator" parent="." instance=ExtResource("1_l3tl7")]
+layer_0/tile_data = PackedInt32Array(524313, 0, 0, 589849, 0, 1, 655385, 0, 2, 720921, 0, 1, 786457, 0, 2, 851993, 0, 1, 917529, 0, 2, 983065, 0, 1, 1048601, 0, 2, 1114137, 0, 1, 1179673, 0, 2, 1245209, 0, 1, 1310745, 0, 2, 1376281, 0, 1, 1441817, 0, 2, 1507353, 0, 1, 1572889, 0, 2, 1638425, 0, 3, 1638426, 65536, 3, 1638427, 65536, 3, 1638428, 65536, 3, 1638429, 65536, 3, 1638430, 65536, 3, 1638431, 65536, 3, 1638432, 65536, 3, 1638433, 65536, 3, 1638434, 65536, 3, 1638435, 65536, 3, 1638436, 65536, 3, 1638437, 65536, 3, 1638438, 65536, 3, 1638439, 65536, 3, 1638440, 65536, 3, 1638441, 65536, 3, 1638442, 65536, 3, 1638443, 65536, 3, 1638444, 65536, 3, 1638445, 65536, 3, 1638446, 65536, 3, 1638447, 65536, 3, 1638448, 65536, 3, 1638449, 65536, 3, 1638450, 65536, 3, 1638451, 65536, 3, 1638452, 131072, 3, 1572916, 131072, 2, 1441844, 131072, 1, 1507380, 131072, 2, 1310772, 131072, 1, 1376308, 131072, 2, 1179700, 131072, 1, 1245236, 131072, 2, 1048628, 131072, 1, 1114164, 131072, 2, 917556, 131072, 1, 983092, 131072, 2, 786484, 131072, 1, 852020, 131072, 2, 655412, 131072, 1, 720948, 131072, 2, 524340, 65536, 0, 589876, 131072, 2, 524339, 65536, 0, 524338, 65536, 0, 524337, 65536, 0, 524336, 65536, 0, 524335, 65536, 0, 524334, 65536, 0, 524333, 65536, 0, 524332, 65536, 0, 524331, 65536, 0, 524330, 65536, 0, 524329, 65536, 0, 524328, 65536, 0, 524327, 65536, 0, 524326, 65536, 0, 524325, 65536, 0, 524324, 65536, 0, 524323, 65536, 0, 524322, 65536, 0, 524321, 65536, 0, 524320, 65536, 0, 524319, 65536, 0, 524318, 65536, 0, 524317, 65536, 0, 524316, 65536, 0, 524315, 65536, 0, 524314, 65536, 0)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="CristalEnemy" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 154)
+
+[node name="CristalEnemy3" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 172)
+
+[node name="CristalEnemy2" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 190)
+
+[node name="CristalEnemy4" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 208)
+
+[node name="CristalEnemy5" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 226)
+
+[node name="CristalEnemy6" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 244)
+
+[node name="CristalEnemy7" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 262)
+
+[node name="CristalEnemy8" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 280)
+
+[node name="CristalEnemy9" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 299)
+
+[node name="CristalEnemy10" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 317)
+
+[node name="CristalEnemy11" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 336)
+
+[node name="CristalEnemy12" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 354)
+
+[node name="CristalEnemy13" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 372)
+
+[node name="CristalEnemy14" parent="Enemies" instance=ExtResource("2_t4fna")]
+position = Vector2(431, 390)
