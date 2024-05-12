@@ -75,9 +75,9 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_mjnsy"]
 script = ExtResource("8_koayw")
-ID = "player"
+ID = "pattern_id"
 texture = "Player_bullet"
-collision = "player"
+collision = ""
 SFX = ""
 tex_scale = 1.0
 tex_skew = 0.0
@@ -88,8 +88,8 @@ tex_skew = 0.0
 script = ExtResource("9_8hgsj")
 anim_idle = SubResource("Resource_mjnsy")
 anim_more = Array[ExtResource("8_koayw")]([])
-damage = 1.0
-speed = 100.0
+damage = 20.0
+speed = 200.0
 scale = 1.0
 angle = 0.0004
 groups = PackedStringArray()
@@ -161,7 +161,7 @@ r_scale_multi_scale_variation = Vector3(0, 0, 0)
 z_index = 1
 scale = Vector2(1.5, 1.5)
 collision_layer = 4
-collision_mask = 41
+collision_mask = 43
 script = ExtResource("1_vtlnh")
 ghost_node = ExtResource("2_m1vtr")
 player_speed = 150
@@ -237,6 +237,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Shoot" type="Node2D" parent="."]
 
 [node name="BulletPattern" type="Path2D" parent="Shoot"]
+top_level = true
 curve = SubResource("Curve2D_7vgt6")
 script = ExtResource("8_5671t")
 id = "2"

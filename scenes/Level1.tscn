@@ -149,8 +149,6 @@ layer_0/tile_data = PackedInt32Array(1507332, 65536, 2, 1572868, 65536, 2, 16384
 [node name="Totem" parent="." instance=ExtResource("3_a8l6e")]
 position = Vector2(646, 180)
 scale = Vector2(1.4, 1.4)
-collision_layer = 2
-collision_mask = 4
 
 [node name="Player" parent="." instance=ExtResource("2_jqof1")]
 position = Vector2(652, 413)

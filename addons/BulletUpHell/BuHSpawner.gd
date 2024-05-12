@@ -550,7 +550,6 @@ func _spawn(bullets:Array):
 			push_error("Warning: Bullet of ID "+str(b)+" is missing.")
 			continue
 		B = poolBullets[b]
-		print(B)
 		if B["state"] >= BState.Moving: continue
 		if B["source_node"] is Dictionary: B["position"] = B["spawn_pos"] + B["source_node"]["position"]
 		else: B["position"] = B["spawn_pos"] + B["source_node"].global_position

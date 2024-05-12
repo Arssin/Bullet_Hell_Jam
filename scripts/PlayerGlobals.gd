@@ -4,6 +4,7 @@ var player_max_health = 200
 var player_attack_speed = 200
 var player_range_time = 1
 var player_move_speed = 200
+var additional_dmg = 40
 
 var player_alive = true
 
