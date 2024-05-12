@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw35yw126p5jb"]
+
+[ext_resource type="Texture2D" uid="uid://pccpebk4waa4" path="res://assets/cristal.png" id="1_2eqpj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raxga"]
+atlas = ExtResource("1_2eqpj")
+region = Rect2(0, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhdx7"]
+atlas = ExtResource("1_2eqpj")
+region = Rect2(16, 0, 16, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1mq0a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raxga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhdx7")
+}],
+"loop": true,
+"name": &"cristal",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smlit"]
+size = Vector2(7, 10)
+
+[node name="CristalEnemy" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1mq0a")
+animation = &"cristal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_smlit")
