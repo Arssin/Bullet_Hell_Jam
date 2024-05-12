@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/Small_Runing_Mob.gd" id="1_dhavm"]
 [ext_resource type="Texture2D" uid="uid://sl8xeagf8ee2" path="res://assets/small_mob_1.png" id="2_k0dgn"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHBulletProperties.gd" id="3_tt81c"]
+[ext_resource type="Texture2D" uid="uid://dlt8jc3vvcp5l" path="res://assets/Projectile_1.png" id="3_w50my"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/animStates.gd" id="4_icf5a"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="4_kg4tj"]
-[ext_resource type="PackedScene" uid="uid://cc5tjpexngnx5" path="res://ui/health_bar.tscn" id="6_qy01c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_heei0"]
 atlas = ExtResource("2_k0dgn")
@@ -51,9 +51,9 @@ tex_skew = 0.0
 script = ExtResource("4_kg4tj")
 anim_idle = SubResource("Resource_qupct")
 anim_more = Array[ExtResource("4_icf5a")]([])
-damage = 5.0
+damage = 4.0
 speed = 80.0
-scale = 1.0
+scale = 0.5
 angle = 0.0
 groups = PackedStringArray()
 spec_bounces = 0
@@ -75,7 +75,7 @@ trigger_container = ""
 trigger_wait_for_shot = true
 homing_type = 0
 homing_target = NodePath("")
-homing_steer = 7.795
+homing_steer = 0.0
 homing_time_start = 0.0
 homing_duration = 999.0
 scale_multi_iterations = 0
@@ -152,6 +152,11 @@ autostart = true
 [node name="Marker_2" type="Marker2D" parent="Marker_1"]
 position = Vector2(6, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="Marker_1/Marker_2"]
+position = Vector2(-4.76837e-07, 4.76837e-07)
+scale = Vector2(0.333333, 0.333333)
+texture = ExtResource("3_w50my")
+
 [node name="Bullet" type="Node2D" parent="."]
 
 [node name="BulletPattern" type="Path2D" parent="Bullet"]
@@ -167,12 +172,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_8van0")
-
-[node name="HealthBar" parent="." instance=ExtResource("6_qy01c")]
-offset_left = -15.0
-offset_top = -11.0
-offset_right = 12.0
-offset_bottom = -5.0
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="timeout" from="AttackCd" to="." method="_on_attack_cd_timeout"]

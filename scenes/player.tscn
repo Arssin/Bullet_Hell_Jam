@@ -100,7 +100,7 @@ spec_trail_length = 0.0
 spec_trail_width = 0.0
 spec_trail_modulate = Color(1, 1, 1, 1)
 spec_rotating_speed = 0.0
-death_after_time = 1.0
+death_after_time = 10.0
 death_outside_box = Rect2(0, 0, 0, 0)
 death_from_collision = true
 a_direction_equation = ""
@@ -159,7 +159,7 @@ r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.2, 1.2)
 collision_layer = 4
 collision_mask = 43
 script = ExtResource("1_vtlnh")
@@ -181,7 +181,7 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.8, 1.8)
 
 [node name="WeaponMarker" type="Marker2D" parent="."]
 position = Vector2(0, 0.666667)

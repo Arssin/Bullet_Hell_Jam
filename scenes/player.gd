@@ -29,7 +29,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var position_mouse_x = get_global_mouse_position().x
-
+	print('PLAYER', global_position, position)
 	$WeaponMarker.look_at(get_global_mouse_position())
 	#$WeaponMarker.rotate(get_angle_to(get_global_mouse_position()))
 
@@ -71,8 +71,6 @@ func _input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("attack") && player_can_attack:
 		attack_spawn()
-		#shoot(rock)
-		#Spawning.spawn({"position": Vector2(0,0), "rotation" : 0,"spawn_pos": Vector2(0,0)}, "player", "two")
 		$PlayerAttack.start()
 		player_can_attack = false
 		

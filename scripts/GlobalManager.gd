@@ -14,6 +14,7 @@ func load_level(level_name: String):
 	var level_resource := load(level_path)
 	if (level_resource):
 		var childrens = get_tree().root.get_children()
+		Spawning.reset()
 		for child in childrens:
 			if child.name == "MainScene":
 				var main = child.get_child(2)
