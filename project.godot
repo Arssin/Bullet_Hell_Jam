@@ -21,6 +21,7 @@ PlayerGlobals="*res://scripts/PlayerGlobals.gd"
 Spawning="*res://addons/BulletUpHell/Spawning.tscn"
 GlobalManager="*res://scripts/GlobalManager.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
+Randomizer="*res://scripts/randomizer.gd"
 
 [display]
 
