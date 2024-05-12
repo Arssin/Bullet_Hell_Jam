@@ -164,7 +164,6 @@ collision_layer = 4
 collision_mask = 43
 script = ExtResource("1_vtlnh")
 ghost_node = ExtResource("2_m1vtr")
-player_speed = 150
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_cbl21")

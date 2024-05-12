@@ -17,7 +17,6 @@ var is_immortal = false
 var player_can_attack = true
 var dash_on_cd = false
 
-@export var player_speed = 30
 
 
 func _ready() -> void:
@@ -80,7 +79,7 @@ func _input(event: InputEvent) -> void:
 
 	if input_direction:
 		animation_player.play("Run")
-		velocity = input_direction * player_speed
+		velocity = input_direction * PlayerGlobals.player_move_speed
 	else:
 		animation_player.play("Idle")
 		velocity = input_direction * 0
