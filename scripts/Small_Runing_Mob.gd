@@ -20,8 +20,7 @@ func _physics_process(delta: float) -> void:
 		var target_pos = agent.get_next_path_position()
 		var move_dir = global_position.direction_to(target_pos)
 		move_dir = move_dir.normalized()
-		#var direction: Vector2 = (player.global_position - self.global_position).normalized()
-		#velocity = speed * direction
+
 		if agent.is_navigation_finished():
 			move_dir = Vector2.ZERO
 		
@@ -35,33 +34,28 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_navigation_agent_2d_target_reached() -> void:
-	print('reacz')
-	var wait_time = randf_range(1, 4)
+	var wait_time = randf_range(0.1, 1.0)
 	await get_tree().create_timer(wait_time).timeout
 	
 	new_wander_pos()
 
 	
 func new_wander_pos():
-	var pos = home_position + random_offset() * randf_range(0, 200)
-	print('POZYCJA', pos)
-	print('pozycja globalna', global_position)
+	var pos = home_position + random_offset() * randf_range(0, 300)
 	move_to_position(pos)
 	
 func move_to_position (to_position: Vector2, adjust_pos: bool = true):
-	print(to_position)
 	if not agent:
 		agent = get_node("NavigationAgent2D")
 	
-	#if adjust_pos:
-		#var map = get_world_2d().navigation_map
-		#NavigationSer
-		#var adjusted_pos = NavigationServer2D.map_get_closest_point(map, to_position)
-		#print('ADJK', adjusted_pos)
-		#agent.target_position = adjusted_pos
-	#else:
-	agent.target_position = to_position
+
+	var map = get_world_2d().navigation_map
+
+	agent.target_position = NavigationServer2D.map_get_closest_point(map,to_position)
 		
 func random_offset () -> Vector2:
-	var offset = Vector2(randf_range(-1, 1),randf_range(-1, 1))
+	var offset = Vector2(randf_range(-10, 10),randf_range(-10, 10))
 	return offset.normalized()
+	
+func shoot_attack():
+	pass
