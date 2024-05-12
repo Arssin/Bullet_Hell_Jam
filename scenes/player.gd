@@ -29,11 +29,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var position_mouse_x = get_global_mouse_position().x
-	print('PLAYER', global_position, position)
 	$WeaponMarker.look_at(get_global_mouse_position())
 	#$WeaponMarker.rotate(get_angle_to(get_global_mouse_position()))
 
-	#print($WeaponMarker.position)
 	if position_mouse_x < global_position.x:
 		sprite_2d.flip_h = true
 		$CollisionShape2D.position.x = -0.5
