@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://gixop20d1d75"]
+[gd_scene load_steps=19 format=3 uid="uid://gixop20d1d75"]
 
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHSpawner.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dyrxd5x5q1ik5" path="res://addons/BulletUpHell/Bullet/Sprites/Bullet_3.png" id="2_3slxn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c8ovec1akgihy" path="res://addons/BulletUpHell/Bullet/Sprites/Bullet_11.png" id="4_gntuv"]
 [ext_resource type="AudioStream" uid="uid://bicgnko0preqq" path="res://addons/BulletUpHell/Bullet/Hit Hurt.wav" id="5_rada6"]
 [ext_resource type="Texture2D" uid="uid://dlt8jc3vvcp5l" path="res://assets/Projectile_1.png" id="6_0j1cd"]
+[ext_resource type="Texture2D" uid="uid://cl43reatajfi1" path="res://assets/bullet_player22.png" id="7_htde2"]
 
 [sub_resource type="Resource" id="Resource_uhb1j"]
 script = ExtResource("2_4dc5c")
@@ -92,6 +93,14 @@ animations = [{
 "loop": true,
 "name": &"One",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_htde2")
+}],
+"loop": true,
+"name": &"Player_bullet",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="2"]
@@ -100,6 +109,9 @@ animations = [{
 points = PackedVector2Array(0, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pyrf1"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dklxt"]
 radius = 6.0
 
 [node name="BulletHellManager" type="Node2D"]
@@ -124,10 +136,14 @@ collision_mask = 5
 
 [node name="kopytko" type="Area2D" parent="SharedAreas"]
 
+[node name="player" type="Area2D" parent="SharedAreas"]
+collision_layer = 16
+collision_mask = 3
+
 [node name="ShapeManager" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("1")
-animation = &"One"
+animation = &"Player_bullet"
 
 [node name="0" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("2")
@@ -137,6 +153,9 @@ shape = SubResource("3")
 
 [node name="One" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("CircleShape2D_pyrf1")
+
+[node name="Player_bullet" type="CollisionShape2D" parent="ShapeManager"]
+shape = SubResource("CircleShape2D_dklxt")
 
 [node name="SFX" type="Node2D" parent="."]
 

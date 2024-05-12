@@ -122,17 +122,16 @@ func _on_dash_cd_timeout() -> void:
     dash_on_cd = false
     
     
-#var new_pattern: PatternLine = PatternLine.new()
+var new_pattern: PatternLine = PatternLine.new()
 
 
 func attack_spawn():
-    #new_pattern.offset = Vector2i(40,40)
-    #new_pattern.bullet = "2"
-    #new_pattern.nbr = 1
-    #new_pattern.forced_lookat_mouse = true
-    #new_pattern.forced_target = NodePath("$WeaponMarker/Target:position")
-    #print($SpawnPattern.nbr)
-    #look_at(get_global_mouse_position())
-    #Spawning.new_pattern("kopytk", new_pattern)
+    new_pattern.offset = Vector2i(0,0)
+    new_pattern.bullet = "2"
+    new_pattern.nbr = 1
+    new_pattern.forced_lookat_mouse = true
+    new_pattern.forced_pattern_lookat = false
+    new_pattern.forced_target = NodePath("../../WeaponMarker/Target")
+    Spawning.new_pattern("player", new_pattern)
     
-    Spawning.spawn({"position": $WeaponMarker.global_position, "rotation": 0}, "kopytk", "kopytko")
+    Spawning.spawn({"position": $WeaponMarker/FromTarget.global_position, "rotation": 0}, "player", "kopytko")
