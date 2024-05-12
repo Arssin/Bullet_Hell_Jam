@@ -9,7 +9,7 @@ class_name customFunctions
 ###
 
 func bullet_collide_body(body_rid:RID,body:Node,body_shape_index:int,local_shape_index:int,shared_area:Area2D, B:Dictionary, b:RID) -> void:
-	if body is Player:
+	if body is Player && !body.is_immortal:
 		PlayerGlobals.player_health = PlayerGlobals.player_health - B["props"]["damage"] 
 	## you can use B["props"]["damage"] to get the bullet's damage
 	## you can use B["props"]["<your custom data name>"] to get the bullet's custom data

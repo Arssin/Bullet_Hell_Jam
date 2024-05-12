@@ -4,12 +4,15 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var health_bar: TextureProgressBar = $CanvasLayer/HealthBar
+@export var ghost_node: PackedScene
+@onready var ghost_timer: Timer = $GhostTimer
 
 
 var rock := preload("res://player/player_projectile_rock.tscn")
 
-
+var is_immortal = false
 var player_can_attack = true
+var dash_on_cd = false
 
 @export var player_speed = 30
 
@@ -34,6 +37,26 @@ func _physics_process(delta: float) -> void:
 	
 
 
+func add_ghost():
+	var ghost = ghost_node.instantiate()
+	ghost.set_property(global_position,$Sprite2D.scale * 1.5)
+	get_tree().current_scene.add_child(ghost)
+
+
+func dash(direction):
+	$DashCd.start()
+	dash_on_cd = true
+	set_collision_layer_value(3,false)
+	velocity = direction * 600
+	#set_collision_layer_value(3,true)
+
+	#var isDashing = true
+	#print('go')
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(self, "position", position + velocity * 0.9, 0.45)
+	#await tween.finished
+	#$DashCd.start()
+	#ghost_timer.stop()
 	
 func _input(event: InputEvent) -> void:
 	var input_direction = Input.get_vector("move_left","move_right","move_up", "move_down")
@@ -42,6 +65,7 @@ func _input(event: InputEvent) -> void:
 		shoot(rock)
 		$PlayerAttack.start()
 		player_can_attack = false
+		
 
 	if input_direction:
 		animation_player.play("Run")
@@ -50,6 +74,10 @@ func _input(event: InputEvent) -> void:
 		animation_player.play("Idle")
 		velocity = input_direction * 0
 		
+		
+	if Input.is_action_just_pressed("dash") && !dash_on_cd:
+		ghost_timer.start()
+		dash(input_direction)
 		
 
 func shoot(projectile):
@@ -73,3 +101,13 @@ func _on_dmg_taken(value):
 func _player_death():
 	queue_free()
 	
+
+
+func _on_ghost_timer_timeout() -> void:
+	set_collision_layer_value(3,true)
+	#add_ghost()
+	
+
+
+func _on_dash_cd_timeout() -> void:
+	dash_on_cd = false

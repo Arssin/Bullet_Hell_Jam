@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwofc6vedhbhe"]
+[gd_scene load_steps=11 format=3 uid="uid://bwofc6vedhbhe"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_vtlnh"]
 [ext_resource type="Texture2D" uid="uid://c4a55cego7fn7" path="res://assets/Player.png" id="2_cbl21"]
+[ext_resource type="PackedScene" uid="uid://dyb30bi02fvha" path="res://scenes/ghost.tscn" id="2_m1vtr"]
 [ext_resource type="Texture2D" uid="uid://cjfbto5rsgwx1" path="res://assets/bar-fill.png" id="3_f1ex3"]
 [ext_resource type="Texture2D" uid="uid://7dkjla4ngxw5" path="res://assets/bar-over.png" id="4_4gk6m"]
 
@@ -70,6 +71,7 @@ scale = Vector2(1.5, 1.5)
 collision_layer = 4
 collision_mask = 41
 script = ExtResource("1_vtlnh")
+ghost_node = ExtResource("2_m1vtr")
 player_speed = 150
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -94,6 +96,14 @@ zoom = Vector2(2, 2)
 position = Vector2(6, -5.33333)
 
 [node name="PlayerAttack" type="Timer" parent="."]
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="DashCd" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
@@ -122,3 +132,5 @@ tint_progress = Color(0.584314, 0.168627, 0.278431, 1)
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="PlayerAttack" to="." method="_on_player_attack_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="DashCd" to="." method="_on_dash_cd_timeout"]

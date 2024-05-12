@@ -6,6 +6,7 @@
 [node name="Ghost" type="Sprite2D"]
 modulate = Color(0.347817, 0.347817, 0.347817, 1)
 show_behind_parent = true
+z_index = 1
 texture = ExtResource("1_tb7li")
 hframes = 2
 vframes = 2
