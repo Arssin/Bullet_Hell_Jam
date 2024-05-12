@@ -1,6 +1,7 @@
 extends Node
 
 
+#DODAJ ULECZ SIĘ -> ALE!
 
 func bonusGenerator(number_good, number_bad):
 	create_positive_bonus(number_good)

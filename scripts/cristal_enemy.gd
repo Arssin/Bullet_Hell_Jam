@@ -26,5 +26,4 @@ func attack_spawn():
 
 
 func _on_attack_timeout() -> void:
-	print('go')
 	attack_spawn()
