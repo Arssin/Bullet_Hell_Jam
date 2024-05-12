@@ -33,6 +33,10 @@ collision_layer = 2
 collision_mask = 21
 script = ExtResource("1_dhavm")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 226.35
+debug_enabled = true
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_abarx")
 animation = &"run"
@@ -42,3 +46,5 @@ frame_progress = 0.701308
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_2ittl")
+
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
