@@ -21,8 +21,9 @@ func _physics_process(delta: float) -> void:
 	previous_global_position = current_global_position
 	
 func attack_spawn():
-	$PlayerMarker.global_position = player.global_position
-	Spawning.spawn({"position": global_position, "rotation": 0}, "cristal", "two")
+	if player:
+		$PlayerMarker.global_position = player.global_position
+		Spawning.spawn({"position": global_position, "rotation": 0}, "cristal", "two")
 
 
 func _on_attack_timeout() -> void:
