@@ -14,5 +14,3 @@ func _on_totem_boss_died() -> void:
 func show_doors():
 	var doorsChildren = doors.get_children()
 	$Doors.show()
-	for door in doorsChildren:
-		door.update_doors_label(door.name)

@@ -82,4 +82,8 @@ animation = &"portal_resp"
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_id5dp")
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
