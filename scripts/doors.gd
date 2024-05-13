@@ -28,8 +28,12 @@ func _input(event):
 	if Input.is_action_just_pressed("player_action") && player_in_area:
 		Randomizer.create_positive_bonus(my_random_number_positive)
 		Randomizer.create_negative_bonus(my_random_number_negative)
-		GlobalManager.load_level("Level2")
-	
+		var lvlName = get_parent().get_parent().name
+		#TODO
+		#var lastChar = lvlName[4]
+		#print(lastChar)
+		#GlobalManager.load_level("Level" + str(lastChar + 1))
+	#
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

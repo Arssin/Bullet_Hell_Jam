@@ -7,7 +7,6 @@ extends Node2D
 
 func _on_totem_boss_died() -> void:
 	$Node.queue_free()
-	#Spawning.reset()
 	label_test.show()
 	show_doors()
 

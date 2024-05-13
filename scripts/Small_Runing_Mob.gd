@@ -81,12 +81,12 @@ func attack_spawn():
 		new_pattern.offset = Vector2i(0,0)
 		new_pattern.bullet = "3"
 		new_pattern.nbr = 1
-		new_pattern.forced_lookat_mouse = false
 		new_pattern.forced_pattern_lookat = true
 		new_pattern.forced_target = NodePath("../../Marker_1/Marker_2:global_position")
 		Spawning.new_pattern("small_mobs", new_pattern)
 		
-		Spawning.spawn({"position": $Marker_1.global_position, "rotation": $Marker_1/Marker_2.rotation - 90}, "small_mobs", "small_mob")
+		
+		Spawning.spawn({"position": %Marker_2.global_position, "rotation": $Marker_1.rotation}, "small_mobs", "small_mob")
 
 
 func _on_attack_cd_timeout() -> void:

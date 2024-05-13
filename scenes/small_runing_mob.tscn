@@ -73,15 +73,16 @@ a_speed_multi_iterations = 0
 a_speed_multi_scale = 0.0
 trigger_container = ""
 trigger_wait_for_shot = true
-homing_type = 0
-homing_target = NodePath("")
-homing_steer = 7.795
-homing_time_start = 0.0
+homing_type = 3
+homing_group = "Player"
+homing_select_in_group = 0
+homing_steer = 30.0
+homing_time_start = 0.2
 homing_duration = 999.0
 scale_multi_iterations = 0
 scale_multiplier = SubResource("Curve_bnbph")
 scale_multi_scale = 1.0
-r_randomisation_chances = 1.0
+r_randomisation_chances = 0.0
 r_speed_choice = PackedFloat32Array()
 r_speed_variation = Vector3(0, 0, 0)
 r_scale_choice = PackedFloat32Array()
@@ -150,9 +151,11 @@ autostart = true
 [node name="Marker_1" type="Marker2D" parent="."]
 
 [node name="Marker_2" type="Marker2D" parent="Marker_1"]
+unique_name_in_owner = true
 position = Vector2(6, 1)
 
 [node name="Bullet" type="Node2D" parent="."]
+position = Vector2(-1, 2)
 
 [node name="BulletPattern" type="Path2D" parent="Bullet"]
 curve = SubResource("Curve2D_2ort1")

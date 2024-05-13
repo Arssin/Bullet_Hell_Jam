@@ -32,4 +32,8 @@ func _on_timer_timeout() -> void:
 		
 	if completeLvl:
 		$Label.show()
+		show_doors()
+		
+func show_doors():
+	$Doors.show()
 
