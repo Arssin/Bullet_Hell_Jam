@@ -232,7 +232,7 @@ auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
 [node name="SpawnPoint3" type="Node2D" parent="SpawnPoints"]
-position = Vector2(78, 195)
+position = Vector2(198, 242)
 script = ExtResource("11_2iydo")
 active = true
 auto_pattern_id = "line"

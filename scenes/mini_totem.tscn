@@ -17,6 +17,7 @@ animations = [{
 size = Vector2(16, 23)
 
 [node name="MiniTotem" type="CharacterBody2D"]
+collision_layer = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_turqe")

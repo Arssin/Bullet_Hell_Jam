@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dcapev7mne15c"]
+[gd_scene load_steps=26 format=3 uid="uid://dcapev7mne15c"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_e14j6"]
 [ext_resource type="PackedScene" uid="uid://bwofc6vedhbhe" path="res://scenes/player.tscn" id="2_3qgqb"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCustomArea.gd" id="9_xe6aj"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternLine.gd" id="10_7hapd"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCustomShape.gd" id="11_krocx"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="12_0b5ny"]
 
 [sub_resource type="Curve2D" id="Curve2D_mw5da"]
 
@@ -90,7 +91,11 @@ r_scale_multi_curve_choice = []
 r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
-[sub_resource type="Curve2D" id="Curve2D_cbpv5"]
+[sub_resource type="Curve2D" id="Curve2D_v7wj3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -56, -1, 0, 0, 0, 0, 17, 48, 0, 0, 0, 0, 30, 106, 0, 0, 0, 0, -74, 85, 0, 0, 0, 0, -81, 15)
+}
+point_count = 5
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_purdf"]
 resource_name = "PatternCustomArea"
@@ -107,7 +112,7 @@ pattern_angle = 0.0
 pattern_angle_target = NodePath("")
 pattern_angle_mouse = false
 forced_angle = 0.0
-forced_target = NodePath("")
+forced_target = NodePath("../../Marker2D")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
@@ -118,6 +123,12 @@ cooldown_next_shoot = 0.0
 wait_tween_momentum = 0
 wait_tween_length = 0.0
 wait_tween_time = 0.0
+
+[sub_resource type="Curve2D" id="Curve2D_cbpv5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -38, -24)
+}
+point_count = 1
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u4bxd"]
 resource_name = "PatternLine"
@@ -130,7 +141,7 @@ bullet = "7"
 nbr = 10
 iterations = -1
 pattern_angle = 0.613309
-pattern_angle_target = NodePath("")
+pattern_angle_target = NodePath("../../Marker2D")
 pattern_angle_mouse = false
 forced_angle = 0.0
 forced_target = NodePath("")
@@ -145,11 +156,17 @@ wait_tween_momentum = 0
 wait_tween_length = 0.0
 wait_tween_time = 0.0
 
+[sub_resource type="Curve2D" id="Curve2D_hgsqj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 45, -3, 0, 0, 0, 0, 132, 11, 0, 0, 0, 0, 70, 66, 0, 0, 0, 0, 59, 30, 0, 0, 0, 0, 8, 37)
+}
+point_count = 5
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7agya"]
 resource_name = "PatternCustomShape"
 source_geometry_group_name = &"navigation_polygon_source_group"
 script = ExtResource("11_krocx")
-closed_shape = true
+closed_shape = false
 center_pos = Vector2(0, 0)
 symmetric = true
 center = 0
@@ -161,7 +178,68 @@ pattern_angle = 0.0
 pattern_angle_target = NodePath("")
 pattern_angle_mouse = false
 forced_angle = 0.0
-forced_target = NodePath("")
+forced_target = NodePath("../../Marker2D")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+
+[sub_resource type="Curve2D" id="Curve2D_3vt4x"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, -46, 0, 0, 0, 0, 90, -93)
+}
+point_count = 2
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fc03x"]
+resource_name = "PatternLine"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("10_7hapd")
+offset = Vector2(0, 0)
+center = 1
+symmetric = true
+bullet = "9"
+nbr = 6
+iterations = -1
+pattern_angle = 0.494539
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 0.497506
+forced_target = NodePath("../../Marker2D")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ur6ar"]
+resource_name = "PatternCircle"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("12_0b5ny")
+radius = 0
+angle_total = 6.28319
+angle_decal = 0.0
+symmetric = false
+center = 0
+symmetry_type = 0
+bullet = "10"
+nbr = 14
+iterations = -1
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 0.0
+forced_target = NodePath("../../Marker2D")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
@@ -197,6 +275,9 @@ position = Vector2(956, 46)
 [node name="MiniTotem4" parent="." instance=ExtResource("4_xkyfd")]
 position = Vector2(966, 478)
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(626, 266)
+
 [node name="Totemix1" type="Node2D" parent="."]
 position = Vector2(953, 55)
 
@@ -220,7 +301,7 @@ auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
 [node name="SpawnPattern" type="Path2D" parent="Totemix1"]
-curve = SubResource("Curve2D_cbpv5")
+curve = SubResource("Curve2D_v7wj3")
 script = ExtResource("8_dra1u")
 id = "patternOne"
 pattern = SubResource("NavigationPolygon_purdf")
@@ -235,6 +316,7 @@ id = "7"
 props = SubResource("PackedDataContainer_yfyox")
 
 [node name="SpawnPoint" type="Node2D" parent="Totemix2"]
+position = Vector2(-18, -8)
 script = ExtResource("7_d338y")
 active = true
 auto_pattern_id = "patternTwo"
@@ -276,7 +358,7 @@ auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
 [node name="SpawnPattern" type="Path2D" parent="Totemix3"]
-curve = SubResource("Curve2D_cbpv5")
+curve = SubResource("Curve2D_hgsqj")
 script = ExtResource("8_dra1u")
 id = "patternThree"
 pattern = SubResource("NavigationPolygon_7agya")
@@ -287,14 +369,15 @@ position = Vector2(298, 479)
 [node name="BulletPattern" type="Path2D" parent="Totemix4"]
 curve = SubResource("Curve2D_mw5da")
 script = ExtResource("5_qrsen")
-id = "6"
+id = "9"
 props = SubResource("PackedDataContainer_yfyox")
 
 [node name="SpawnPoint" type="Node2D" parent="Totemix4"]
+position = Vector2(14, -10)
 script = ExtResource("7_d338y")
 active = true
-auto_pattern_id = ""
-shared_area_name = "0"
+auto_pattern_id = "patternFour"
+shared_area_name = "two"
 rotating_speed = 0.0
 pool_amount = 50
 auto_start_on_cam = true
@@ -304,8 +387,10 @@ auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
 [node name="SpawnPattern" type="Path2D" parent="Totemix4"]
-curve = SubResource("Curve2D_cbpv5")
+curve = SubResource("Curve2D_3vt4x")
 script = ExtResource("8_dra1u")
+id = "patternFour"
+pattern = SubResource("NavigationPolygon_fc03x")
 
 [node name="Totemix5" type="Node2D" parent="."]
 position = Vector2(626, 264)
@@ -313,14 +398,14 @@ position = Vector2(626, 264)
 [node name="BulletPattern" type="Path2D" parent="Totemix5"]
 curve = SubResource("Curve2D_mw5da")
 script = ExtResource("5_qrsen")
-id = "6"
+id = "10"
 props = SubResource("PackedDataContainer_yfyox")
 
 [node name="SpawnPoint" type="Node2D" parent="Totemix5"]
 script = ExtResource("7_d338y")
 active = true
-auto_pattern_id = ""
-shared_area_name = "0"
+auto_pattern_id = "patternFive"
+shared_area_name = "two"
 rotating_speed = 0.0
 pool_amount = 50
 auto_start_on_cam = true
@@ -332,3 +417,5 @@ trigger_container = NodePath("")
 [node name="SpawnPattern" type="Path2D" parent="Totemix5"]
 curve = SubResource("Curve2D_cbpv5")
 script = ExtResource("8_dra1u")
+id = "patternFive"
+pattern = SubResource("NavigationPolygon_ur6ar")
