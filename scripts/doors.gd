@@ -29,10 +29,9 @@ func _input(event):
 		Randomizer.create_positive_bonus(my_random_number_positive)
 		Randomizer.create_negative_bonus(my_random_number_negative)
 		var lvlName = get_parent().get_parent().name
-		#TODO
-		#var lastChar = lvlName[4]
-		#print(lastChar)
-		#GlobalManager.load_level("Level" + str(lastChar + 1))
+		var lastChar = int(lvlName.substr(5, 1))
+		
+		GlobalManager.load_level("Level" + str(lastChar + 1))
 	#
 
 
