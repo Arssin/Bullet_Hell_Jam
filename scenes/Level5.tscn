@@ -1,8 +1,177 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcapev7mne15c"]
+[gd_scene load_steps=20 format=3 uid="uid://dcapev7mne15c"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_e14j6"]
 [ext_resource type="PackedScene" uid="uid://bwofc6vedhbhe" path="res://scenes/player.tscn" id="2_3qgqb"]
 [ext_resource type="PackedScene" uid="uid://c02awfdwak6y3" path="res://enemies/totem.tscn" id="3_b8a8b"]
+[ext_resource type="PackedScene" uid="uid://dyi1y4j85n05j" path="res://scenes/mini_totem.tscn" id="4_xkyfd"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHBulletProperties.gd" id="5_qrsen"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="6_yp165"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="7_d338y"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="8_dra1u"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCustomArea.gd" id="9_xe6aj"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternLine.gd" id="10_7hapd"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCustomShape.gd" id="11_krocx"]
+
+[sub_resource type="Curve2D" id="Curve2D_mw5da"]
+
+[sub_resource type="Curve" id="Curve_w7vad"]
+
+[sub_resource type="Curve" id="Curve_ecyab"]
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_yfyox"]
+script = ExtResource("6_yp165")
+anim_more = Array[Resource("res://addons/BulletUpHell/Bullet/animStates.gd")]([])
+damage = 1.0
+speed = 100.0
+scale = 1.0
+angle = 0.0
+groups = PackedStringArray()
+spec_bounces = 0
+spec_no_collision = false
+spec_modulate_loop = 0.0
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_rotating_speed = 0.0
+death_after_time = 30.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+a_direction_equation = ""
+a_curve_movement = 0
+a_speed_multiplier = SubResource("Curve_w7vad")
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("")
+homing_steer = 0.0
+homing_time_start = 0.0
+homing_duration = 999.0
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_ecyab")
+scale_multi_scale = 1.0
+r_randomisation_chances = 1.0
+r_speed_choice = PackedFloat32Array()
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = PackedFloat32Array()
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = PackedFloat32Array()
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = PackedInt32Array()
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = PackedFloat32Array()
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = PackedStringArray()
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = PackedStringArray()
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = PackedStringArray()
+r_group_target_choice = PackedStringArray()
+r_pos_target_choice = PackedVector2Array()
+r_steer_choice = PackedFloat32Array()
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = PackedFloat32Array()
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = PackedFloat32Array()
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_cbpv5"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_purdf"]
+resource_name = "PatternCustomArea"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("9_xe6aj")
+center_pos = Vector2(0, 0)
+tries_max = 5
+pooling = 10
+grid_spawning = Vector2(0, 0)
+bullet = "6"
+nbr = 10
+iterations = -1
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_u4bxd"]
+resource_name = "PatternLine"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("10_7hapd")
+offset = Vector2(0, 0)
+center = 1
+symmetric = true
+bullet = "7"
+nbr = 10
+iterations = -1
+pattern_angle = 0.613309
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7agya"]
+resource_name = "PatternCustomShape"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("11_krocx")
+closed_shape = true
+center_pos = Vector2(0, 0)
+symmetric = true
+center = 0
+symmetry_type = 1
+bullet = "8"
+nbr = 10
+iterations = -1
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
 
 [node name="Level5" type="Node2D"]
 
@@ -15,3 +184,151 @@ position = Vector2(619, 395)
 [node name="Totem" parent="." instance=ExtResource("3_b8a8b")]
 position = Vector2(627, 255)
 scale = Vector2(2.115, 2.115)
+
+[node name="MiniTotem" parent="." instance=ExtResource("4_xkyfd")]
+position = Vector2(287, 46)
+
+[node name="MiniTotem2" parent="." instance=ExtResource("4_xkyfd")]
+position = Vector2(292, 482)
+
+[node name="MiniTotem3" parent="." instance=ExtResource("4_xkyfd")]
+position = Vector2(956, 46)
+
+[node name="MiniTotem4" parent="." instance=ExtResource("4_xkyfd")]
+position = Vector2(966, 478)
+
+[node name="Totemix1" type="Node2D" parent="."]
+position = Vector2(953, 55)
+
+[node name="BulletPattern" type="Path2D" parent="Totemix1"]
+curve = SubResource("Curve2D_mw5da")
+script = ExtResource("5_qrsen")
+id = "6"
+props = SubResource("PackedDataContainer_yfyox")
+
+[node name="SpawnPoint" type="Node2D" parent="Totemix1"]
+script = ExtResource("7_d338y")
+active = true
+auto_pattern_id = "patternOne"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPattern" type="Path2D" parent="Totemix1"]
+curve = SubResource("Curve2D_cbpv5")
+script = ExtResource("8_dra1u")
+id = "patternOne"
+pattern = SubResource("NavigationPolygon_purdf")
+
+[node name="Totemix2" type="Node2D" parent="."]
+position = Vector2(964, 475)
+
+[node name="BulletPattern" type="Path2D" parent="Totemix2"]
+curve = SubResource("Curve2D_mw5da")
+script = ExtResource("5_qrsen")
+id = "7"
+props = SubResource("PackedDataContainer_yfyox")
+
+[node name="SpawnPoint" type="Node2D" parent="Totemix2"]
+script = ExtResource("7_d338y")
+active = true
+auto_pattern_id = "patternTwo"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPattern" type="Path2D" parent="Totemix2"]
+curve = SubResource("Curve2D_cbpv5")
+script = ExtResource("8_dra1u")
+id = "patternTwo"
+pattern = SubResource("NavigationPolygon_u4bxd")
+
+[node name="Totemix3" type="Node2D" parent="."]
+position = Vector2(290, 49)
+
+[node name="BulletPattern" type="Path2D" parent="Totemix3"]
+curve = SubResource("Curve2D_mw5da")
+script = ExtResource("5_qrsen")
+id = "8"
+props = SubResource("PackedDataContainer_yfyox")
+
+[node name="SpawnPoint" type="Node2D" parent="Totemix3"]
+script = ExtResource("7_d338y")
+active = true
+auto_pattern_id = "patternThree"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPattern" type="Path2D" parent="Totemix3"]
+curve = SubResource("Curve2D_cbpv5")
+script = ExtResource("8_dra1u")
+id = "patternThree"
+pattern = SubResource("NavigationPolygon_7agya")
+
+[node name="Totemix4" type="Node2D" parent="."]
+position = Vector2(298, 479)
+
+[node name="BulletPattern" type="Path2D" parent="Totemix4"]
+curve = SubResource("Curve2D_mw5da")
+script = ExtResource("5_qrsen")
+id = "6"
+props = SubResource("PackedDataContainer_yfyox")
+
+[node name="SpawnPoint" type="Node2D" parent="Totemix4"]
+script = ExtResource("7_d338y")
+active = true
+auto_pattern_id = ""
+shared_area_name = "0"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPattern" type="Path2D" parent="Totemix4"]
+curve = SubResource("Curve2D_cbpv5")
+script = ExtResource("8_dra1u")
+
+[node name="Totemix5" type="Node2D" parent="."]
+position = Vector2(626, 264)
+
+[node name="BulletPattern" type="Path2D" parent="Totemix5"]
+curve = SubResource("Curve2D_mw5da")
+script = ExtResource("5_qrsen")
+id = "6"
+props = SubResource("PackedDataContainer_yfyox")
+
+[node name="SpawnPoint" type="Node2D" parent="Totemix5"]
+script = ExtResource("7_d338y")
+active = true
+auto_pattern_id = ""
+shared_area_name = "0"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPattern" type="Path2D" parent="Totemix5"]
+curve = SubResource("Curve2D_cbpv5")
+script = ExtResource("8_dra1u")
