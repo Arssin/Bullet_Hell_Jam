@@ -6,49 +6,24 @@ var thridC = false
 var fourthC = false
 var completeLvl = false
 
+func check_portal(portalN: String):
+	var portal = get_node_or_null(portalN)
+	
+	if portal:
+		for child in portal.get_children():
+			if child.has_method("new_wander_pos"):
+				return false
+	
+	return true
+
 
 func _on_timer_timeout() -> void:
 	
-	
-	var portal = get_node_or_null("Portal").get_children()
-	var portalT = get_node_or_null("Portal2").get_children()
-	var portalTh = get_node_or_null("Portal3").get_children()
-	var portalF = get_node_or_null("Portal4").get_children()
-	
-	if portal:
-		pass
-		pass
-	if portalTh:
-		pass
-	if portalF:
-		pass
-	#if portal:
-		#var small_mob = portal.get_node_or_null("Small_Runing_Mob")
-		#if small_mob:
-			#firstC = false
-		#else: 
-			#firstC = true
-		#
-	#if portalT:
-		#var small_mob = portalT.get_node_or_null("Small_Runing_Mob")
-		#if small_mob:
-			#secC = false
-		#else: 
-			#secC = true
-#
-	#if portalTh:
-		#var small_mob = portalTh.get_node_or_null("Small_Runing_Mob")
-		#if small_mob:
-			#thridC = false
-		#else: 
-			#thridC = true
-			#
-	#if portalF:
-		#var small_mob = portalF.get_node_or_null("Small_Runing_Mob")
-		#if small_mob:
-			#fourthC = false
-		#else: 
-			#fourthC = true
+	firstC = check_portal("Portal")
+	secC = check_portal("Portal2")
+	thridC = check_portal("Portal3")
+	fourthC = check_portal("Portal4")
+
 		
 	if fourthC && thridC && secC && firstC:
 		completeLvl = true

@@ -197,6 +197,7 @@ texture = ExtResource("4_qhftw")
 flip_h = true
 
 [node name="PlayerAttack" type="Timer" parent="."]
+wait_time = 0.1
 
 [node name="GhostTimer" type="Timer" parent="."]
 wait_time = 0.3

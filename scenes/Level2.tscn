@@ -38,7 +38,7 @@ scale = Vector2(2, 2)
 navigation_polygon = SubResource("NavigationPolygon_hkuk2")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [node name="Label" type="Label" parent="."]
