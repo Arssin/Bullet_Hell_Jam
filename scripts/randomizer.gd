@@ -29,13 +29,13 @@ func create_positive_bonus(number):
 	if number == 0:
 		PlayerGlobals.additional_dmg = 40
 	elif number == 1:
-		PlayerGlobals.player_move_speed += 500
+		PlayerGlobals.player_move_speed += 50
 		
 func create_negative_bonus(number):
 	if number == 0:
 		PlayerGlobals.additional_dmg -= 40
 	elif number == 1:
-		PlayerGlobals.player_move_speed -= 150
+		PlayerGlobals.player_move_speed -= 50
 		
 
 

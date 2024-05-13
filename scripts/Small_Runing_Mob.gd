@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name RunningMob
 
 var isAlive: bool = true
 var speed: int = 30
@@ -80,7 +81,7 @@ func attack_spawn():
 		new_pattern.offset = Vector2i(0,0)
 		new_pattern.bullet = "3"
 		new_pattern.nbr = 1
-		new_pattern.forced_lookat_mouse = true
+		new_pattern.forced_lookat_mouse = false
 		new_pattern.forced_pattern_lookat = true
 		new_pattern.forced_target = NodePath("../../Marker_1/Marker_2:global_position")
 		Spawning.new_pattern("small_mobs", new_pattern)

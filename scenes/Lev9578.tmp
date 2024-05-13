@@ -41,12 +41,4 @@ navigation_polygon = SubResource("NavigationPolygon_hkuk2")
 wait_time = 3.0
 autostart = true
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = 448.0
-offset_top = 382.0
-offset_right = 563.0
-offset_bottom = 405.0
-text = "LVL COMPLETE"
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
