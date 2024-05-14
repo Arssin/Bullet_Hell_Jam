@@ -5,18 +5,6 @@ var totem_2_die = false
 var totem_3_die = false
 var totem_4_die = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_armor_area_entered(area: Area2D) -> void:
-	print('area', area)
 
 
 func _on_mini_totem_totem_died() -> void:
@@ -52,3 +40,12 @@ signal boss_open
 
 func _on_boss_open() -> void:
 	$StaticBody2D.queue_free()
+
+
+func _on_totem_boss_died() -> void:
+	var doorsChildren = $Doors.get_children()
+	for door in doorsChildren:
+		door.colide_on()
+			
+	$Doors.show()
+	$Label.show()
