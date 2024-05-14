@@ -62,7 +62,6 @@ func _on_attack_timeout() -> void:
 	
 	
 func get_hit(value):
-	print(value)
 	if isDestructable:
 		val_health = val_health - (value + PlayerGlobals.additional_dmg)
 		$HealthBar.update_healthbar(val_health)
@@ -76,5 +75,7 @@ func get_hit(value):
 func die():
 	$Shoot.queue_free()
 	queue_free()
+	
+	
 		
 	
