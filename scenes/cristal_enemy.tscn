@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bw35yw126p5jb"]
+[gd_scene load_steps=22 format=3 uid="uid://bw35yw126p5jb"]
 
 [ext_resource type="Texture2D" uid="uid://pccpebk4waa4" path="res://assets/cristal.png" id="1_2eqpj"]
 [ext_resource type="Script" path="res://scripts/cristal_enemy.gd" id="1_n4m1c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="4_gh26i"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="5_ptk0f"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="6_and5a"]
+[ext_resource type="PackedScene" uid="uid://cc5tjpexngnx5" path="res://ui/health_bar.tscn" id="7_w1kua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_raxga"]
 atlas = ExtResource("1_2eqpj")
@@ -43,7 +44,7 @@ script = ExtResource("4_gh26i")
 anim_more = Array[Resource("res://addons/BulletUpHell/Bullet/animStates.gd")]([])
 damage = 3.0
 speed = 100.0
-scale = 1.0
+scale = 0.4
 angle = 0.0
 groups = PackedStringArray()
 spec_bounces = 0
@@ -63,8 +64,9 @@ a_speed_multi_iterations = 0
 a_speed_multi_scale = 0.0
 trigger_container = ""
 trigger_wait_for_shot = true
-homing_type = 0
-homing_target = NodePath("")
+homing_type = 3
+homing_group = "Marker"
+homing_select_in_group = 0
 homing_steer = 0.0
 homing_time_start = 0.0
 homing_duration = 999.0
@@ -123,7 +125,7 @@ pattern_angle = 0.0
 pattern_angle_target = NodePath("")
 pattern_angle_mouse = false
 forced_angle = 0.0
-forced_target = NodePath("../../PlayerMarker")
+forced_target = NodePath("")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
@@ -227,7 +229,6 @@ position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_smlit")
 
 [node name="Attack" type="Timer" parent="."]
-autostart = true
 
 [node name="PlayerMarker" type="Marker2D" parent="."]
 
@@ -250,5 +251,12 @@ curve = SubResource("Curve2D_wedex")
 script = ExtResource("3_iexps")
 id = "5"
 props = SubResource("PackedDataContainer_xhnrt")
+
+[node name="HealthBar" parent="." instance=ExtResource("7_w1kua")]
+visible = false
+offset_left = -12.0
+offset_top = -14.0
+offset_right = 12.0
+offset_bottom = -8.0
 
 [connection signal="timeout" from="Attack" to="." method="_on_attack_timeout"]

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var move_on_path: PathFollow2D
 @export var movement_speed = 10
+@export var isDestructable = false
 
 var previous_global_position = Vector2.ZERO
 
@@ -9,10 +10,18 @@ var previous_global_position = Vector2.ZERO
 @onready var attack: Timer = $Attack
 
 @onready var static_lvl = get_parent().name == "Enemies4"
+@export var max_health = 50
+@export var val_health = 50
 
 func _ready() -> void:
-	print(static_lvl, get_parent())
-	attack.wait_time = randf_range(0.7,1.5)
+	if isDestructable:
+		$HealthBar.show()
+		$HealthBar.max_healthbar = max_health
+		$HealthBar.value = val_health
+		attack.wait_time = randf_range(2,5)
+	else:
+		attack.wait_time = randf_range(0.7,1.5)
+	$Attack.start()
 	$AnimatedSprite2D.play("cristal")
 	previous_global_position = global_position
 
