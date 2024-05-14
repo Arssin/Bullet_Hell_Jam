@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw3ba06ksdfaf"]
+
+[ext_resource type="Texture2D" uid="uid://bux42ukr02c5b" path="res://assets/coin.png" id="1_ncqv4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbd84"]
+atlas = ExtResource("1_ncqv4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnuey"]
+atlas = ExtResource("1_ncqv4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dnbe0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbd84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnuey")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="Coin" type="Node2D"]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dnbe0")
+animation = &"fly"
