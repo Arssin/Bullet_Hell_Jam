@@ -35,5 +35,10 @@ func _on_timer_timeout() -> void:
 		show_doors()
 		
 func show_doors():
+	var doorsChildren = %Doors.get_children()
+	
+	for door in doorsChildren:
+		door.colide_on()
+		
 	$Doors.show()
 

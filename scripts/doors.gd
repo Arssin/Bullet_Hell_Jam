@@ -45,3 +45,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_in_area = false
 		%Label.hide()
+		
+func colide_on():
+	$StaticBody2D/CollisionShape2D.disabled = false

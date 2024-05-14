@@ -131,3 +131,6 @@ func attack_spawn():
 	Spawning.new_pattern("pattern_id", new_pattern)
 	
 	Spawning.spawn({"position": $WeaponMarker/FromTarget.global_position, "rotation": 0}, "pattern_id", "player")
+
+
+

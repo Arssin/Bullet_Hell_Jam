@@ -12,4 +12,8 @@ func _on_totem_boss_died() -> void:
 
 func show_doors():
 	var doorsChildren = doors.get_children()
+	
+	for door in doorsChildren:
+		door.colide_on()
+	
 	$Doors.show()
