@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccld875vdpeh6"]
+[gd_scene load_steps=6 format=3 uid="uid://ccld875vdpeh6"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_6u3b2"]
 [ext_resource type="PackedScene" uid="uid://bwofc6vedhbhe" path="res://scenes/player.tscn" id="2_l0xq2"]
+[ext_resource type="Texture2D" uid="uid://bsf0v2hiu5qdb" path="res://assets/con_1.png" id="3_dhtqi"]
 [ext_resource type="PackedScene" uid="uid://bw35yw126p5jb" path="res://scenes/cristal_enemy.tscn" id="3_y5qt6"]
 
 [sub_resource type="Curve2D" id="Curve2D_notfj"]
@@ -174,10 +175,13 @@ progress = 1280.0
 [node name="Player" parent="." instance=ExtResource("2_l0xq2")]
 position = Vector2(549, 307)
 
-[node name="ShootMarker" type="Marker2D" parent="." groups=["Marker"]]
-position = Vector2(549, 308)
-
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="ShootMarker" type="Marker2D" parent="Node2D" groups=["Marker"]]
+position = Vector2(550, 309)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/ShootMarker"]
+texture = ExtResource("3_dhtqi")
 
 [node name="CristalEnemy" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
 position = Vector2(359, 186)

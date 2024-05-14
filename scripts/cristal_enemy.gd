@@ -18,7 +18,7 @@ func _ready() -> void:
 		$HealthBar.show()
 		$HealthBar.max_healthbar = max_health
 		$HealthBar.value = val_health
-		attack.wait_time = randf_range(2,5)
+		attack.wait_time = randf_range(3,7)
 	else:
 		attack.wait_time = randf_range(0.7,1.5)
 	$Attack.start()
@@ -31,15 +31,20 @@ func _physics_process(delta: float) -> void:
 		position = move_on_path.position
 		var current_global_position = global_position
 		previous_global_position = current_global_position
+		$PlayerMarker.look_at(get_node('../ShootMarker').global_position)
 		
 var new_pattern: PatternLine = PatternLine.new()
 
 func attack_spawn():
 	if player && !static_lvl:
-		$PlayerMarker.global_position = player.global_position
-		Spawning.spawn({"position": global_position, "rotation": 0}, "cristal", "two")
-		
+		new_pattern.offset = Vector2i(0,0)
+		new_pattern.bullet = "4"
+		new_pattern.nbr = 1
+		new_pattern.forced_lookat_mouse = false
+		new_pattern.forced_pattern_lookat = true
+		Spawning.new_pattern("cristal", new_pattern)
 	
+		Spawning.spawn({"position": global_position, "rotation": $PlayerMarker.rotation}, "cristal", "two")		
 	
 	if player && static_lvl:
 		new_pattern.offset = Vector2i(0,0)
@@ -48,9 +53,28 @@ func attack_spawn():
 		new_pattern.forced_lookat_mouse = false
 		new_pattern.forced_pattern_lookat = false
 		Spawning.new_pattern("cristal_2", new_pattern)
-	
+
 		Spawning.spawn({"position": global_position, "rotation": 0}, "cristal_2", "two")
 
 
 func _on_attack_timeout() -> void:
 	attack_spawn()
+	
+	
+func get_hit(value):
+	print(value)
+	if isDestructable:
+		val_health = val_health - (value + PlayerGlobals.additional_dmg)
+		$HealthBar.update_healthbar(val_health)
+		if val_health <= 0:
+			die()
+
+	else:
+		pass
+		
+		
+func die():
+	$Shoot.queue_free()
+	queue_free()
+		
+	
