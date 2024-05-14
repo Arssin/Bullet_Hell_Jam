@@ -16,4 +16,7 @@ func get_hit(value):
 		
 		
 func die():
+	emit_signal('totem_died')
 	queue_free()
+	
+signal totem_died

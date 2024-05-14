@@ -569,6 +569,8 @@ position = Vector2(619, 395)
 [node name="Totem" parent="." instance=ExtResource("3_b8a8b")]
 position = Vector2(627, 255)
 scale = Vector2(2.115, 2.115)
+max_health = 300
+health = 300
 
 [node name="MiniTotem" parent="." instance=ExtResource("4_xkyfd")]
 position = Vector2(287, 46)
@@ -742,3 +744,9 @@ curve = SubResource("Curve2D_cbpv5")
 script = ExtResource("8_dra1u")
 id = "patternFive"
 pattern = SubResource("NavigationPolygon_ur6ar")
+
+[connection signal="boss_open" from="." to="." method="_on_boss_open"]
+[connection signal="totem_died" from="MiniTotem" to="." method="_on_mini_totem_totem_died"]
+[connection signal="totem_died" from="MiniTotem2" to="." method="_on_mini_totem_2_totem_died"]
+[connection signal="totem_died" from="MiniTotem3" to="." method="_on_mini_totem_3_totem_died"]
+[connection signal="totem_died" from="MiniTotem4" to="." method="_on_mini_totem_4_totem_died"]
