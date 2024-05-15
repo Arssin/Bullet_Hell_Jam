@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgsi08p7qgqjs"]
+[gd_scene load_steps=7 format=3 uid="uid://dgsi08p7qgqjs"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_3pxwr"]
 [ext_resource type="Texture2D" uid="uid://12drxmspdss7" path="res://assets/tiles2.png" id="2_c3nwa"]
 [ext_resource type="PackedScene" uid="uid://dw3ba06ksdfaf" path="res://scenes/coin.tscn" id="3_m4swb"]
+[ext_resource type="PackedScene" uid="uid://bwofc6vedhbhe" path="res://scenes/player.tscn" id="4_h5188"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqvpm"]
 texture = ExtResource("2_c3nwa")
@@ -25,3 +26,5 @@ tile_set = SubResource("TileSet_q2nep")
 format = 2
 
 [node name="Coin" parent="." instance=ExtResource("3_m4swb")]
+
+[node name="Player" parent="." instance=ExtResource("4_h5188")]
