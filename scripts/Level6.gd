@@ -18,6 +18,16 @@ func attack_spawn():
 	}, "black_knighto", "two")
 	Spawning.spawn({"position": $"SpawnPositions/5".global_position, "rotation": 0
 	}, "black_knighto", "two")
+	
+func attack_spawn_two():
+	pass
+	#Spawning.spawn({"position": $BlackFighter.global_position, "rotation": 0
+	#}, "paterno_circlo", "two")
+
 
 func _on_timer_timeout() -> void:
 	attack_spawn()
+
+
+func _on_timer_2_timeout() -> void:
+	attack_spawn_two()

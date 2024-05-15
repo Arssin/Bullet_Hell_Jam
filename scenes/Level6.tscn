@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cyo3ohq3kd0m"]
+[gd_scene load_steps=20 format=3 uid="uid://cyo3ohq3kd0m"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_n1b8b"]
 [ext_resource type="Script" path="res://scripts/Level6.gd" id="1_o5c2l"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="5_883lt"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="6_rs4yg"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="7_5dk2y"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="8_dsdp0"]
 
 [sub_resource type="Curve2D" id="Curve2D_8swfe"]
 
@@ -113,6 +114,37 @@ wait_tween_momentum = 5
 wait_tween_length = 7.0
 wait_tween_time = 0.5
 
+[sub_resource type="Curve2D" id="Curve2D_pxtv6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qt2yp"]
+resource_name = "PatternCircle"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("8_dsdp0")
+radius = 2
+angle_total = 3.14159
+angle_decal = 0.0
+symmetric = true
+center = 0
+symmetry_type = 0
+bullet = "20"
+nbr = 12
+iterations = 1
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vc6c"]
 size = Vector2(450, 20)
 
@@ -161,6 +193,12 @@ curve = SubResource("Curve2D_agv8r")
 script = ExtResource("6_rs4yg")
 id = "black_knighto"
 pattern = SubResource("NavigationPolygon_fo0aw")
+
+[node name="SpawnPattern2" type="Path2D" parent="Bullets"]
+curve = SubResource("Curve2D_pxtv6")
+script = ExtResource("6_rs4yg")
+id = "paterno_circlo"
+pattern = SubResource("NavigationPolygon_qt2yp")
 
 [node name="Lasers" type="Node2D" parent="."]
 position = Vector2(810, 391)
@@ -259,5 +297,10 @@ scale = Vector2(1, 0.992461)
 wait_time = 2.0
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 4.7
+autostart = true
+
 [connection signal="black_knight_die" from="BlackFighter" to="." method="_on_black_fighter_black_knight_die"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
