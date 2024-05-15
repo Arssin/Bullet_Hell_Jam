@@ -141,7 +141,7 @@ collision_mask = 0
 
 [node name="two" type="Area2D" parent="SharedAreas"]
 collision_layer = 8
-collision_mask = 5
+collision_mask = 69
 
 [node name="kopytko" type="Area2D" parent="SharedAreas"]
 

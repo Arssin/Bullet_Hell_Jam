@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dgsi08p7qgqjs"]
+[gd_scene load_steps=28 format=3 uid="uid://dgsi08p7qgqjs"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_3pxwr"]
 [ext_resource type="Texture2D" uid="uid://12drxmspdss7" path="res://assets/tiles2.png" id="2_c3nwa"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="7_srxp2"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="8_1tuvx"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="9_mkk5r"]
+[ext_resource type="PackedScene" uid="uid://jx0ve24ex6co" path="res://scenes/black_fighter.tscn" id="10_e8o06"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqvpm"]
 texture = ExtResource("2_c3nwa")
@@ -247,6 +248,15 @@ wait_tween_momentum = 0
 wait_tween_length = 0.0
 wait_tween_time = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egffv"]
+size = Vector2(20, 50.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik13e"]
+size = Vector2(20, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y04k1"]
+size = Vector2(274, 6)
+
 [node name="Level8" type="Node2D"]
 
 [node name="MapCreator" parent="." instance=ExtResource("1_3pxwr")]
@@ -417,7 +427,7 @@ auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
 [node name="SpawnPoint3" type="Node2D" parent="BulletsMiddle"]
-rotation = 1.80467
+rotation = 1.5708
 script = ExtResource("9_mkk5r")
 active = true
 auto_pattern_id = "pattern_mid"
@@ -431,7 +441,7 @@ auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
 [node name="SpawnPoint2" type="Node2D" parent="BulletsMiddle"]
-rotation = -1.40499
+rotation = 3.14159
 script = ExtResource("9_mkk5r")
 active = true
 auto_pattern_id = "pattern_mid"
@@ -445,7 +455,7 @@ auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
 [node name="SpawnPoint4" type="Node2D" parent="BulletsMiddle"]
-rotation = -4.46455
+rotation = 4.71239
 script = ExtResource("9_mkk5r")
 active = true
 auto_pattern_id = "pattern_mid"
@@ -457,3 +467,50 @@ auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
 trigger_container = NodePath("")
+
+[node name="Blockers" type="Node2D" parent="."]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Blockers"]
+position = Vector2(563, 180)
+rotation = 1.5708
+collision_layer = 64
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blockers/StaticBody2D2"]
+position = Vector2(-27, 27)
+shape = SubResource("RectangleShape2D_egffv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Blockers"]
+position = Vector2(435, 238)
+collision_layer = 64
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blockers/StaticBody2D"]
+position = Vector2(-27, 27)
+shape = SubResource("RectangleShape2D_egffv")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Blockers"]
+position = Vector2(691, 236)
+collision_layer = 64
+collision_mask = 8
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Blockers/StaticBody2D3"]
+position = Vector2(-27, 21)
+shape = SubResource("RectangleShape2D_ik13e")
+
+[node name="PlayerBlock" type="StaticBody2D" parent="Blockers"]
+position = Vector2(202, 212)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blockers/PlayerBlock"]
+position = Vector2(63, -9)
+shape = SubResource("RectangleShape2D_y04k1")
+
+[node name="Cristals" type="Node2D" parent="."]
+
+[node name="Mobs" type="Node2D" parent="."]
+
+[node name="BlackFighter" parent="Mobs" instance=ExtResource("10_e8o06")]
+position = Vector2(252, 175)
+scale = Vector2(2, 2)

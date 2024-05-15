@@ -12,6 +12,7 @@ var max_health = 50
 var health = max_health
 @onready var health_bar: TextureProgressBar = $HealthBar
 
+@export var isLookingPlayer = false
 
 var players = null
 
@@ -19,6 +20,8 @@ var move_direction: Vector2
 var home_position: Vector2
 
 func _ready() -> void:
+	if !isLookingPlayer:
+		$AttackCd.start()
 	attack_cd.wait_time = randf_range(0.4, 2)
 	home_position = self.global_position
 	health_bar.max_value = max_health
@@ -95,6 +98,7 @@ func _on_attack_cd_timeout() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
+		$AttackCd.start()
 		players = body
 	
 
@@ -107,3 +111,7 @@ func get_hit(value):
 		die()
 	else:
 		health_bar.update_healthbar(health)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	$AttackCd.stop()

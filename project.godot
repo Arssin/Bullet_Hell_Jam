@@ -87,6 +87,7 @@ dash={
 2d_physics/layer_4="EnemyBullet"
 2d_physics/layer_5="PlayerBullet"
 2d_physics/layer_6="InteractableWithPlayer"
+2d_physics/layer_7="SafeZones"
 
 [rendering]
 

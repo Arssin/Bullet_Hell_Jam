@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://jx0ve24ex6co"]
+
+[ext_resource type="Texture2D" uid="uid://cra4tgpugr6do" path="res://assets/SomeBetterMob.png" id="1_b2rk8"]
+[ext_resource type="Script" path="res://scripts/black_fighter.gd" id="1_habkp"]
+[ext_resource type="PackedScene" uid="uid://cc5tjpexngnx5" path="res://ui/health_bar.tscn" id="2_sadd6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdukl"]
+atlas = ExtResource("1_b2rk8")
+region = Rect2(0, 0, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1m0o"]
+atlas = ExtResource("1_b2rk8")
+region = Rect2(21, 0, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18lb8"]
+atlas = ExtResource("1_b2rk8")
+region = Rect2(0, 19, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nubgr"]
+atlas = ExtResource("1_b2rk8")
+region = Rect2(21, 19, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5x1b"]
+atlas = ExtResource("1_b2rk8")
+region = Rect2(0, 38, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c10qu"]
+atlas = ExtResource("1_b2rk8")
+region = Rect2(21, 38, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sesrl"]
+atlas = ExtResource("1_b2rk8")
+region = Rect2(42, 38, 21, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_urvrt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdukl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1m0o")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18lb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nubgr")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5x1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c10qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sesrl")
+}],
+"loop": true,
+"name": &"get_hit",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ya2x8"]
+radius = 8.0
+height = 18.0
+
+[node name="BlackFighter" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 21
+script = ExtResource("1_habkp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_urvrt")
+animation = &"get_hit"
+
+[node name="HealthBar" parent="." instance=ExtResource("2_sadd6")]
+offset_left = -24.0
+offset_top = -15.0
+offset_right = 23.0
+offset_bottom = -9.0
+max_healthbar = 120.0
+value_healthbar = 120.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ya2x8")
