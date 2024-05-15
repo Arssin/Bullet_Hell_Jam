@@ -160,7 +160,7 @@ r_scale_multi_scale_variation = Vector3(0, 0, 0)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 collision_layer = 4
-collision_mask = 43
+collision_mask = 171
 script = ExtResource("1_vtlnh")
 ghost_node = ExtResource("2_m1vtr")
 

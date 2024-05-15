@@ -16,7 +16,7 @@ func _on_bfig_timeout() -> void:
 	
 	
 var new_pattern: PatternLine = PatternLine.new()
-var pattern_area: PatternCircle = PatternCircle.new()
+var pattern_area: PatternCustomArea = PatternCustomArea.new()
 	
 func attack_spawn():
 	new_pattern.offset = Vector2i(0,0)
@@ -35,10 +35,7 @@ func attack_spawn():
 	
 
 func attack_spawn_two():
-		
-		
-	Spawning.spawn({"position": $Mobs/BlackFighter.global_position, "rotation": 0}, "b_k", "two")
-
+	pass
 
 func _on_bfig_2_timeout() -> void:
 	attack_spawn_two()

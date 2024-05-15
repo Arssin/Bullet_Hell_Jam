@@ -24,27 +24,6 @@ func _physics_process(delta: float) -> void:
 	if is_colliding():
 		cast_point = to_local(get_collision_point())
 		var collider = get_collider()
-		
-		if collider is Player:
-			collider.die()
-		elif collider is Enemy && collider.isNpcControlled:
-			var child = get_tree().root.get_children()
-			for i in child:
-				if i.name == "MainScene":
-					var sceneMain = i.get_children()
-					for k in sceneMain:
-						if k.name == "Main":
-							var zet = k.get_children()
-							for z in zet:
-								if z.name == "Level4" or z.name == "Level5" or z.name == "Level7":
-									var level = z.get_children()
-									for x in level:
-										if x.name == "Player":
-											x.die()
-			collider.queue_free()
-		elif collider is Enemy:
-			collider.marine_die()
-		
 
 	$Line2D.points[1] = cast_point
 

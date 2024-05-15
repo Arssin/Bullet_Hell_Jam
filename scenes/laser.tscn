@@ -20,12 +20,14 @@ wait_time = 2.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-0.39, 3.333)
+scale = Vector2(2, 2)
 target_position = Vector2(0, -36)
-collision_mask = 5
+collision_mask = 133
 script = ExtResource("3_6rp8i")
 
 [node name="Line2D" type="Line2D" parent="RayCast2D"]
-points = PackedVector2Array(0.39, -47.9997, 0, 0)
+position = Vector2(-0.267, 0)
+points = PackedVector2Array(0.39, -47.9997, 0.39, -0.666333)
 default_color = Color(0.547556, 0.158775, 0.1243, 1)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -204,7 +204,7 @@ props = SubResource("PackedDataContainer_yktta")
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="SpawnPoint" type="Node2D" parent="SpawnPoints"]
-position = Vector2(86, 58)
+position = Vector2(589, 354)
 script = ExtResource("11_2iydo")
 active = true
 auto_pattern_id = "one"
@@ -218,7 +218,7 @@ auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
 [node name="SpawnPoint2" type="Node2D" parent="SpawnPoints"]
-position = Vector2(82, 116)
+position = Vector2(585, 412)
 script = ExtResource("11_2iydo")
 active = true
 auto_pattern_id = "circle"
@@ -232,7 +232,7 @@ auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
 [node name="SpawnPoint3" type="Node2D" parent="SpawnPoints"]
-position = Vector2(198, 242)
+position = Vector2(127, 173)
 script = ExtResource("11_2iydo")
 active = true
 auto_pattern_id = "line"
