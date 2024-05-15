@@ -1,34 +1,251 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgsi08p7qgqjs"]
+[gd_scene load_steps=24 format=3 uid="uid://dgsi08p7qgqjs"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_3pxwr"]
 [ext_resource type="Texture2D" uid="uid://12drxmspdss7" path="res://assets/tiles2.png" id="2_c3nwa"]
 [ext_resource type="PackedScene" uid="uid://dw3ba06ksdfaf" path="res://scenes/coin.tscn" id="3_m4swb"]
 [ext_resource type="PackedScene" uid="uid://bwofc6vedhbhe" path="res://scenes/player.tscn" id="4_h5188"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHBulletProperties.gd" id="5_ftrch"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="6_wswx6"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="7_srxp2"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="8_1tuvx"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="9_mkk5r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqvpm"]
 texture = ExtResource("2_c3nwa")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
 1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:3/0 = 0
 1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_q2nep"]
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_eqvpm")
+
+[sub_resource type="Curve2D" id="Curve2D_eitdi"]
+
+[sub_resource type="Curve" id="Curve_5unho"]
+
+[sub_resource type="Curve" id="Curve_jktfo"]
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_l83de"]
+script = ExtResource("6_wswx6")
+anim_more = Array[Resource("res://addons/BulletUpHell/Bullet/animStates.gd")]([])
+damage = 1.0
+speed = 100.0
+scale = 0.7
+angle = 1.5504
+groups = PackedStringArray()
+spec_bounces = 0
+spec_no_collision = false
+spec_modulate_loop = 0.0
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_rotating_speed = 0.0
+death_after_time = 30.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+a_direction_equation = ""
+a_curve_movement = 0
+a_speed_multiplier = SubResource("Curve_5unho")
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("")
+homing_steer = 0.0
+homing_time_start = 0.0
+homing_duration = 999.0
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_jktfo")
+scale_multi_scale = 1.0
+r_randomisation_chances = 1.0
+r_speed_choice = PackedFloat32Array()
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = PackedFloat32Array()
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = PackedFloat32Array()
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = PackedInt32Array()
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = PackedFloat32Array()
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = PackedStringArray()
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = PackedStringArray()
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = PackedStringArray()
+r_group_target_choice = PackedStringArray()
+r_pos_target_choice = PackedVector2Array()
+r_steer_choice = PackedFloat32Array()
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = PackedFloat32Array()
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = PackedFloat32Array()
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_r4jwo"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xmymt"]
+resource_name = "PatternOne"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("8_1tuvx")
+bullet = "10"
+nbr = 1
+iterations = -1
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+
+[sub_resource type="Curve2D" id="Curve2D_52mhw"]
+
+[sub_resource type="Curve" id="Curve_poimu"]
+
+[sub_resource type="Curve" id="Curve_uroc0"]
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_oxhfd"]
+script = ExtResource("6_wswx6")
+anim_more = Array[Resource("res://addons/BulletUpHell/Bullet/animStates.gd")]([])
+damage = 1.0
+speed = 100.0
+scale = 0.5
+angle = 0.0
+groups = PackedStringArray()
+spec_bounces = 0
+spec_no_collision = false
+spec_modulate_loop = 0.0
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_rotating_speed = 0.0
+death_after_time = 30.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+a_direction_equation = ""
+a_curve_movement = 0
+a_speed_multiplier = SubResource("Curve_poimu")
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("")
+homing_steer = 0.0
+homing_time_start = 0.0
+homing_duration = 999.0
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_uroc0")
+scale_multi_scale = 1.0
+r_randomisation_chances = 1.0
+r_speed_choice = PackedFloat32Array()
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = PackedFloat32Array()
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = PackedFloat32Array()
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = PackedInt32Array()
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = PackedFloat32Array()
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = PackedStringArray()
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = PackedStringArray()
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = PackedStringArray()
+r_group_target_choice = PackedStringArray()
+r_pos_target_choice = PackedVector2Array()
+r_steer_choice = PackedFloat32Array()
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = PackedFloat32Array()
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = PackedFloat32Array()
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_gn47r"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_r4brn"]
+resource_name = "PatternOne"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("8_1tuvx")
+bullet = "11"
+nbr = 10
+iterations = -1
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 0.1
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
 
 [node name="Level8" type="Node2D"]
 
@@ -39,19 +256,204 @@ layer_0/tile_data = PackedInt32Array(196615, 0, 1, 262151, 0, 1, 327687, 0, 2, 3
 z_index = 1
 tile_set = SubResource("TileSet_q2nep")
 format = 2
-layer_0/tile_data = PackedInt32Array(1900552, 65538, 1610612737, 1900553, 65538, 1610612737, 1900554, 65538, 1610612737, 1900555, 65538, 1610612737, 1900556, 65538, 1610612737, 1900557, 65538, 1610612737, 1900558, 65538, 1610612737, 1900559, 65538, 1610612737, 1900560, 65538, 1610612737, 1900561, 65538, 0, 1966097, 65538, 1, 655385, 65538, 2, 720921, 65538, 2, 786457, 65538, 2, 851993, 65538, 2, 917529, 65538, 2, 589849, 2, 0, 589850, 65538, 1610612737, 589851, 65538, 1610612737, 589852, 65538, 1610612737, 589853, 65538, 1610612737, 589854, 65538, 1610612737, 589855, 65538, 1610612739, 589859, 65538, 1342177283, 589860, 65538, 1610612737, 589861, 65538, 1610612737, 589862, 65538, 1610612737, 589863, 65538, 1610612737, 589864, 65538, 1610612737, 589865, 65538, 0, 655401, 65538, 1, 720937, 65538, 1, 786473, 65538, 1, 1245225, 65538, 1, 1310761, 65538, 1, 1376297, 65538, 1342177280, 1376296, 65538, 1342177282, 1376295, 65538, 1342177282, 1376294, 65538, 1342177282, 1376293, 65538, 1342177282, 1376292, 65538, 1342177282, 852009, 65538, 3, 720942, 65538, 1, 786478, 65538, 1, 852014, 65538, 1, 917550, 65538, 1, 983086, 65538, 1, 1048622, 65538, 1, 1114158, 65538, 1, 1179694, 65538, 1, 1245230, 65538, 1, 1310766, 65538, 1, 1376302, 65538, 1, 1179689, 65538, 805306371, 655406, 65538, 1, 589870, 65538, 1, 524334, 65538, 1, 458798, 65538, 1, 393262, 65538, 1, 327726, 65538, 1, 262190, 65538, 1, 196654, 65538, 1, 1441833, 65538, 1, 1507369, 65538, 1, 1572905, 65538, 1, 1638441, 65538, 1, 1703977, 65538, 1, 1769513, 65538, 1, 1835049, 65538, 1, 1900585, 65538, 1, 1966121, 65538, 1, 2031657, 2, 1610612736, 1179673, 2, 805306369, 1376281, 2, 1610612736, 1245209, 65538, 1, 1310745, 65538, 1, 1376282, 65538, 1342177282, 1376283, 65538, 1342177282, 1376284, 65538, 1342177282, 1376285, 65538, 1342177282, 1376286, 65538, 1342177282, 1376287, 65538, 1342177282, 1376288, 65538, 1342177282, 1376289, 65538, 1342177282, 1376290, 65538, 1342177282, 1376291, 65538, 1342177282, 2031633, 2, 1610612736, 2031634, 65538, 1342177282, 2031635, 65538, 1342177282, 2031636, 65538, 1342177282, 2031637, 65538, 1342177282, 2031638, 65538, 1342177282, 2031639, 65538, 1342177282, 2031640, 65538, 1342177282, 2031641, 65538, 1342177282, 2031642, 65538, 1342177282, 2031643, 65538, 1342177282, 2031644, 65538, 1342177281, 2031645, 65538, 1342177280, 1966109, 65538, 2, 1900573, 65538, 2, 1835037, 65538, 2, 1769501, 65538, 2, 1703965, 65538, 2, 1638429, 2, 805306369, 2031658, 65538, 1610612737, 2031659, 65538, 1610612737, 2031660, 65538, 1610612737, 2031661, 65538, 1610612737, 2031662, 65538, 1610612737, 2031663, 65538, 1610612737, 2031664, 65538, 1610612737, 2031665, 65538, 1610612737, 2031666, 65538, 1610612737, 2031667, 65538, 1610612737, 2031668, 2, 1610612737)
+layer_0/tile_data = PackedInt32Array(1900552, 65538, 1610612737, 1900553, 65538, 1610612737, 1900554, 65538, 1610612737, 1900555, 65538, 1610612737, 1900556, 65538, 1610612737, 1900557, 65538, 1610612737, 1900558, 65538, 1610612737, 1900559, 65538, 1610612737, 1900560, 65538, 1610612737, 1900561, 65538, 0, 1966097, 65538, 1, 655385, 65538, 2, 720921, 65538, 2, 786457, 65538, 2, 851993, 65538, 2, 917529, 65538, 2, 589849, 2, 0, 589850, 65538, 1610612737, 589851, 65538, 1610612737, 589852, 65538, 1610612737, 589853, 65538, 1610612737, 589854, 65538, 1610612737, 589855, 65538, 1610612739, 589859, 65538, 1342177283, 589860, 65538, 1610612737, 589861, 65538, 1610612737, 589862, 65538, 1610612737, 589863, 65538, 1610612737, 589864, 65538, 1610612737, 589865, 65538, 0, 655401, 65538, 1, 720937, 65538, 1, 786473, 65538, 1, 1245225, 65538, 1, 1310761, 65538, 1, 1376297, 65538, 1342177280, 1376296, 65538, 1342177282, 1376295, 65538, 1342177282, 1376294, 65538, 1342177282, 1376293, 65538, 1342177282, 1376292, 65538, 1342177282, 852009, 65538, 3, 720942, 65538, 1, 786478, 65538, 1, 852014, 65538, 1, 917550, 65538, 1, 983086, 65538, 1, 1048622, 65538, 1, 1114158, 65538, 1, 1179694, 65538, 1, 1245230, 65538, 1, 1310766, 65538, 1, 1376302, 65538, 1, 1179689, 65538, 805306371, 655406, 65538, 1, 589870, 65538, 1, 524334, 65538, 1, 458798, 65538, 1, 393262, 65538, 1, 327726, 65538, 1, 262190, 65538, 1, 196654, 65538, 1, 1441833, 65538, 1, 1507369, 65538, 1, 1572905, 65538, 1, 1638441, 65538, 1, 1703977, 65538, 1, 1769513, 65538, 1, 1835049, 65538, 1, 1900585, 65538, 1, 1966121, 65538, 1, 2031657, 2, 1610612736, 1179673, 2, 805306369, 1376281, 2, 1610612736, 1245209, 65538, 1, 1310745, 65538, 1, 1376282, 65538, 1342177282, 1376283, 65538, 1342177282, 1376284, 65538, 1342177282, 1376285, 65538, 1342177282, 1376286, 65538, 1342177282, 1376287, 65538, 1342177282, 1376288, 65538, 1342177282, 1376289, 65538, 1342177282, 1376290, 65538, 1342177282, 1376291, 65538, 1342177282, 2031633, 2, 1610612736, 2031634, 65538, 1342177282, 2031635, 65538, 1342177282, 2031636, 65538, 1342177282, 2031637, 65538, 1342177282, 2031638, 65538, 1342177282, 2031639, 65538, 1342177282, 2031640, 65538, 1342177282, 2031641, 65538, 1342177282, 2031642, 65538, 1342177282, 2031643, 65538, 1342177282, 2031644, 65538, 1342177281, 2031645, 65538, 1342177280, 1966109, 65538, 2, 1900573, 65538, 2, 1835037, 65538, 2, 1769501, 65538, 2, 1703965, 65538, 2, 1638429, 2, 805306369, 2031658, 65538, 1610612737, 2031659, 65538, 1610612737, 2031660, 65538, 1610612737, 2031661, 65538, 1610612737, 2031662, 65538, 1610612737, 2031663, 65538, 1610612737, 2031664, 65538, 1610612737, 2031665, 65538, 1610612737, 2031666, 65538, 1610612737, 2031667, 65538, 1610612737, 2031668, 2, 1610612737, 196624, 65538, 1, 262160, 65538, 1, 327696, 65538, 1, 393232, 65538, 1, 458768, 65538, 1, 524304, 2, 1610612736, 524305, 65538, 1610612737, 524306, 65538, 1610612737, 524307, 65538, 1610612737, 524308, 65538, 1610612737, 524309, 65538, 1610612737, 524310, 65538, 1610612737, 524311, 65538, 1610612737, 524312, 65538, 0, 589848, 2, 1610612736)
 
 [node name="CoinsMainNode" type="Node2D" parent="."]
 position = Vector2(351, 320)
 
 [node name="Coin" parent="CoinsMainNode" instance=ExtResource("3_m4swb")]
-position = Vector2(-168, 8)
+position = Vector2(-165, -234)
 
 [node name="Coin2" parent="CoinsMainNode" instance=ExtResource("3_m4swb")]
-position = Vector2(186, -228)
+position = Vector2(-12, -228)
 
 [node name="Coin3" parent="CoinsMainNode" instance=ExtResource("3_m4swb")]
 position = Vector2(505, -209)
 
 [node name="Player" parent="." instance=ExtResource("4_h5188")]
 position = Vector2(189, 527)
+
+[node name="Lasers" type="Node2D" parent="."]
+
+[node name="BulletsLines" type="Node2D" parent="."]
+
+[node name="BulletPattern" type="Path2D" parent="BulletsLines"]
+curve = SubResource("Curve2D_eitdi")
+script = ExtResource("5_ftrch")
+id = "10"
+props = SubResource("PackedDataContainer_l83de")
+
+[node name="SpawnPattern" type="Path2D" parent="BulletsLines"]
+curve = SubResource("Curve2D_r4jwo")
+script = ExtResource("7_srxp2")
+id = "classic_pattern"
+pattern = SubResource("NavigationPolygon_xmymt")
+
+[node name="SpawnPoint" type="Node2D" parent="BulletsLines"]
+position = Vector2(489, 360)
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "classic_pattern"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPoint2" type="Node2D" parent="BulletsLines"]
+position = Vector2(513, 360)
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "classic_pattern"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = false
+auto_start_after_time = 0.5
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPoint3" type="Node2D" parent="BulletsLines"]
+position = Vector2(539, 360)
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "classic_pattern"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPoint4" type="Node2D" parent="BulletsLines"]
+position = Vector2(566, 360)
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "classic_pattern"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = false
+auto_start_after_time = 0.5
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPoint5" type="Node2D" parent="BulletsLines"]
+position = Vector2(593, 360)
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "classic_pattern"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPoint6" type="Node2D" parent="BulletsLines"]
+position = Vector2(616, 360)
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "classic_pattern"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = false
+auto_start_after_time = 0.5
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPoint7" type="Node2D" parent="BulletsLines"]
+position = Vector2(641, 360)
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "classic_pattern"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="BulletsMiddle" type="Node2D" parent="."]
+position = Vector2(542, 253)
+
+[node name="BulletPattern" type="Path2D" parent="BulletsMiddle"]
+position = Vector2(-542, -253)
+curve = SubResource("Curve2D_52mhw")
+script = ExtResource("5_ftrch")
+id = "11"
+props = SubResource("PackedDataContainer_oxhfd")
+
+[node name="SpawnPattern" type="Path2D" parent="BulletsMiddle"]
+curve = SubResource("Curve2D_gn47r")
+script = ExtResource("7_srxp2")
+id = "pattern_mid"
+pattern = SubResource("NavigationPolygon_r4brn")
+
+[node name="SpawnPoint" type="Node2D" parent="BulletsMiddle"]
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "pattern_mid"
+shared_area_name = "two"
+rotating_speed = 0.02
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPoint3" type="Node2D" parent="BulletsMiddle"]
+rotation = 1.80467
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "pattern_mid"
+shared_area_name = "two"
+rotating_speed = 0.02
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPoint2" type="Node2D" parent="BulletsMiddle"]
+rotation = -1.40499
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "pattern_mid"
+shared_area_name = "two"
+rotating_speed = 0.02
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPoint4" type="Node2D" parent="BulletsMiddle"]
+rotation = -4.46455
+script = ExtResource("9_mkk5r")
+active = true
+auto_pattern_id = "pattern_mid"
+shared_area_name = "two"
+rotating_speed = 0.02
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
