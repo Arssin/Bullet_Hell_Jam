@@ -11,7 +11,7 @@ func _on_mini_totem_totem_died() -> void:
 	totem_1_die = true
 	if totem_1_die && totem_2_die && totem_3_die && totem_4_die:
 		emit_signal('boss_open')
-	$Totemix3.queue_free()
+	$Totemix2.queue_free()
 	
 
 
@@ -26,7 +26,7 @@ func _on_mini_totem_4_totem_died() -> void:
 	totem_4_die = true
 	if totem_1_die && totem_2_die && totem_3_die && totem_4_die:
 		emit_signal('boss_open')
-	$Totemix2.queue_free()
+	$Totemix3.queue_free()
 
 
 func _on_mini_totem_3_totem_died() -> void:
@@ -39,7 +39,8 @@ signal boss_open
 
 
 func _on_boss_open() -> void:
-	$StaticBody2D.queue_free()
+	$Angry.start()
+	#$StaticBody2D.queue_free()
 
 
 func _on_totem_boss_died() -> void:
@@ -49,3 +50,7 @@ func _on_totem_boss_died() -> void:
 			
 	$Doors.show()
 	$Label.show()
+
+
+func _on_angry_timeout() -> void:
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dcapev7mne15c"]
+[gd_scene load_steps=49 format=3 uid="uid://dcapev7mne15c"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_e14j6"]
 [ext_resource type="Script" path="res://scripts/Level5.gd" id="1_p3qr0"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="10_cjahl"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternLine.gd" id="11_ooidx"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="12_0b5ny"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCustomPoints.gd" id="12_qas8d"]
 [ext_resource type="PackedScene" uid="uid://csp0pjl6er5ri" path="res://scenes/doors.tscn" id="15_qfgxg"]
 [ext_resource type="PackedScene" uid="uid://caf5bx8atum84" path="res://scenes/philar.tscn" id="16_rab7r"]
 
@@ -353,9 +354,9 @@ a_speed_multi_scale = 0.0
 trigger_container = ""
 trigger_wait_for_shot = true
 homing_type = 0
-homing_target = NodePath("../../Player")
-homing_steer = 10.0
-homing_time_start = 1.0
+homing_target = NodePath("")
+homing_steer = 0.0
+homing_time_start = 0.0
 homing_duration = 999.0
 scale_multi_iterations = 0
 scale_multiplier = SubResource("Curve_vmx7s")
@@ -398,6 +399,42 @@ r_homing_dur_variation = Vector3(0, 0, 0)
 r_scale_multi_curve_choice = []
 r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_2nwyl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -53, -80, 0, 0, 0, 0, -52, 30, 0, 0, 0, 0, 4, -81)
+}
+point_count = 3
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_r8803"]
+resource_name = "PatternCustomPoints"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("12_qas8d")
+calculate_angles = 0
+angles = []
+center_pos = Vector2(0, 0)
+reversed_angle = false
+symmetric = false
+center = 0
+symmetry_type = 0
+bullet = "8"
+nbr = 2
+iterations = -1
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 3.14159
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 5
+wait_tween_length = 50.0
+wait_tween_time = 2.0
 
 [sub_resource type="Curve" id="Curve_e3vdf"]
 
@@ -685,6 +722,9 @@ position = Vector2(558, 423)
 [node name="Marker2D3" type="Marker2D" parent="."]
 position = Vector2(720, 423)
 
+[node name="AngryNode" type="Node2D" parent="."]
+position = Vector2(953, 55)
+
 [node name="Totemix1" type="Node2D" parent="."]
 position = Vector2(953, 55)
 
@@ -793,6 +833,26 @@ curve = SubResource("Curve2D_mw5da")
 script = ExtResource("5_qrsen")
 id = "8"
 props = SubResource("PackedDataContainer_pfljy")
+
+[node name="SpawnPoint" type="Node2D" parent="Totemix3"]
+position = Vector2(-62, -3)
+script = ExtResource("7_d338y")
+active = true
+auto_pattern_id = "patternito"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 0.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="SpawnPattern" type="Path2D" parent="Totemix3"]
+curve = SubResource("Curve2D_2nwyl")
+script = ExtResource("8_dra1u")
+id = "patternito"
+pattern = SubResource("NavigationPolygon_r8803")
 
 [node name="Totemix4" type="Node2D" parent="."]
 position = Vector2(298, 530)
@@ -925,9 +985,12 @@ scale = Vector2(1.5, 1.5)
 position = Vector2(633.11, 286.715)
 zoom = Vector2(1.365, 1.03)
 
+[node name="Angry" type="Timer" parent="."]
+
 [connection signal="boss_open" from="." to="." method="_on_boss_open"]
 [connection signal="boss_died" from="Totem" to="." method="_on_totem_boss_died"]
 [connection signal="totem_died" from="MiniTotem" to="." method="_on_mini_totem_totem_died"]
 [connection signal="totem_died" from="MiniTotem2" to="." method="_on_mini_totem_2_totem_died"]
 [connection signal="totem_died" from="MiniTotem3" to="." method="_on_mini_totem_3_totem_died"]
 [connection signal="totem_died" from="MiniTotem4" to="." method="_on_mini_totem_4_totem_died"]
+[connection signal="timeout" from="Angry" to="." method="_on_angry_timeout"]
