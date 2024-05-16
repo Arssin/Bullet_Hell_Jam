@@ -15,6 +15,7 @@ func die():
 		
 func get_hit(value):
 	health = health - (value + PlayerGlobals.additional_dmg)
+	$anim.play("get_hit")
 	if health <= 0:
 		emit_signal("boss_died")
 		die()
