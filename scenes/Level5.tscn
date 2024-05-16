@@ -576,16 +576,20 @@ max_health = 300
 health = 300
 
 [node name="MiniTotem" parent="." instance=ExtResource("4_xkyfd")]
-position = Vector2(287, 46)
+position = Vector2(303, 58)
+scale = Vector2(2, 2)
 
 [node name="MiniTotem2" parent="." instance=ExtResource("4_xkyfd")]
-position = Vector2(292, 533)
+position = Vector2(300, 526)
+scale = Vector2(2, 2)
 
 [node name="MiniTotem3" parent="." instance=ExtResource("4_xkyfd")]
-position = Vector2(956, 46)
+position = Vector2(955, 58)
+scale = Vector2(2, 2)
 
 [node name="MiniTotem4" parent="." instance=ExtResource("4_xkyfd")]
-position = Vector2(963, 529)
+position = Vector2(958, 524)
+scale = Vector2(2, 2)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(631, 277)
@@ -753,15 +757,19 @@ position = Vector2(765, 185)
 
 [node name="Philar" parent="." instance=ExtResource("16_rab7r")]
 position = Vector2(551, 186)
+scale = Vector2(1.5, 1.5)
 
 [node name="Philar3" parent="." instance=ExtResource("16_rab7r")]
 position = Vector2(718, 187)
+scale = Vector2(1.5, 1.5)
 
 [node name="Philar2" parent="." instance=ExtResource("16_rab7r")]
 position = Vector2(547, 349)
+scale = Vector2(1.5, 1.5)
 
 [node name="Philar4" parent="." instance=ExtResource("16_rab7r")]
 position = Vector2(719, 349)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="boss_open" from="." to="." method="_on_boss_open"]
 [connection signal="boss_died" from="Totem" to="." method="_on_totem_boss_died"]

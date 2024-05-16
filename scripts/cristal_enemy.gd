@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var move_on_path: PathFollow2D
 @export var movement_speed = 10
-@export var isDestructable = false
+@export var isDestructable:bool = false
 
 var previous_global_position = Vector2.ZERO
 
@@ -15,6 +15,7 @@ var previous_global_position = Vector2.ZERO
 
 func _ready() -> void:
 	if isDestructable:
+		print('tes')
 		$HealthBar.show()
 		$HealthBar.max_healthbar = max_health
 		$HealthBar.value = val_health

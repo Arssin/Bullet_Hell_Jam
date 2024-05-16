@@ -70,7 +70,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pilp2"]
-size = Vector2(16, 23)
+size = Vector2(32, 26)
 
 [node name="MiniTotem" type="CharacterBody2D"]
 collision_layer = 2
@@ -81,13 +81,13 @@ sprite_frames = SubResource("SpriteFrames_turqe")
 animation = &"static"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pilp2")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_nxqc8")]
-offset_left = -16.0
+offset_left = -15.0
 offset_top = -19.0
-offset_right = 16.0
+offset_right = 17.0
 offset_bottom = -13.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
