@@ -53,6 +53,7 @@ radius = 26.0768
 size = Vector2(20, 22)
 
 [node name="Doors" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_y70io")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -60,4 +60,8 @@ position = Vector2(396, 348)
 [node name="Doors2" parent="Doors" instance=ExtResource("5_5071w")]
 position = Vector2(580, 348)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(486, 391)
+zoom = Vector2(1.785, 1.275)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
