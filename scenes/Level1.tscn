@@ -169,7 +169,18 @@ position = Vector2(648, 151)
 scale = Vector2(1.4, 1.4)
 
 [node name="Player" parent="." instance=ExtResource("2_jqof1")]
-position = Vector2(652, 413)
+position = Vector2(658, 357)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -46)
+zoom = Vector2(2.11, 1.755)
+limit_left = 325
+limit_top = 75
+limit_right = 1055
+limit_bottom = 790
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 50.0
 
 [node name="LabelTest" type="Label" parent="."]
 visible = false
