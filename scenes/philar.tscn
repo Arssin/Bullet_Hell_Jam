@@ -34,7 +34,7 @@ region = Rect2(138, 0, 23, 34)
 [sub_resource type="SpriteFrames" id="SpriteFrames_1hi2g"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_pskc8")
 }, {
 "duration": 1.0,
@@ -71,6 +71,7 @@ script = ExtResource("1_6tu0p")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1hi2g")
 animation = &"static"
+frame_progress = 0.813056
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
