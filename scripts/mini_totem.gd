@@ -6,10 +6,12 @@ var health = 100
 func _ready():
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
+	$AnimatedSprite2D.play("static")
 	
 
 func get_hit(value):
 	health = health - (value + PlayerGlobals.additional_dmg)
+	$AnimatedSprite2D.play("get_hit")
 	$HealthBar.update_healthbar(health)
 	if health <= 0:
 		die()
@@ -20,3 +22,9 @@ func die():
 	queue_free()
 	
 signal totem_died
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	var anim = $AnimatedSprite2D.get_animation()
+	if anim == "get_hit":
+		$AnimatedSprite2D.play("static")
