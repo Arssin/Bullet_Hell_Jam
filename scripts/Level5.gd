@@ -40,17 +40,45 @@ signal boss_open
 
 func _on_boss_open() -> void:
 	$Angry.start()
-	#$StaticBody2D.queue_free()
+	$Angry2.start()
 
 
 func _on_totem_boss_died() -> void:
+	$Angry2.stop()
+	$Angry.stop()
 	var doorsChildren = $Doors.get_children()
 	for door in doorsChildren:
 		door.colide_on()
 			
 	$Doors.show()
 	$Label.show()
+	$AngryNode.queue_free()
+	$Totemix5.queue_free()
 
 
 func _on_angry_timeout() -> void:
-	pass # Replace with function body.
+	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+	}, "angry_boss", "two")
+	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+	}, "angry_boss2", "two")
+	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+	}, "angry_boss3", "two")
+	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+	}, "angry_boss4", "two")
+	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+	}, "angry_boss4", "two")
+	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+	}, "angry_boss5", "two")
+	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+	}, "angry_boss6", "two")
+	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+	}, "angry_boss7", "two")
+	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+	}, "angry_boss8", "two")
+
+	
+
+
+func _on_angry_2_timeout() -> void:
+	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+	}, "circlo2", "two")
