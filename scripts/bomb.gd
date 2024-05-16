@@ -3,10 +3,23 @@ extends CharacterBody2D
 @export var detonation_dmg = 10
 var player: Player
 var chase = true
+var stop = false
 
 func _physics_process(delta: float) -> void:
-	if chase && player:
-		velocity = (player.global_position - position) * 10
+	if player:
+		var distance_player = global_position.distance_to(player.global_position)
+		if chase && player && !stop:
+			print(distance_player)
+			velocity = (player.global_position - position).normalized() * 10
+		elif stop:
+			velocity = Vector2.ZERO
+			
+		if distance_player <= 12:
+			stop = true
+		else:
+			stop = false
+	
+	move_and_slide()
 
 
 func _on_chase_area_body_entered(body: Node2D) -> void:
