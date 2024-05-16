@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://daxolcldxbd51"]
+
+[ext_resource type="Script" path="res://scripts/final_boss.gd" id="1_w4tke"]
+[ext_resource type="Texture2D" uid="uid://b7r2rqolm261t" path="res://assets/finalBoss.png" id="2_hpj16"]
+
+[node name="FinalBoss" type="CharacterBody2D"]
+script = ExtResource("1_w4tke")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hpj16")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
