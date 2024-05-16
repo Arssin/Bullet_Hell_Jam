@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dcapev7mne15c"]
+[gd_scene load_steps=44 format=3 uid="uid://dcapev7mne15c"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_e14j6"]
 [ext_resource type="Script" path="res://scripts/Level5.gd" id="1_p3qr0"]
@@ -463,17 +463,17 @@ speed = 100.0
 scale = 1.0
 angle = 0.0
 groups = PackedStringArray()
-spec_bounces = 2
+spec_bounces = 0
 spec_no_collision = false
 spec_modulate_loop = 0.0
-spec_trail_length = 0.0
+spec_trail_length = 20.0
 spec_trail_width = 0.0
 spec_trail_modulate = Color(1, 1, 1, 1)
 spec_rotating_speed = 0.0
 death_after_time = 30.0
 death_outside_box = Rect2(0, 0, 0, 0)
 death_from_collision = true
-a_direction_equation = "cos(x)"
+a_direction_equation = ""
 a_curve_movement = 0
 a_speed_multiplier = SubResource("Curve_w7vad")
 a_speed_multi_iterations = 0
@@ -481,9 +481,9 @@ a_speed_multi_scale = 0.0
 trigger_container = ""
 trigger_wait_for_shot = true
 homing_type = 0
-homing_target = NodePath("../../Player")
-homing_steer = 50.0
-homing_time_start = 1.0
+homing_target = NodePath("")
+homing_steer = 0.0
+homing_time_start = 0.0
 homing_duration = 999.0
 scale_multi_iterations = 0
 scale_multiplier = SubResource("Curve_ecyab")
@@ -532,23 +532,54 @@ resource_name = "PatternCircle"
 source_geometry_group_name = &"navigation_polygon_source_group"
 script = ExtResource("12_0b5ny")
 radius = 0
+angle_total = 1.74533
+angle_decal = 0.0
+symmetric = false
+center = 0
+symmetry_type = 0
+bullet = "10"
+nbr = 5
+iterations = -1
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+
+[sub_resource type="Curve2D" id="Curve2D_y6wkb"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_e8ok0"]
+resource_name = "PatternCircle"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("12_0b5ny")
+radius = 0
 angle_total = 6.28319
 angle_decal = 0.0
 symmetric = false
 center = 0
 symmetry_type = 0
 bullet = "10"
-nbr = 14
+nbr = 30
 iterations = -1
 pattern_angle = 0.0
 pattern_angle_target = NodePath("")
 pattern_angle_mouse = false
 forced_angle = 0.0
-forced_target = NodePath("../../Marker2D")
+forced_target = NodePath("")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
-cooldown_spawn = 1.0
+cooldown_spawn = 3.1
 cooldown_shoot = 0.0
 cooldown_next_spawn = 0.0
 cooldown_next_shoot = 0.0
@@ -718,11 +749,12 @@ id = "10"
 props = SubResource("PackedDataContainer_yfyox")
 
 [node name="SpawnPoint" type="Node2D" parent="Totemix5"]
+position = Vector2(6, 1)
 script = ExtResource("7_d338y")
 active = true
 auto_pattern_id = "patternFive"
 shared_area_name = "two"
-rotating_speed = 0.0
+rotating_speed = 0.1
 pool_amount = 50
 auto_start_on_cam = true
 auto_start_after_time = 0.0
@@ -735,6 +767,26 @@ curve = SubResource("Curve2D_cbpv5")
 script = ExtResource("8_dra1u")
 id = "patternFive"
 pattern = SubResource("NavigationPolygon_ur6ar")
+
+[node name="SpawnPattern2" type="Path2D" parent="Totemix5"]
+curve = SubResource("Curve2D_y6wkb")
+script = ExtResource("8_dra1u")
+id = "patternFox"
+pattern = SubResource("NavigationPolygon_e8ok0")
+
+[node name="SpawnPoint2" type="Node2D" parent="Totemix5"]
+position = Vector2(7, 0)
+script = ExtResource("7_d338y")
+active = true
+auto_pattern_id = "patternFox"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 100
+auto_start_on_cam = true
+auto_start_after_time = 3.2
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
 
 [node name="Label" type="Label" parent="."]
 visible = false

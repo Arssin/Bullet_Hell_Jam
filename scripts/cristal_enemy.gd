@@ -15,7 +15,6 @@ var previous_global_position = Vector2.ZERO
 
 func _ready() -> void:
 	if isDestructable:
-		print('tes')
 		$HealthBar.show()
 		$HealthBar.max_healthbar = max_health
 		$HealthBar.value = val_health

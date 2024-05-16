@@ -177,176 +177,6 @@ progress = 1280.0
 [node name="Player" parent="." instance=ExtResource("2_l0xq2")]
 position = Vector2(549, 307)
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="ShootMarker" type="Marker2D" parent="Node2D" groups=["Marker"]]
-position = Vector2(550, 309)
-
-[node name="CristalEnemy" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(359, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D")
-movement_speed = 2
-
-[node name="CristalEnemy2" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D2")
-movement_speed = 2
-
-[node name="CristalEnemy3" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D3")
-movement_speed = 2
-
-[node name="CristalEnemy4" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D4")
-movement_speed = 2
-
-[node name="CristalEnemy5" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D5")
-movement_speed = 2
-
-[node name="CristalEnemy6" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D6")
-movement_speed = 2
-
-[node name="CristalEnemy7" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D7")
-movement_speed = 2
-
-[node name="CristalEnemy8" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D8")
-movement_speed = 2
-
-[node name="CristalEnemy9" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D9")
-movement_speed = 2
-
-[node name="CristalEnemy10" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(359, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D10")
-movement_speed = 2
-
-[node name="CristalEnemy11" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D11")
-movement_speed = 2
-
-[node name="CristalEnemy12" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D12")
-movement_speed = 2
-
-[node name="CristalEnemy13" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D13")
-movement_speed = 2
-
-[node name="CristalEnemy14" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D14")
-movement_speed = 2
-
-[node name="CristalEnemy15" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D15")
-movement_speed = 2
-
-[node name="CristalEnemy16" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D16")
-movement_speed = 2
-
-[node name="CristalEnemy17" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D17")
-movement_speed = 2
-
-[node name="CristalEnemy18" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D18")
-movement_speed = 2
-
-[node name="CristalEnemy19" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(359, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D19")
-movement_speed = 2
-
-[node name="CristalEnemy20" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D20")
-movement_speed = 2
-
-[node name="CristalEnemy21" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D21")
-movement_speed = 2
-
-[node name="CristalEnemy22" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D22")
-movement_speed = 2
-
-[node name="CristalEnemy23" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D23")
-movement_speed = 2
-
-[node name="CristalEnemy24" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D24")
-movement_speed = 2
-
-[node name="CristalEnemy25" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D25")
-movement_speed = 2
-
-[node name="CristalEnemy26" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D26")
-movement_speed = 2
-
-[node name="CristalEnemy27" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D27")
-movement_speed = 2
-
-[node name="CristalEnemy28" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(359, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D28")
-movement_speed = 2
-
-[node name="CristalEnemy29" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D29")
-movement_speed = 2
-
-[node name="CristalEnemy30" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D30")
-movement_speed = 2
-
-[node name="CristalEnemy31" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D31")
-movement_speed = 2
-
-[node name="CristalEnemy32" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D32")
-movement_speed = 2
-
-[node name="CristalEnemy33" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
-position = Vector2(406, 186)
-move_on_path = NodePath("../../Path2D/PathFollow2D33")
-movement_speed = 2
-
 [node name="Label" type="Label" parent="."]
 visible = false
 offset_left = 477.0
@@ -354,6 +184,10 @@ offset_top = 237.0
 offset_right = 605.0
 offset_bottom = 260.0
 text = "LVL 3 COMPLETE"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(543, 306)
+zoom = Vector2(2.055, 2.065)
 
 [node name="Doors" type="Node2D" parent="."]
 visible = false
@@ -365,6 +199,205 @@ position = Vector2(581, 185)
 [node name="Doors2" parent="Doors" instance=ExtResource("6_kbnwl")]
 position = Vector2(765, 185)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(543, 306)
-zoom = Vector2(2.055, 2.065)
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ShootMarker" type="Marker2D" parent="Node2D" groups=["Marker"]]
+position = Vector2(550, 309)
+
+[node name="CristalEnemy" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(359, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy2" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D2")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy3" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D3")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy4" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D4")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy5" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D5")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy6" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D6")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy7" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D7")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy8" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D8")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy9" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D9")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy10" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(359, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D10")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy11" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D11")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy12" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D12")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy13" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D13")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy14" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D14")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy15" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D15")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy16" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D16")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy17" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D17")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy18" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D18")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy19" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(359, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D19")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy20" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D20")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy21" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D21")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy22" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D22")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy23" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D23")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy24" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D24")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy25" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D25")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy26" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D26")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy27" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D27")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy28" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(359, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D28")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy29" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D29")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy30" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D30")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy31" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D31")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy32" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D32")
+movement_speed = 2
+isDestructable = true
+
+[node name="CristalEnemy33" parent="Node2D" node_paths=PackedStringArray("move_on_path") instance=ExtResource("3_y5qt6")]
+position = Vector2(406, 186)
+move_on_path = NodePath("../../Path2D/PathFollow2D33")
+movement_speed = 2
+isDestructable = true
