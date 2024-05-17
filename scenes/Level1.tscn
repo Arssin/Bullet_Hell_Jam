@@ -250,10 +250,6 @@ scale = Vector2(-2, 2)
 position = Vector2(405, 86)
 scale = Vector2(2, 2)
 
-[node name="Doors2" parent="." instance=ExtResource("5_dm1nn")]
-position = Vector2(562, 252)
-scale = Vector2(2.25, 2.25)
-
 [node name="Doors" type="Node2D" parent="."]
 visible = false
 position = Vector2(-19, 67)

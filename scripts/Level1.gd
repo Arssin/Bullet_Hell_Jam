@@ -7,18 +7,20 @@ extends Node2D
 func _ready():
 	pass
 	
+func _process(delta: float) -> void:
+	if doors.visible:
+		var doorsChildren = $Doors.get_children()
+		for door in doorsChildren:
+			door.colide_on()
+	
 func _on_totem_boss_died() -> void:
+	var doorsChildren = $Doors.get_children()
+	 
+	for door in doorsChildren:
+		door.colide_on()
 	$Node.queue_free()
 	label_test.show()
 	show_doors()
 
 func show_doors():
-	var doorsChildren = $Doors.get_children()
-	
-	for door in doorsChildren:
-		print(door.is_colliding)
-		door.colide_on()
-		print(door.is_colliding)
-	
-	print($Doors/Doors.is_colliding)
 	$Doors.show()
