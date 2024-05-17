@@ -10,8 +10,8 @@ var previous_global_position = Vector2.ZERO
 @onready var attack: Timer = $Attack
 
 @onready var static_lvl = get_parent().name == "Enemies4"
-@export var max_health = 50
-@export var val_health = 50
+@export var max_health = 30
+@export var val_health = 30
 
 func _ready() -> void:
 	if isDestructable:

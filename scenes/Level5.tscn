@@ -1082,8 +1082,8 @@ position = Vector2(634, 523)
 [node name="Totem" parent="." instance=ExtResource("3_b8a8b")]
 position = Vector2(632, 266)
 scale = Vector2(1.5, 1.9)
-max_health = 300
-health = 300
+max_health = 1000
+health = 1000
 
 [node name="MiniTotem" parent="." instance=ExtResource("4_xkyfd")]
 position = Vector2(303, 58)

@@ -44,9 +44,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_dir.y * speed
 		move_and_slide()
 		if move_dir.x < 0:
-			$AnimatedSprite2D.flip_h = false
-		else:
 			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
 
 
 func _on_navigation_agent_2d_target_reached() -> void:

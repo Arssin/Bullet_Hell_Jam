@@ -41,19 +41,22 @@ signal boss_open
 func _on_boss_open() -> void:
 	$Angry.start()
 	$Angry2.start()
-
-
+	$Barrier.queue_free()
+	$Barrier3.queue_free()
+	$Barrier2.queue_free()
+	$Barrier4.queue_free()
+	
 func _on_totem_boss_died() -> void:
 	$Angry2.stop()
 	$Angry.stop()
+	$AngryNode.queue_free()
+	$Totemix5.queue_free()
 	var doorsChildren = $Doors.get_children()
 	for door in doorsChildren:
 		door.colide_on()
 			
 	$Doors.show()
 	$Label.show()
-	$AngryNode.queue_free()
-	$Totemix5.queue_free()
 
 
 func _on_angry_timeout() -> void:

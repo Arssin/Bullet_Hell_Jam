@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var max_health = 100
-var health = 100
+var max_health = 150
+var health = 150
 
 func _ready():
 	$HealthBar.max_value = max_health
