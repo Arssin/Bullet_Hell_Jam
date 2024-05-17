@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwofc6vedhbhe"]
+[gd_scene load_steps=25 format=3 uid="uid://bwofc6vedhbhe"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_vtlnh"]
 [ext_resource type="Texture2D" uid="uid://c4a55cego7fn7" path="res://assets/Player.png" id="2_cbl21"]
@@ -73,11 +73,11 @@ _data = {
 
 [sub_resource type="Curve" id="Curve_xxuw0"]
 
-[sub_resource type="Resource" id="Resource_mjnsy"]
+[sub_resource type="Resource" id="Resource_mk06j"]
 script = ExtResource("8_koayw")
-ID = "pattern_id"
+ID = ""
 texture = "Player_bullet"
-collision = ""
+collision = "Player_bullet"
 SFX = ""
 tex_scale = 1.0
 tex_skew = 0.0
@@ -86,9 +86,9 @@ tex_skew = 0.0
 
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_w2v28"]
 script = ExtResource("9_8hgsj")
-anim_idle = SubResource("Resource_mjnsy")
+anim_idle = SubResource("Resource_mk06j")
 anim_more = Array[ExtResource("8_koayw")]([])
-damage = 20.0
+damage = 1.0
 speed = 200.0
 scale = 1.0
 angle = 0.0004
@@ -100,7 +100,7 @@ spec_trail_length = 0.0
 spec_trail_width = 0.0
 spec_trail_modulate = Color(1, 1, 1, 1)
 spec_rotating_speed = 0.0
-death_after_time = 10.0
+death_after_time = 30.0
 death_outside_box = Rect2(0, 0, 0, 0)
 death_from_collision = true
 a_direction_equation = ""
@@ -117,6 +117,94 @@ homing_time_start = 0.0
 homing_duration = 999.0
 scale_multi_iterations = 0
 scale_multiplier = SubResource("Curve_damdb")
+scale_multi_scale = 1.0
+r_randomisation_chances = 1.0
+r_speed_choice = PackedFloat32Array()
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = PackedFloat32Array()
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = PackedFloat32Array()
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = PackedInt32Array()
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = PackedFloat32Array()
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = PackedStringArray()
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = PackedStringArray()
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = PackedStringArray()
+r_group_target_choice = PackedStringArray()
+r_pos_target_choice = PackedVector2Array()
+r_steer_choice = PackedFloat32Array()
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = PackedFloat32Array()
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = PackedFloat32Array()
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_64q14"]
+
+[sub_resource type="Curve" id="Curve_5g4xx"]
+
+[sub_resource type="Resource" id="Resource_jdq5y"]
+script = ExtResource("8_koayw")
+ID = "pattern_ids"
+texture = "Player_bullet"
+collision = ""
+SFX = ""
+tex_scale = 1.0
+tex_skew = 0.0
+
+[sub_resource type="Curve" id="Curve_co13e"]
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_p6ill"]
+script = ExtResource("9_8hgsj")
+anim_idle = SubResource("Resource_jdq5y")
+anim_more = Array[ExtResource("8_koayw")]([])
+damage = 1.0
+speed = 200.0
+scale = 1.0
+angle = 0.0
+groups = PackedStringArray()
+spec_bounces = 0
+spec_no_collision = false
+spec_modulate_loop = 0.0
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_rotating_speed = 0.0
+death_after_time = 30.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+a_direction_equation = ""
+a_curve_movement = 0
+a_speed_multiplier = SubResource("Curve_5g4xx")
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("")
+homing_steer = 0.0
+homing_time_start = 0.0
+homing_duration = 999.0
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_co13e")
 scale_multi_scale = 1.0
 r_randomisation_chances = 1.0
 r_speed_choice = PackedFloat32Array()
@@ -186,6 +274,12 @@ position = Vector2(0, 0.666667)
 [node name="FromTarget" type="Marker2D" parent="WeaponMarker"]
 position = Vector2(6.66667, -5.96046e-08)
 
+[node name="FromTarget2" type="Marker2D" parent="WeaponMarker"]
+position = Vector2(6.659, 12.805)
+
+[node name="Target2" type="Marker2D" parent="WeaponMarker"]
+position = Vector2(8.662, 12.805)
+
 [node name="Target" type="Marker2D" parent="WeaponMarker"]
 position = Vector2(8.66667, -7.94729e-08)
 
@@ -239,6 +333,12 @@ curve = SubResource("Curve2D_7vgt6")
 script = ExtResource("8_5671t")
 id = "2"
 props = SubResource("PackedDataContainer_w2v28")
+
+[node name="BulletPattern2" type="Path2D" parent="Shoot"]
+curve = SubResource("Curve2D_64q14")
+script = ExtResource("8_5671t")
+id = "111"
+props = SubResource("PackedDataContainer_p6ill")
 
 [connection signal="timeout" from="PlayerAttack" to="." method="_on_player_attack_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

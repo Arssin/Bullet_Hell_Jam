@@ -26,10 +26,17 @@ func _ready() -> void:
 	PlayerGlobals.player_dead.connect(_player_death)
 	animation_player.play("Idle")
 	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("attack") && player_can_attack or Input.is_action_pressed("attack") && player_can_attack:
+		attack_spawn()
+		$PlayerAttack.start()
+		player_can_attack = false
+	
 
 func _physics_process(delta: float) -> void:
 	var position_mouse_x = get_global_mouse_position().x
 	$WeaponMarker.look_at(get_global_mouse_position())
+	
 
 	if position_mouse_x < global_position.x:
 		sprite_2d.flip_h = true
@@ -65,13 +72,7 @@ func dash(direction):
 	
 func _input(event: InputEvent) -> void:
 	var input_direction = Input.get_vector("move_left","move_right","move_up", "move_down")
-	
-	if Input.is_action_just_pressed("attack") && player_can_attack:
-		attack_spawn()
-		$PlayerAttack.start()
-		player_can_attack = false
 		
-
 	if input_direction:
 		animation_player.play("Run")
 		velocity = input_direction * PlayerGlobals.player_move_speed
@@ -119,18 +120,25 @@ func _on_dash_cd_timeout() -> void:
 	
 	
 var new_pattern: PatternLine = PatternLine.new()
-
+var pattern_two : PatternOne = PatternOne.new()
 
 func attack_spawn():
 	new_pattern.offset = Vector2i(0,0)
 	new_pattern.bullet = "2"
-	new_pattern.nbr = 1
-	new_pattern.forced_lookat_mouse = true
-	new_pattern.forced_pattern_lookat = false
+	new_pattern.nbr = 20
+	#new_pattern.forced_pattern_lookat = true
 	new_pattern.forced_target = NodePath("../../WeaponMarker/Target")
 	Spawning.new_pattern("pattern_id", new_pattern)
 	
-	Spawning.spawn({"position": $WeaponMarker/FromTarget.global_position, "rotation": 0}, "pattern_id", "player")
+	Spawning.spawn({"position": $WeaponMarker/FromTarget.global_position, "rotation": $WeaponMarker.rotation}, "pattern_id", "player")
+	
+	pattern_two.bullet = "111"
+	pattern_two.nbr = 20
+	#pattern_two.forced_pattern_lookat = true
+	pattern_two.forced_target = NodePath("../../WeaponMarker/Target/Target2")
+	Spawning.new_pattern("pattern_ids", pattern_two)
+
+	Spawning.spawn({"position": $WeaponMarker/FromTarget2.global_position, "rotation": $WeaponMarker.rotation}, "pattern_ids", "player")
 
 
 
