@@ -176,6 +176,7 @@ zoom = Vector2(1.845, 1.05)
 position_smoothing_speed = 1000.0
 
 [node name="Player" parent="." instance=ExtResource("2_jqof1")]
+z_index = 0
 position = Vector2(658, 357)
 scale = Vector2(1.6, 1.6)
 
@@ -186,16 +187,6 @@ offset_top = 236.0
 offset_right = 702.0
 offset_bottom = 259.0
 text = "BOSS DIED!"
-
-[node name="Doors" type="Node2D" parent="."]
-visible = false
-position = Vector2(-19, 67)
-
-[node name="Doors" parent="Doors" instance=ExtResource("5_dm1nn")]
-position = Vector2(581, 185)
-
-[node name="Doors2" parent="Doors" instance=ExtResource("5_dm1nn")]
-position = Vector2(765, 185)
 
 [node name="Node" type="Node2D" parent="."]
 position = Vector2(658, 14)
@@ -258,5 +249,19 @@ scale = Vector2(-2, 2)
 [node name="Philar" parent="." instance=ExtResource("13_x7v24")]
 position = Vector2(405, 86)
 scale = Vector2(2, 2)
+
+[node name="Doors2" parent="." instance=ExtResource("5_dm1nn")]
+position = Vector2(562, 252)
+scale = Vector2(2.25, 2.25)
+
+[node name="Doors" type="Node2D" parent="."]
+visible = false
+position = Vector2(-19, 67)
+
+[node name="Doors" parent="Doors" instance=ExtResource("5_dm1nn")]
+position = Vector2(581, 185)
+
+[node name="Doors2" parent="Doors" instance=ExtResource("5_dm1nn")]
+position = Vector2(765, 185)
 
 [connection signal="boss_died" from="Totem" to="." method="_on_totem_boss_died"]

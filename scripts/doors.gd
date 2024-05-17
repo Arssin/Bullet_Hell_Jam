@@ -9,6 +9,7 @@ var player_in_area = false
 
 var my_random_number_positive: int
 var my_random_number_negative: int
+@export var is_colliding = false
 
 func _ready() -> void:
 	my_random_number_positive = rng.randi_range(0, 1)
@@ -47,4 +48,5 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		%Label.hide()
 		
 func colide_on():
+	is_colliding = true
 	$StaticBody2D/CollisionShape2D.disabled = false
