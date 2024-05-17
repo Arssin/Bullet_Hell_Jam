@@ -99,4 +99,12 @@ bus = &"MUSIC"
 position = Vector2(579, 311)
 bus = &"SFX"
 
+[node name="SFX_PLAYER" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(579, 308)
+bus = &"SFX_PLAYER"
+
+[node name="SFX_ENEMY" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(577, 310)
+bus = &"SFX_ENEMY"
+
 [connection signal="pressed" from="Menu/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]

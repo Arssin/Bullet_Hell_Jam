@@ -8,7 +8,8 @@ class_name Player
 @onready var ghost_timer: Timer = $GhostTimer
 @onready var bullet_pattern: Path2D = $Shoot/BulletPattern
 
-
+const PLAYER_GOT_HIT = preload("res://music/player_got_hit.wav")
+const ATTACK_PLAYER = preload("res://music/attack_player.wav")
 
 var is_immortal = false
 var player_can_attack = true
@@ -99,6 +100,9 @@ func update_player_healthbar(value):
 	health_bar.value = value
 
 func _on_dmg_taken(value):
+	var SFX = get_node("../../../SFX_PLAYER")
+	SFX.stream = PLAYER_GOT_HIT
+	SFX.play()
 	update_player_healthbar(value)
 	
 func _player_death():
@@ -121,6 +125,9 @@ var pattern_two : PatternOne = PatternOne.new()
 var pattern_three : PatternOne = PatternOne.new()
 
 func attack_spawn():
+	var SFX = get_node("../../../SFX_PLAYER")
+	SFX.stream = ATTACK_PLAYER
+	SFX.play()
 	new_pattern.offset = Vector2i(0,0)
 	new_pattern.bullet = "2"
 	new_pattern.nbr = 1
