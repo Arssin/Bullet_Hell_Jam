@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var label: Label = %Label
+var selected_doors = load("res://music/selected_area.wav")
 
 var rng = RandomNumberGenerator.new()
 
@@ -11,6 +12,8 @@ var my_random_number_positive: int
 var my_random_number_negative: int
 @export var is_colliding = false
 @onready var DoorsRewards = %DoorsRewards
+
+@onready var doorsShape = $StaticBody2D/CollisionShape2D
 
 func _ready() -> void:
 	my_random_number_positive = rng.randi_range(0, 1)
@@ -30,6 +33,9 @@ func _ready() -> void:
 
 func _input(event):
 	if Input.is_action_just_pressed("player_action") && player_in_area:
+		var get_sfx = get_node('../../../../SFX')
+		get_sfx.stream = selected_doors
+		get_sfx.play()
 		Randomizer.create_positive_bonus(my_random_number_positive)
 		Randomizer.create_negative_bonus(my_random_number_negative)
 		var lvlName = get_parent().get_parent().name
@@ -51,5 +57,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		%DoorsRewards.hide()
 		
 func colide_on():
-	is_colliding = true
-	$StaticBody2D/CollisionShape2D.disabled = false
+	if !is_colliding:
+		is_colliding = true
+		$StaticBody2D/CollisionShape2D.disabled = false
+		$AnimatedSprite2D.play('default')

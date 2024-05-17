@@ -83,7 +83,11 @@ text = "EXIT"
 unique_name_in_owner = true
 
 [node name="MUSIC" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(579, 311)
+bus = &"MUSIC"
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(579, 311)
+bus = &"SFX"
 
 [connection signal="pressed" from="Menu/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]

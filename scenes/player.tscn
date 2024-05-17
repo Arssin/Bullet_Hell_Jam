@@ -365,6 +365,14 @@ position = Vector2(6.66667, -5.96046e-08)
 [node name="FromTarget2" type="Marker2D" parent="WeaponMarker"]
 position = Vector2(6.659, 12.805)
 
+[node name="FromTarget3" type="Marker2D" parent="WeaponMarker"]
+position = Vector2(6.659, -12.805)
+scale = Vector2(1, 1)
+
+[node name="Target3" type="Marker2D" parent="WeaponMarker"]
+position = Vector2(8.662, -12.805)
+scale = Vector2(1, 1)
+
 [node name="Target2" type="Marker2D" parent="WeaponMarker"]
 position = Vector2(8.662, 12.805)
 

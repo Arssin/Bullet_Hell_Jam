@@ -11,5 +11,6 @@ func _process(delta: float) -> void:
 			door.colide_on()
 			
 		$Doors.show()
+		
 		$Label.show()
 		lvl_end = true
