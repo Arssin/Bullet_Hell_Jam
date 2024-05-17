@@ -7,8 +7,14 @@ func _ready():
 	$HealthBar.max_value = max_health
 	$HealthBar.value = hp
 
-func get_hit(value):
-	hp = hp - (value + PlayerGlobals.additional_dmg)
+func get_hit(value,props):
+	var propsId = props["__ID__"]
+	var additional = 0
+	if int(propsId) == 112 or int(propsId) == 111:
+		additional += 0
+	if int(propsId) == 2:
+		additional += PlayerGlobals.additional_dmg
+	hp = hp - (value + additional)
 	$HealthBar.update_healthbar(hp)
 	if hp <= 0:
 		die()

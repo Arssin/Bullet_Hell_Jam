@@ -20,7 +20,6 @@ func get_hit(value, props):
 		additional += 0
 	if int(propsId) == 2:
 		additional += PlayerGlobals.additional_dmg
-	print(value + additional)
 	health = health - (value + additional)
 	$anim.play("get_hit")
 	if health <= 0:

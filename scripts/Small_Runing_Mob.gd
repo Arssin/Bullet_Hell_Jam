@@ -105,8 +105,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func die():
 	queue_free()
 		
-func get_hit(value):
-	health = health - (value + PlayerGlobals.additional_dmg)
+func get_hit(value, props):
+	var propsId = props["__ID__"]
+	var additional = 0
+	if int(propsId) == 112 or int(propsId) == 111:
+		additional += 0
+	if int(propsId) == 2:
+		additional += PlayerGlobals.additional_dmg
+	health = health - (value + additional)
 	if health <= 0:
 		die()
 	else:

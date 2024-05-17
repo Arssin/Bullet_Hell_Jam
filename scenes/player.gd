@@ -10,9 +10,6 @@ class_name Player
 
 
 
-
-var rock := preload("res://player/player_projectile_rock.tscn")
-
 var is_immortal = false
 var player_can_attack = true
 var dash_on_cd = false

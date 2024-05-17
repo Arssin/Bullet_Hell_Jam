@@ -61,9 +61,15 @@ func _on_attack_timeout() -> void:
 	attack_spawn()
 	
 	
-func get_hit(value):
+func get_hit(value,props):
 	if isDestructable:
-		val_health = val_health - (value + PlayerGlobals.additional_dmg)
+		var propsId = props["__ID__"]
+		var additional = 0
+		if int(propsId) == 112 or int(propsId) == 111:
+			additional += 0
+		if int(propsId) == 2:
+			additional += PlayerGlobals.additional_dmg
+		val_health = val_health - (value + additional)
 		$HealthBar.update_healthbar(val_health)
 		if val_health <= 0:
 			die()

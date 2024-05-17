@@ -9,8 +9,14 @@ func _ready():
 	$AnimatedSprite2D.play("static")
 	
 
-func get_hit(value):
-	health = health - (value + PlayerGlobals.additional_dmg)
+func get_hit(value,props):
+	var propsId = props["__ID__"]
+	var additional = 0
+	if int(propsId) == 112 or int(propsId) == 111:
+		additional += 0
+	if int(propsId) == 2:
+		additional += PlayerGlobals.additional_dmg
+	health = health - (value + additional)
 	$AnimatedSprite2D.play("get_hit")
 	$HealthBar.update_healthbar(health)
 	if health <= 0:
