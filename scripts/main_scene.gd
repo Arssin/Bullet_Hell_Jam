@@ -7,6 +7,8 @@ extends Control
 var menu_song = load("res://music/menusong.wav")
 var game_song = load("res://music/BulletHellMainSong.wav")
 
+@onready var dead: Control = $CanvasLayer/DEAD
+
 
 func _ready():
 	music.stream = menu_song
@@ -25,4 +27,4 @@ func _on_start_game_pressed() -> void:
 
 
 func _on_restart_pressed() -> void:
-	print(%Main.get_child(0))
+	GlobalManager.restart_game()

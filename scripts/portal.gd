@@ -9,7 +9,7 @@ var mob_pool: Array = []
 var portal_spawn_count = 0
 
 func _ready() -> void:
-	timer.wait_time = randf_range(0.3, 1)
+	timer.wait_time = randf_range(2.1, 4.2)
 	animated_sprite_2d.play("portal_resp")
 
 

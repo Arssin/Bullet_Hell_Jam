@@ -52,7 +52,7 @@ script = ExtResource("4_kg4tj")
 anim_idle = SubResource("Resource_qupct")
 anim_more = Array[ExtResource("4_icf5a")]([])
 damage = 5.0
-speed = 80.0
+speed = 60.0
 scale = 1.0
 angle = 0.0
 groups = PackedStringArray()
@@ -76,8 +76,8 @@ trigger_wait_for_shot = true
 homing_type = 3
 homing_group = "Player"
 homing_select_in_group = 0
-homing_steer = 30.0
-homing_time_start = 0.2
+homing_steer = 20.0
+homing_time_start = 1.0
 homing_duration = 999.0
 scale_multi_iterations = 0
 scale_multiplier = SubResource("Curve_bnbph")
@@ -146,6 +146,7 @@ position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_2ittl")
 
 [node name="AttackCd" type="Timer" parent="."]
+wait_time = 1.5
 
 [node name="Marker_1" type="Marker2D" parent="."]
 

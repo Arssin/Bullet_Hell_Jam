@@ -15,8 +15,8 @@ var my_random_number_negative: int
 @onready var doorsShape = $StaticBody2D/CollisionShape2D
 
 func _ready() -> void:
-	my_random_number_positive = rng.randi_range(0, 1)
-	my_random_number_negative = rng.randi_range(0, 1)
+	my_random_number_positive = rng.randi_range(0, 2)
+	my_random_number_negative = rng.randi_range(0, 2)
 	if my_random_number_positive == my_random_number_negative:
 		if my_random_number_negative <= 0:
 			my_random_number_negative += 1

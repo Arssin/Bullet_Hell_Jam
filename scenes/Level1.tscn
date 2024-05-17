@@ -169,7 +169,8 @@ layer_0/tile_data = PackedInt32Array(1507332, 65536, 2, 1572868, 65536, 2, 16384
 [node name="Totem" parent="." instance=ExtResource("3_a8l6e")]
 position = Vector2(654, -7.62939e-06)
 scale = Vector2(1.2, 1.8)
-health = 100
+max_health = 500
+health = 500
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(656.78, 221.985)
@@ -199,7 +200,7 @@ active = true
 auto_pattern_id = "circle"
 shared_area_name = "two"
 rotating_speed = 10.0
-pool_amount = 50
+pool_amount = 100
 auto_start_on_cam = true
 auto_start_after_time = 1.0
 auto_start_at_distance = 5.0
@@ -226,9 +227,9 @@ active = true
 auto_pattern_id = "linepat"
 shared_area_name = "two"
 rotating_speed = 0.015
-pool_amount = 50
+pool_amount = 80
 auto_start_on_cam = true
-auto_start_after_time = 10.0
+auto_start_after_time = 3.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
 trigger_container = NodePath("")

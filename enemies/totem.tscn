@@ -59,3 +59,12 @@ offset_top = -26.0
 offset_right = -289.0
 offset_bottom = -7.0
 grow_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/HealthBar"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = -26.0
+offset_right = 527.0
+offset_bottom = -3.0
+text = "BRRR BRR TOTEM"
+horizontal_alignment = 1

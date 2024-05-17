@@ -8,7 +8,7 @@ var speed: int = 30
 @onready var sprite = get_node("AnimatedSprite2D")
 @onready var agent: NavigationAgent2D = get_node("NavigationAgent2D")
 @onready var attack_cd: Timer = $AttackCd
-var max_health = 50
+var max_health = 25
 var health = max_health
 @onready var health_bar: TextureProgressBar = $HealthBar
 
@@ -22,7 +22,7 @@ var home_position: Vector2
 func _ready() -> void:
 	if !isLookingPlayer:
 		$AttackCd.start()
-	attack_cd.wait_time = randf_range(0.4, 2)
+	attack_cd.wait_time = randf_range(1.3, 3.2)
 	home_position = self.global_position
 	health_bar.max_value = max_health
 	health_bar.value = health
@@ -43,10 +43,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_dir.x * speed
 		velocity.y = move_dir.y * speed
 		move_and_slide()
-		#if direction.x < 0:
-			#sprite.flip_h = false
-		#else:
-			#sprite.flip_h = true
+		if move_dir.x < 0:
+			$AnimatedSprite2D.flip_h = false
+		else:
+			$AnimatedSprite2D.flip_h = true
 
 
 func _on_navigation_agent_2d_target_reached() -> void:

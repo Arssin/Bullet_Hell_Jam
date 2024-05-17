@@ -106,6 +106,7 @@ func _on_dmg_taken(value):
 	update_player_healthbar(value)
 	
 func _player_death():
+	var SFX = get_node("../../../SFX_PLAYER")
 	var showDead = get_node('../../../CanvasLayer/DEAD')
 	showDead.visible = true
 	get_tree().paused = true
@@ -138,19 +139,22 @@ func attack_spawn():
 	
 	Spawning.spawn({"position": $WeaponMarker/FromTarget.global_position, "rotation": $WeaponMarker.rotation}, "pattern_id", "player")
 	
-	pattern_two.bullet = "111"
-	pattern_two.nbr = 1
-	pattern_two.forced_target = NodePath("../../WeaponMarker/Target/Target2")
-	Spawning.new_pattern("pattern_ids", pattern_two)
+	if PlayerGlobals.player2ndShoot:
+		pattern_two.bullet = "111"
+		pattern_two.nbr = 1
+		pattern_two.forced_target = NodePath("../../WeaponMarker/Target/Target2")
+		Spawning.new_pattern("pattern_ids", pattern_two)
 
-	Spawning.spawn({"position": $WeaponMarker/FromTarget2.global_position, "rotation": $WeaponMarker.rotation}, "pattern_ids", "player")
+
+		Spawning.spawn({"position": $WeaponMarker/FromTarget2.global_position, "rotation": $WeaponMarker.rotation}, "pattern_ids", "player")
 	
-	pattern_three.bullet = "112"
-	pattern_three.nbr = 1
-	pattern_three.forced_target = NodePath("../../WeaponMarker/Target/Target3")
-	Spawning.new_pattern("pattern_idss", pattern_three)
+	if PlayerGlobals.player3rdShoot:
+		pattern_three.bullet = "112"
+		pattern_three.nbr = 1
+		pattern_three.forced_target = NodePath("../../WeaponMarker/Target/Target3")
+		Spawning.new_pattern("pattern_idss", pattern_three)
 
-	Spawning.spawn({"position": $WeaponMarker/FromTarget3.global_position, "rotation": $WeaponMarker.rotation}, "pattern_idss", "player")
+		Spawning.spawn({"position": $WeaponMarker/FromTarget3.global_position, "rotation": $WeaponMarker.rotation}, "pattern_idss", "player")
 
 
 
