@@ -10,7 +10,6 @@ var player_in_area = false
 
 var my_random_number_positive: int
 var my_random_number_negative: int
-@export var is_colliding = false
 @onready var DoorsRewards = %DoorsRewards
 
 @onready var doorsShape = $StaticBody2D/CollisionShape2D
@@ -57,7 +56,5 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		%DoorsRewards.hide()
 		
 func colide_on():
-	if !is_colliding:
-		is_colliding = true
-		$StaticBody2D/CollisionShape2D.disabled = false
-		$AnimatedSprite2D.play('default')
+	$StaticBody2D/CollisionShape2D.disabled = false
+	$AnimatedSprite2D.play('default')

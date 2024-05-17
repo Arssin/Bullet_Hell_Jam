@@ -74,10 +74,10 @@ visible = false
 position = Vector2(-73, 62)
 
 [node name="Doors" parent="Doors" instance=ExtResource("5_at8e1")]
-position = Vector2(581, 185)
+position = Vector2(571, 276)
 
 [node name="Doors2" parent="Doors" instance=ExtResource("5_at8e1")]
-position = Vector2(765, 185)
+position = Vector2(571, 138)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(588, 257)

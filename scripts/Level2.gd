@@ -6,6 +6,8 @@ var thridC = false
 var fourthC = false
 var completeLvl = false
 
+const MENUSONG = preload("res://music/doors_open.wav")
+
 func check_portal(portalN: String):
 	var portal = get_node_or_null(portalN)
 	
@@ -31,8 +33,12 @@ func _on_timer_timeout() -> void:
 		completeLvl = false
 		
 	if completeLvl:
+		var sound = get_node('../../SFX')
+		sound.stream = MENUSONG
+		sound.play()
 		$Label.show()
 		show_doors()
+		$Timer.stop()
 		
 func show_doors():
 	var doorsChildren = %Doors.get_children()

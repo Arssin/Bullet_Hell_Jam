@@ -7,7 +7,7 @@ var seconds: int = 0
 var time_still_count = true
 var showed_all = false
 
-
+const DOORS_OPEN = preload("res://music/doors_open.wav")
 
 func _process(delta: float) -> void:
 	var enemy = $Enemies4
@@ -26,6 +26,9 @@ func _process(delta: float) -> void:
 		for door in doorsChildren:
 			door.colide_on()
 			
+		var sound = get_node('../../SFX')
+		sound.stream = DOORS_OPEN
+		sound.play()
 		$Doors.show()
 		%TimerLvl4.text = "LVL END!"
 		showed_all = true
