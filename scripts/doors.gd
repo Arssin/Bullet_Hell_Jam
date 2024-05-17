@@ -10,6 +10,7 @@ var player_in_area = false
 var my_random_number_positive: int
 var my_random_number_negative: int
 @export var is_colliding = false
+@onready var DoorsRewards = %DoorsRewards
 
 func _ready() -> void:
 	my_random_number_positive = rng.randi_range(0, 1)
@@ -21,7 +22,9 @@ func _ready() -> void:
 			my_random_number_negative -= 1
 	var positve_text = Randomizer.create_positive_text(my_random_number_positive)
 	var negative_text = Randomizer.create_negative_text(my_random_number_negative)
-	%Label.text = positve_text + " " + "BUT" + " " + negative_text
+	%DoorsRewards/Panel/Container/VBoxContainer/Text.text = positve_text
+	%DoorsRewards/Panel/Container/VBoxContainer/Text2.text = negative_text
+	
 
 	
 
@@ -39,13 +42,13 @@ func _input(event):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player_in_area = true
-		%Label.show()
+		%DoorsRewards.show()
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_in_area = false
-		%Label.hide()
+		%DoorsRewards.hide()
 		
 func colide_on():
 	is_colliding = true
