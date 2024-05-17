@@ -106,7 +106,9 @@ func _on_dmg_taken(value):
 	update_player_healthbar(value)
 	
 func _player_death():
-	queue_free()
+	var showDead = get_node('../../../CanvasLayer/DEAD')
+	showDead.visible = true
+	get_tree().paused = true
 	
 
 

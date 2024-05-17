@@ -22,3 +22,7 @@ func _on_start_game_pressed() -> void:
 	music.stream = game_song
 	music.play()
 	%Menu.hide()
+
+
+func _on_restart_pressed() -> void:
+	print(%Main.get_child(0))
