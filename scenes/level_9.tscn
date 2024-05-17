@@ -653,7 +653,7 @@ forced_target = NodePath("")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
-cooldown_spawn = 12.0
+cooldown_spawn = 10.0
 cooldown_shoot = 2.0
 cooldown_next_spawn = 0.0
 cooldown_next_shoot = 0.0
@@ -741,7 +741,28 @@ r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [sub_resource type="Curve2D" id="Curve2D_fw4rf"]
 
-[sub_resource type="Curve2D" id="Curve2D_5q0h7"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6u7r2"]
+resource_name = "PatternOne"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("7_2fatp")
+bullet = "57"
+nbr = 1
+iterations = -1
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+forced_angle = 0.785398
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
 
 [node name="Level9" type="Node2D"]
 
@@ -938,7 +959,7 @@ shared_area_name = "two"
 rotating_speed = 0.0
 pool_amount = 50
 auto_start_on_cam = true
-auto_start_after_time = 8.0
+auto_start_after_time = 12.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
 trigger_container = NodePath("")
@@ -954,7 +975,18 @@ props = SubResource("PackedDataContainer_vwxh0")
 [node name="SpawnPattern" type="Path2D" parent="Pattern8"]
 curve = SubResource("Curve2D_fw4rf")
 script = ExtResource("7_880xk")
+id = "boss_patt1"
+pattern = SubResource("NavigationPolygon_6u7r2")
 
-[node name="SpawnPattern2" type="Path2D" parent="Pattern8"]
-curve = SubResource("Curve2D_5q0h7")
-script = ExtResource("7_880xk")
+[node name="SpawnPoint" type="Node2D" parent="Pattern8"]
+script = ExtResource("6_akayk")
+active = true
+auto_pattern_id = "boss_patt1"
+shared_area_name = "two"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 24.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
