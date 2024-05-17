@@ -13,8 +13,15 @@ func _ready() -> void:
 func die():
 	queue_free()
 		
-func get_hit(value):
-	health = health - (value + PlayerGlobals.additional_dmg)
+func get_hit(value, props):
+	var propsId = props["__ID__"]
+	var additional = 0
+	if int(propsId) == 112 or int(propsId) == 111:
+		additional += 0
+	if int(propsId) == 2:
+		additional += PlayerGlobals.additional_dmg
+	print(value + additional)
+	health = health - (value + additional)
 	$anim.play("get_hit")
 	if health <= 0:
 		emit_signal("boss_died")

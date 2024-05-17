@@ -10,7 +10,7 @@ func bonusGenerator(number_good, number_bad):
 func create_positive_text(number):
 	var positive_text: String
 	if number == 0:
-		positive_text = "More DMG!"
+		positive_text = "DEAL MORE DMG"
 	elif number == 1:
 		positive_text = "MORE SPEED"
 	return positive_text
@@ -27,13 +27,13 @@ func create_negative_text(number):
 
 func create_positive_bonus(number):
 	if number == 0:
-		PlayerGlobals.additional_dmg = 40
+		PlayerGlobals.additional_dmg += 5
 	elif number == 1:
 		PlayerGlobals.player_move_speed += 50
 		
 func create_negative_bonus(number):
 	if number == 0:
-		PlayerGlobals.additional_dmg -= 40
+		PlayerGlobals.additional_dmg -= 5
 	elif number == 1:
 		PlayerGlobals.player_move_speed -= 50
 		

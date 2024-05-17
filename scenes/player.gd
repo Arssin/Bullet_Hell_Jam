@@ -126,21 +126,21 @@ var pattern_three : PatternOne = PatternOne.new()
 func attack_spawn():
 	new_pattern.offset = Vector2i(0,0)
 	new_pattern.bullet = "2"
-	new_pattern.nbr = 15
+	new_pattern.nbr = 1
 	new_pattern.forced_target = NodePath("../../WeaponMarker/Target")
 	Spawning.new_pattern("pattern_id", new_pattern)
 	
 	Spawning.spawn({"position": $WeaponMarker/FromTarget.global_position, "rotation": $WeaponMarker.rotation}, "pattern_id", "player")
 	
 	pattern_two.bullet = "111"
-	pattern_two.nbr = 15
+	pattern_two.nbr = 1
 	pattern_two.forced_target = NodePath("../../WeaponMarker/Target/Target2")
 	Spawning.new_pattern("pattern_ids", pattern_two)
 
 	Spawning.spawn({"position": $WeaponMarker/FromTarget2.global_position, "rotation": $WeaponMarker.rotation}, "pattern_ids", "player")
 	
 	pattern_three.bullet = "112"
-	pattern_three.nbr = 15
+	pattern_three.nbr = 1
 	pattern_three.forced_target = NodePath("../../WeaponMarker/Target/Target3")
 	Spawning.new_pattern("pattern_idss", pattern_three)
 

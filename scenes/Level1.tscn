@@ -169,6 +169,7 @@ layer_0/tile_data = PackedInt32Array(1507332, 65536, 2, 1572868, 65536, 2, 16384
 [node name="Totem" parent="." instance=ExtResource("3_a8l6e")]
 position = Vector2(654, -7.62939e-06)
 scale = Vector2(1.2, 1.8)
+health = 100
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(656.78, 221.985)

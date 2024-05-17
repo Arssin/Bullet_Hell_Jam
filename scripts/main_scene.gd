@@ -13,6 +13,9 @@ func _ready():
 	music.play()
 
 
+func _process(delta: float) -> void:
+	$CanvasLayer/HUD/Label.text = str(PlayerGlobals.additional_dmg) + " "  + str(PlayerGlobals.player_move_speed)
+
 
 func _on_start_game_pressed() -> void:
 	GlobalManager.new_game()
