@@ -22,7 +22,7 @@ func _ready() -> void:
 	Spawning.create_pool("111","player",150)
 	Spawning.create_pool("112","player",150)
 	health_bar.max_value = PlayerGlobals.player_max_health
-	health_bar.value = PlayerGlobals.player_max_health
+	health_bar.value = PlayerGlobals.player_health
 	PlayerGlobals.player_get_dmg.connect(_on_dmg_taken)
 	PlayerGlobals.player_dead.connect(_player_death)
 	animation_player.play("Idle")

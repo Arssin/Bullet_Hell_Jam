@@ -14,6 +14,8 @@ var previous_global_position = Vector2.ZERO
 @export var val_health = 30
 
 func _ready() -> void:
+	Spawning.create_pool("4","two", 150)
+	Spawning.create_pool("5","two", 150)
 	if isDestructable:
 		$HealthBar.show()
 		$HealthBar.max_healthbar = max_health
