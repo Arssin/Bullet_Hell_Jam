@@ -30,7 +30,7 @@ func attack_spawn():
 	if !dead:
 		new_pattern.offset = Vector2i(0,0)
 		new_pattern.bullet = "14"
-		new_pattern.nbr = 10
+		new_pattern.nbr = 1
 		new_pattern.forced_pattern_lookat = true
 		Spawning.new_pattern("black_knight", new_pattern)
 			

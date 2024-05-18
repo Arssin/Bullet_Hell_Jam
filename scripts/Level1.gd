@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	
 func _on_totem_boss_died() -> void:
 	var doorsChildren = $Doors.get_children()
-	 
+	Spawning.reset_bullets()
 	for door in doorsChildren:
 		door.colide_on()
 	$Node.queue_free()

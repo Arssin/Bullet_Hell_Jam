@@ -18,7 +18,8 @@ func _ready() -> void:
 		$HealthBar.show()
 		$HealthBar.max_healthbar = max_health
 		$HealthBar.value = val_health
-		attack.wait_time = randf_range(3,7)
+		attack.wait_time = randf_range(4,9)
+		$Attack.start()
 	else:
 		attack.wait_time = randf_range(0.7,1.5)
 	$Attack.start()

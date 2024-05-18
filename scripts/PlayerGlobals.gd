@@ -22,6 +22,8 @@ func reset_all():
 	player_health = player_max_health
 	additional_dmg = additional_dmgs
 	player_move_speed = player_move_speeds
+	player3rdShoot = false
+	player2ndShoot = false
 
 @export var player_health = player_max_health:
 	get:

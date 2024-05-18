@@ -23,7 +23,6 @@ func get_hit(value, props):
 		additional += PlayerGlobals.additional_dmg
 	health = health - (value + additional)
 	var sfx = get_node('/root/MainScene/SFX_ENEMY')
-	print(sfx)
 	sfx.stream = GET_HIT_ENEMY
 	sfx.play() 
 	#$anim.play("get_hit")

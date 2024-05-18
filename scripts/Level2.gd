@@ -39,6 +39,7 @@ func _on_timer_timeout() -> void:
 		$Label.show()
 		show_doors()
 		$Timer.stop()
+		Spawning.reset_bullets()
 		
 func show_doors():
 	var doorsChildren = %Doors.get_children()
