@@ -1,6 +1,5 @@
 extends RayCast2D
 
-var collided = false
 
 var is_casting: bool = false :
 	set(value): 
@@ -8,7 +7,6 @@ var is_casting: bool = false :
 		
 	
 		if is_casting:
-			collided = false
 			appear()
 		else:
 			disapear()
@@ -21,21 +19,11 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	var cast_point := target_position
 	force_raycast_update()
-	
-	
+
 	if is_colliding():
 		cast_point = to_local(get_collision_point())
 		var collider = get_collider()
-		
-		if collider is Player && !collided:
-			collided = true
-			PlayerGlobals.player_health -= 1
-			disapear()
-
-	$Line2D.points[1] = cast_point
-
-	
-
+		print(collider, cast_point)
 		
 func appear() -> void:
 	var tween = create_tween()
@@ -50,11 +38,16 @@ func disapear() -> void:
 func _on_timer_timeout() -> void:
 	self.is_casting = true
 	%Timer.stop()
-	%EndLaser.start()
+	%Timer2.start()
 
 
 func _on_end_laser_timeout() -> void:
 	self.is_casting = false
-	%EndLaser.stop()
+	%Timer2.stop()
 	%Timer.start()
-	
+
+
+func _on_timer_2_timeout() -> void:
+	self.is_casting = false
+	%Timer2.stop()
+	%Timer.start()

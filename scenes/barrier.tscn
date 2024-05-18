@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bytrpdjymjajc"]
+[gd_scene load_steps=4 format=3 uid="uid://bytrpdjymjajc"]
 
+[ext_resource type="Script" path="res://scripts/barrier.gd" id="1_2mocv"]
 [ext_resource type="Texture2D" uid="uid://lsc2qblu1vha" path="res://assets/blockers.png" id="1_arjl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ug4rf"]
@@ -8,6 +9,7 @@ size = Vector2(42, 19)
 [node name="Barrier" type="StaticBody2D"]
 collision_layer = 128
 collision_mask = 4
+script = ExtResource("1_2mocv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_arjl4")

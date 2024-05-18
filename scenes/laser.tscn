@@ -9,6 +9,8 @@ scale = Vector2(1.5, 1.5)
 script = ExtResource("1_b0w42")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.666667, 2)
+rotation = 3.14159
 texture = ExtResource("1_aca70")
 
 [node name="Timer" type="Timer" parent="."]
@@ -18,16 +20,18 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 wait_time = 2.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-0.39, 3.333)
+position = Vector2(-0.025, -4.037)
 scale = Vector2(2, 2)
-target_position = Vector2(0, -36)
+target_position = Vector2(0, 0)
 collision_mask = 133
 script = ExtResource("3_6rp8i")
 
 [node name="Line2D" type="Line2D" parent="RayCast2D"]
-position = Vector2(-0.267, 0)
-points = PackedVector2Array(0.39, -47.9997, 0.39, -0.666333)
+position = Vector2(0.195, -0.999833)
+points = PackedVector2Array(-0.1825, 2.685, 0, 40)
 default_color = Color(0.547556, 0.158775, 0.1243, 1)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

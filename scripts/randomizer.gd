@@ -28,13 +28,14 @@ func create_positive_text(number):
 
 
 func create_negative_text(number):
+	print(number)
 	if number == 0 && PlayerGlobals.additional_dmg <= 0:
 		number + 1
 	elif number == 1 && PlayerGlobals.player_move_speed <= 60:
 		number + 1
 	elif !PlayerGlobals.player2ndShoot:
 		number - 1
-	
+	print(number)
 	var negative_text: String
 	if number == 0:
 		negative_text = "LESS DMG"
@@ -68,13 +69,14 @@ func create_positive_bonus(number):
 	else: pass
 		
 func create_negative_bonus(number):
+	print(number)
 	if number == 0 && PlayerGlobals.additional_dmg >= PlayerGlobals.max_dmg_add:
 		number + 1
 	elif number == 1 && PlayerGlobals.player_move_speed >= PlayerGlobals.max_speed:
 		number + 1
 	elif !PlayerGlobals.player2ndShoot:
 		number - 1
-	
+	print(number)
 	if number == 0:
 		PlayerGlobals.additional_dmg -= 5
 	elif number == 1:

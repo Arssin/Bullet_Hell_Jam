@@ -66,7 +66,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sesrl")
 }],
-"loop": true,
+"loop": false,
 "name": &"get_hit",
 "speed": 5.0
 }]
@@ -82,15 +82,18 @@ script = ExtResource("1_habkp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_urvrt")
-animation = &"get_hit"
+animation = &"Idle"
 
 [node name="HealthBar" parent="." instance=ExtResource("2_sadd6")]
 offset_left = -24.0
-offset_top = -15.0
+offset_top = -13.0
 offset_right = 23.0
-offset_bottom = -9.0
+offset_bottom = -7.0
 max_healthbar = 120.0
 value_healthbar = 120.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ya2x8")
+
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
