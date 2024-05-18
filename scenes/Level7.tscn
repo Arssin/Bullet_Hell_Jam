@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dgsi08p7qgqjs"]
+[gd_scene load_steps=42 format=3 uid="uid://dgsi08p7qgqjs"]
 
 [ext_resource type="Script" path="res://scripts/Level8.gd" id="1_5nw5f"]
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="2_gulij"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="10_bi858"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCustomArea.gd" id="11_cc7e0"]
 [ext_resource type="PackedScene" uid="uid://jx0ve24ex6co" path="res://scenes/black_fighter.tscn" id="12_tcnny"]
+[ext_resource type="PackedScene" uid="uid://bytrpdjymjajc" path="res://scenes/barrier.tscn" id="13_ge8jq"]
+[ext_resource type="PackedScene" uid="uid://caf5bx8atum84" path="res://scenes/philar.tscn" id="14_01esr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqvpm"]
 texture = ExtResource("3_cgxsd")
@@ -256,8 +258,8 @@ size = Vector2(20, 50.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ik13e"]
 size = Vector2(20, 66)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y04k1"]
-size = Vector2(274, 6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edkb1"]
+size = Vector2(244, 12)
 
 [sub_resource type="Curve2D" id="Curve2D_3d0bl"]
 
@@ -690,14 +692,14 @@ collision_mask = 8
 position = Vector2(-27, 21)
 shape = SubResource("RectangleShape2D_ik13e")
 
-[node name="PlayerBlock" type="StaticBody2D" parent="Blockers"]
-position = Vector2(202, 212)
-collision_layer = 8
-collision_mask = 4
+[node name="StaticBody2D4" type="StaticBody2D" parent="Blockers"]
+position = Vector2(372, 359)
+collision_layer = 64
+collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blockers/PlayerBlock"]
-position = Vector2(63, -9)
-shape = SubResource("RectangleShape2D_y04k1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blockers/StaticBody2D4"]
+position = Vector2(162, -17)
+shape = SubResource("RectangleShape2D_edkb1")
 
 [node name="Cristals" type="Node2D" parent="."]
 
@@ -734,6 +736,18 @@ autostart = true
 [node name="BFIG-2" type="Timer" parent="Mobs"]
 wait_time = 2.7
 autostart = true
+
+[node name="Barrier" parent="." instance=ExtResource("13_ge8jq")]
+position = Vector2(266, 220)
+scale = Vector2(5.62, 1.675)
+
+[node name="Philar" parent="." instance=ExtResource("14_01esr")]
+position = Vector2(384, 219)
+scale = Vector2(1.5, 1.5)
+
+[node name="Philar2" parent="." instance=ExtResource("14_01esr")]
+position = Vector2(144, 219)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="timeout" from="Mobs/BFIG" to="." method="_on_bfig_timeout"]
 [connection signal="timeout" from="Mobs/BFIG-2" to="." method="_on_bfig_2_timeout"]
