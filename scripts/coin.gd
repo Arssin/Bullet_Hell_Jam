@@ -14,8 +14,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var sound_effect = get_node('/root/MainScene/SFX')
 		sound_effect.stream = PICKUP_COIN
 		sound_effect.play()
-		print(sound_effect)
 		$AnimationPlayer.play("fly")
 		taken = true
+		emit_signal('coin_took')
+		
+
+signal coin_took
 		
 	

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://daxolcldxbd51"]
+[gd_scene load_steps=5 format=3 uid="uid://daxolcldxbd51"]
 
 [ext_resource type="Script" path="res://scripts/final_boss.gd" id="1_w4tke"]
 [ext_resource type="Texture2D" uid="uid://b7r2rqolm261t" path="res://assets/finalBoss.png" id="2_hpj16"]
+[ext_resource type="PackedScene" uid="uid://cc5tjpexngnx5" path="res://ui/health_bar.tscn" id="3_rqefm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujf85"]
 size = Vector2(46, 48)
@@ -10,6 +11,8 @@ size = Vector2(46, 48)
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("1_w4tke")
+max_health = 1200
+health = 1200
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hpj16")
@@ -20,3 +23,21 @@ position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_ujf85")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("3_rqefm")]
+offset_left = 363.0
+offset_top = 621.0
+offset_right = -333.0
+offset_bottom = -6.0
+max_healthbar = 1200.0
+value_healthbar = 1200.0
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 526.0
+offset_top = 595.0
+offset_right = 641.0
+offset_bottom = 618.0
+text = "Mag magowski
+"

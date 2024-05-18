@@ -1,6 +1,14 @@
 extends Node2D
 
+const DOORS_OPEN = preload("res://music/doors_open.wav")
+
 var dead = false
+var coins_taken = false
+var coin_took = false
+var coin2_took = false
+var coin3_took = false
+
+var coin
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -48,9 +56,34 @@ func _on_black_fighter_black_knight_die() -> void:
 	$Mobs/BFIG.stop()
 	dead = true
 	$Barrier.queue_free()
-
+	$Barrier2.queue_free()
 
 
 func _on_black_fighter_2_black_knight_die() -> void:
 	$BF22.queue_free()
 	Spawning.reset_bullets()
+
+
+func _on_coin_coin_took() -> void:
+	coin_took = true
+	if coin3_took && coin2_took && coin_took:
+		open_doors()
+
+func _on_coin_2_coin_took() -> void:
+	coin2_took = true
+	if coin3_took && coin2_took && coin_took:
+		open_doors()
+
+func _on_coin_3_coin_took() -> void:
+	coin3_took = true
+	if coin3_took && coin2_took && coin_took:
+		open_doors()
+		
+func open_doors():
+	$Doors.visible = true
+	var sound = get_node('/root/MainScene/SFX')
+	sound.stream = DOORS_OPEN
+	sound.play()
+	var doorsChildren = $Doors.get_children()
+	for door in doorsChildren:
+		door.colide_on()

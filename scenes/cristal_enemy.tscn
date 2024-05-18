@@ -40,7 +40,7 @@ size = Vector2(7, 10)
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_g0ub8"]
 script = ExtResource("4_gh26i")
 anim_more = Array[Resource("res://addons/BulletUpHell/Bullet/animStates.gd")]([])
-damage = 3.0
+damage = 1.0
 speed = 100.0
 scale = 0.4
 angle = 0.0
@@ -118,7 +118,7 @@ r_scale_multi_scale_variation = Vector3(0, 0, 0)
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_xhnrt"]
 script = ExtResource("4_gh26i")
 anim_more = Array[Resource("res://addons/BulletUpHell/Bullet/animStates.gd")]([])
-damage = 3.0
+damage = 1.0
 speed = 100.0
 scale = 0.3
 angle = 0.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dgsi08p7qgqjs"]
+[gd_scene load_steps=53 format=3 uid="uid://dgsi08p7qgqjs"]
 
 [ext_resource type="Script" path="res://scripts/Level8.gd" id="1_5nw5f"]
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="2_gulij"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://caf5bx8atum84" path="res://scenes/philar.tscn" id="14_01esr"]
 [ext_resource type="PackedScene" uid="uid://bpsjrkev4p6or" path="res://scenes/laser.tscn" id="15_raqe5"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCustomPoints.gd" id="16_bsujl"]
+[ext_resource type="PackedScene" uid="uid://csp0pjl6er5ri" path="res://scenes/doors.tscn" id="17_2bjxc"]
 
 [sub_resource type="Curve2D" id="Curve2D_eitdi"]
 
@@ -957,6 +958,12 @@ position = Vector2(286, 173)
 scale = Vector2(2, 2)
 emite_signal = true
 
+[node name="Barrier2" parent="." instance=ExtResource("13_ge8jq")]
+modulate = Color(0.2817, 0.52907, 0.363214, 1)
+position = Vector2(324, 199)
+scale = Vector2(1.785, 1.47)
+collision_layer = 130
+
 [node name="Mobs" type="Node2D" parent="."]
 
 [node name="BFIG" type="Timer" parent="Mobs"]
@@ -1071,6 +1078,18 @@ position = Vector2(858, 74)
 scale = Vector2(2, 2)
 emite_signal = true
 
+[node name="Doors" type="Node2D" parent="."]
+visible = false
+
+[node name="Doors" parent="Doors" instance=ExtResource("17_2bjxc")]
+position = Vector2(719, 461)
+
+[node name="Doors2" parent="Doors" instance=ExtResource("17_2bjxc")]
+position = Vector2(425, 463)
+
+[connection signal="coin_took" from="CoinsMainNode/Coin" to="." method="_on_coin_coin_took"]
+[connection signal="coin_took" from="CoinsMainNode/Coin2" to="." method="_on_coin_2_coin_took"]
+[connection signal="coin_took" from="CoinsMainNode/Coin3" to="." method="_on_coin_3_coin_took"]
 [connection signal="black_knight_die" from="BlackFighter" to="." method="_on_black_fighter_black_knight_die"]
 [connection signal="timeout" from="Mobs/BFIG" to="." method="_on_bfig_timeout"]
 [connection signal="timeout" from="Mobs/BFIG2" to="." method="_on_bfig_2_timeout"]
