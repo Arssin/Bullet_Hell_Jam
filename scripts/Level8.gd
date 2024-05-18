@@ -49,3 +49,7 @@ func _on_black_fighter_black_knight_die() -> void:
 	dead = true
 	$Barrier.queue_free()
 
+
+
+func _on_black_fighter_2_black_knight_die() -> void:
+	$BF22.queue_free()

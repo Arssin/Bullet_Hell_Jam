@@ -1,31 +1,78 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw3ba06ksdfaf"]
+[gd_scene load_steps=7 format=3 uid="uid://dw3ba06ksdfaf"]
 
 [ext_resource type="Texture2D" uid="uid://bux42ukr02c5b" path="res://assets/coin.png" id="1_ncqv4"]
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_nr2pf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbd84"]
-atlas = ExtResource("1_ncqv4")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_dibk1"]
+radius = 39.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jnuey"]
-atlas = ExtResource("1_ncqv4")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_f7j6h"]
+resource_name = "fly"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -19.495)]
+}
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dnbe0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xbd84")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jnuey")
-}],
-"loop": true,
-"name": &"fly",
-"speed": 5.0
-}]
+[sub_resource type="Animation" id="Animation_d5wsj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -19.495)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhfn1"]
+_data = {
+"RESET": SubResource("Animation_d5wsj"),
+"fly": SubResource("Animation_f7j6h")
+}
 
 [node name="Coin" type="Node2D"]
+script = ExtResource("1_nr2pf")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_dnbe0")
-animation = &"fly"
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dibk1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -19.495)
+texture = ExtResource("1_ncqv4")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Area2D")
+libraries = {
+"": SubResource("AnimationLibrary_mhfn1")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
