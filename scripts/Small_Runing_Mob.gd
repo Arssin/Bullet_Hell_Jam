@@ -20,6 +20,7 @@ var move_direction: Vector2
 var home_position: Vector2
 
 func _ready() -> void:
+	Spawning.create_pool("3", "small_mob", 200)
 	if !isLookingPlayer:
 		$AttackCd.start()
 	attack_cd.wait_time = randf_range(1.3, 3.2)

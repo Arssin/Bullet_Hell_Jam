@@ -1,6 +1,6 @@
 extends Node2D
 
-var time: float = 10.00
+var time: float = 30.00
 var minutes: int = 0
 var seconds: int = 0
 
@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 		sound.play()
 		$Doors.show()
 		%TimerLvl4.text = "LVL END!"
+		Spawning.reset_bullets()
 		showed_all = true
 		
 	if showed_all && enemy:

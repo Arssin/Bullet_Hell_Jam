@@ -5,6 +5,9 @@ var totem_2_die = false
 var totem_3_die = false
 var totem_4_die = false
 
+func _ready():
+	Spawning.create_pool("98","two", 300)
+	Spawning.create_pool("97","two", 300)
 
 
 func _on_mini_totem_totem_died() -> void:
@@ -51,6 +54,7 @@ func _on_totem_boss_died() -> void:
 	$Angry.stop()
 	$AngryNode.queue_free()
 	$Totemix5.queue_free()
+	Spawning.reset_bullets()
 	var doorsChildren = $Doors.get_children()
 	for door in doorsChildren:
 		door.colide_on()

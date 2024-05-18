@@ -65,9 +65,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_6fafs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_3slxn")
 }],
 "loop": true,
 "name": &"0",
@@ -156,7 +153,7 @@ collision_mask = 5
 [node name="ShapeManager" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("1")
-animation = &"small_mob_bullet"
+animation = &"0"
 
 [node name="0" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("2")

@@ -9,7 +9,7 @@ var completeLvl = false
 const MENUSONG = preload("res://music/doors_open.wav")
 
 func _ready() -> void:
-	Spawning.create_pool("3", "two", 200)
+	pass
 
 func check_portal(portalN: String):
 	var portal = get_node_or_null(portalN)

@@ -25,7 +25,7 @@ func load_level(level_name: String):
 				
 				
 func new_game():
-	GlobalManager.load_level("Level2")
+	GlobalManager.load_level("Level4")
 
 func restart_game():
 	Spawning.reset()
