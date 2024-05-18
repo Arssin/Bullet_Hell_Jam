@@ -5,6 +5,8 @@ var totem_2_die = false
 var totem_3_die = false
 var totem_4_die = false
 
+var killed_boss = false
+
 func _ready():
 	Spawning.create_pool("98","two", 300)
 	Spawning.create_pool("97","two", 300)
@@ -50,6 +52,7 @@ func _on_boss_open() -> void:
 	$Barrier4.queue_free()
 	
 func _on_totem_boss_died() -> void:
+	killed_boss = true
 	$Angry2.stop()
 	$Angry.stop()
 	$AngryNode.queue_free()
@@ -63,29 +66,31 @@ func _on_totem_boss_died() -> void:
 	$Label.show()
 
 
-func _on_angry_timeout() -> void:
-	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
-	}, "angry_boss", "two")
-	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
-	}, "angry_boss2", "two")
-	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
-	}, "angry_boss3", "two")
-	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
-	}, "angry_boss4", "two")
-	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
-	}, "angry_boss4", "two")
-	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
-	}, "angry_boss5", "two")
-	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
-	}, "angry_boss6", "two")
-	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
-	}, "angry_boss7", "two")
-	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
-	}, "angry_boss8", "two")
+func _on_angry_timeout() -> void:	
+	if !killed_boss:
+		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+		}, "angry_boss", "two")
+		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+		}, "angry_boss2", "two")
+		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+		}, "angry_boss3", "two")
+		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+		}, "angry_boss4", "two")
+		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+		}, "angry_boss4", "two")
+		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+		}, "angry_boss5", "two")
+		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+		}, "angry_boss6", "two")
+		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+		}, "angry_boss7", "two")
+		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+		}, "angry_boss8", "two")
 
 	
 
 
 func _on_angry_2_timeout() -> void:
-	Spawning.spawn({"position": $Totem.global_position, "rotation": 0
-	}, "circlo2", "two")
+	if !killed_boss:
+		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
+		}, "circlo2", "two")
