@@ -25,10 +25,15 @@ func _ready() -> void:
 	animation_player.play("Idle")
 	
 func _process(delta: float) -> void:
+	var input_direction = Input.get_vector("move_left","move_right","move_up", "move_down")
 	if Input.is_action_just_pressed("attack") && player_can_attack or Input.is_action_pressed("attack") && player_can_attack:
 		attack_spawn()
 		$PlayerAttack.start()
 		player_can_attack = false
+		
+	if Input.is_action_just_pressed("dash") && !dash_on_cd:
+		ghost_timer.start()
+		dash(input_direction)
 	
 
 func _physics_process(delta: float) -> void:
@@ -79,9 +84,6 @@ func _input(event: InputEvent) -> void:
 		velocity = input_direction * 0
 		
 		
-	if Input.is_action_just_pressed("dash") && !dash_on_cd:
-		ghost_timer.start()
-		dash(input_direction)
 		
 
 func shoot(projectile):

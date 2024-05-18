@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cyo3ohq3kd0m"]
+[gd_scene load_steps=21 format=3 uid="uid://cyo3ohq3kd0m"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_n1b8b"]
 [ext_resource type="Script" path="res://scripts/Level6.gd" id="1_o5c2l"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="6_rs4yg"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="7_5dk2y"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="8_dsdp0"]
+[ext_resource type="PackedScene" uid="uid://caf5bx8atum84" path="res://scenes/philar.tscn" id="11_3l2je"]
+[ext_resource type="PackedScene" uid="uid://bytrpdjymjajc" path="res://scenes/barrier.tscn" id="12_u6dch"]
 
 [sub_resource type="Curve2D" id="Curve2D_8swfe"]
 
@@ -145,9 +147,6 @@ wait_tween_momentum = 0
 wait_tween_length = 0.0
 wait_tween_time = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vc6c"]
-size = Vector2(450, 20)
-
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_o5c2l")
 
@@ -273,23 +272,6 @@ laser_length = 1.79
 position = Vector2(609, 83)
 scale = Vector2(3, 3)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(594, 131)
-collision_layer = 128
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(21, -2)
-shape = SubResource("RectangleShape2D_3vc6c")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
-offset_left = -215.0
-offset_top = -10.0
-offset_right = 216.0
-offset_bottom = 9.0
-color = Color(0.996078, 0.537255, 0.486275, 0.521569)
-metadata/_edit_use_anchors_ = true
-
 [node name="Doors" type="Node2D" parent="."]
 scale = Vector2(1, 0.992461)
 
@@ -300,6 +282,18 @@ autostart = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 4.7
 autostart = true
+
+[node name="Barrier" parent="." instance=ExtResource("12_u6dch")]
+position = Vector2(613, 149)
+scale = Vector2(9.465, 2.33)
+
+[node name="Philar" parent="." instance=ExtResource("11_3l2je")]
+position = Vector2(810, 148)
+scale = Vector2(2, 2)
+
+[node name="Philar2" parent="." instance=ExtResource("11_3l2je")]
+position = Vector2(421, 148)
+scale = Vector2(2, 2)
 
 [connection signal="black_knight_die" from="BlackFighter" to="." method="_on_black_fighter_black_knight_die"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
