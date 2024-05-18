@@ -602,7 +602,7 @@ wait_tween_momentum = 0
 wait_tween_length = 0.0
 wait_tween_time = 0.0
 
-[node name="Level8" type="Node2D"]
+[node name="Level7" type="Node2D"]
 script = ExtResource("1_5nw5f")
 
 [node name="MapCreator" parent="." instance=ExtResource("2_gulij")]
@@ -953,7 +953,7 @@ id = "b_k"
 pattern = SubResource("NavigationPolygon_gce87")
 
 [node name="BlackFighter" parent="." instance=ExtResource("12_tcnny")]
-position = Vector2(315, 174)
+position = Vector2(286, 173)
 scale = Vector2(2, 2)
 emite_signal = true
 
