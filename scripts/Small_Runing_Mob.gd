@@ -20,10 +20,10 @@ var move_direction: Vector2
 var home_position: Vector2
 
 func _ready() -> void:
-	Spawning.create_pool("3", "small_mob", 200)
+	Spawning.create_pool("3", "small_mob", 300)
 	if !isLookingPlayer:
 		$AttackCd.start()
-	attack_cd.wait_time = randf_range(1.3, 3.2)
+	attack_cd.wait_time = randf_range(2.3, 4.37)
 	home_position = self.global_position
 	health_bar.max_value = max_health
 	health_bar.value = health
