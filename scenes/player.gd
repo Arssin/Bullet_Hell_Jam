@@ -34,10 +34,6 @@ func _process(delta: float) -> void:
 		attack_spawn()
 		$PlayerAttack.start()
 		player_can_attack = false
-		
-	if Input.is_action_just_pressed("dash") && !dash_on_cd:
-		ghost_timer.start()
-		dash(input_direction)
 	
 
 func _physics_process(delta: float) -> void:
@@ -56,26 +52,6 @@ func _physics_process(delta: float) -> void:
 	
 
 
-func add_ghost():
-	var ghost = ghost_node.instantiate()
-	ghost.set_property(global_position,$Sprite2D.scale * 1.5)
-	get_tree().current_scene.add_child(ghost)
-
-
-func dash(direction):
-	$DashCd.start()
-	dash_on_cd = true
-	set_collision_layer_value(3,false)
-	velocity = direction * 600
-	#set_collision_layer_value(3,true)
-
-	#var isDashing = true
-	#print('go')
-	#var tween = get_tree().create_tween()
-	#tween.tween_property(self, "position", position + velocity * 0.9, 0.45)
-	#await tween.finished
-	#$DashCd.start()
-	#ghost_timer.stop()
 	
 func _input(event: InputEvent) -> void:
 	var input_direction = Input.get_vector("move_left","move_right","move_up", "move_down")
@@ -90,11 +66,6 @@ func _input(event: InputEvent) -> void:
 		
 		
 
-func shoot(projectile):
-	var bullet = projectile.instantiate()
-	bullet.position = $".".global_position
-	bullet.direction = global_position.direction_to(get_global_mouse_position())
-	add_child(bullet)
 
 
 func _on_player_attack_timeout() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdfiit0ddj7u1"]
+[gd_scene load_steps=13 format=3 uid="uid://cdfiit0ddj7u1"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_vrhdb"]
 [ext_resource type="Theme" uid="uid://bogd8fyn22vwo" path="res://styles/btn_menu.tres" id="2_c8ngv"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dkd1tr4p5qd83" path="res://assets/bb.png" id="4_3imnp"]
 [ext_resource type="StyleBox" uid="uid://dnw60x0otm14c" path="res://styles/style-hover.tres" id="5_mumxf"]
 [ext_resource type="StyleBox" uid="uid://b31qeuijqal46" path="res://styles/style-normal.tres" id="5_u2pyk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fggcw"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 0.952941)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkof6"]
 bg_color = Color(0.099986, 0.099986, 0.099986, 0.831373)
@@ -82,6 +85,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fggcw")
 
 [node name="Label" type="Label" parent="CanvasLayer/DEAD/Panel"]
 layout_mode = 1
@@ -96,6 +100,10 @@ offset_right = 20.0
 offset_bottom = -78.245
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.861324, 0.0604235, 0.166007, 1)
+theme_override_colors/font_outline_color = Color(0.478122, 0.15903, 0.251113, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 60
 text = "YOU DIED"
 
 [node name="Restart" type="Button" parent="CanvasLayer/DEAD/Panel"]
@@ -106,14 +114,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -137.0
+offset_top = -6.11499
+offset_right = 137.0
+offset_bottom = 41.885
 grow_horizontal = 2
 grow_vertical = 2
-text = "Reset
-"
+theme = ExtResource("2_c8ngv")
+text = "BACK TO MENU"
+
+[node name="WON" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Menu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -381,6 +395,30 @@ layout_mode = 2
 [node name="Label4" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 text = "E"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "SHOOT"
+
+[node name="Label8" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="Label9" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "LEFT MOUSE"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "AIM"
+
+[node name="Label11" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="Label12" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "MOUSE"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Control/Panel"]

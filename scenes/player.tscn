@@ -385,14 +385,6 @@ flip_h = true
 [node name="PlayerAttack" type="Timer" parent="."]
 wait_time = 0.4
 
-[node name="GhostTimer" type="Timer" parent="."]
-wait_time = 0.3
-one_shot = true
-
-[node name="DashCd" type="Timer" parent="."]
-wait_time = 0.7
-one_shot = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
 
@@ -441,5 +433,3 @@ id = "112"
 props = SubResource("PackedDataContainer_j25vw")
 
 [connection signal="timeout" from="PlayerAttack" to="." method="_on_player_attack_timeout"]
-[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
-[connection signal="timeout" from="DashCd" to="." method="_on_dash_cd_timeout"]
