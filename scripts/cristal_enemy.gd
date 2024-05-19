@@ -15,6 +15,9 @@ var previous_global_position = Vector2.ZERO
 @export var max_health = 30
 @export var val_health = 30
 
+const EXPLOSION_GET_HIT = preload("res://music/explosion_get_hit.wav")
+const EXPLOSION_CRISTAL = preload("res://music/explosion_cristal.wav")
+
 func _ready() -> void:
 	Spawning.create_pool("4","two", 150)
 	Spawning.create_pool("5","two", 150)
@@ -76,7 +79,12 @@ func get_hit(value,props):
 			additional += PlayerGlobals.additional_dmg
 		val_health = val_health - (value + additional)
 		$HealthBar.update_healthbar(val_health)
+		var sound_effect = get_node('/root/MainScene/SFX_ENEMY')
+		sound_effect.stream = EXPLOSION_GET_HIT
+		sound_effect.play()
 		if val_health <= 0:
+			sound_effect.stream = EXPLOSION_CRISTAL
+			sound_effect.play()
 			die()
 
 	else:

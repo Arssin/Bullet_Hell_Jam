@@ -14,6 +14,9 @@ var health = max_health
 
 @export var isLookingPlayer = false
 
+const EXPLOSION_SMALL_MOB_DE = preload("res://music/explosion_small_mob_de.wav")
+const GET_HIT_ENEMY = preload("res://music/small_hit.wav")
+
 var players = null
 
 var move_direction: Vector2
@@ -114,7 +117,12 @@ func get_hit(value, props):
 	if int(propsId) == 2:
 		additional += PlayerGlobals.additional_dmg
 	health = health - (value + additional)
+	var sound_effect = get_node('/root/MainScene/SFX_ENEMY')
+	sound_effect.stream = GET_HIT_ENEMY
+	sound_effect.play()
 	if health <= 0:
+		sound_effect.stream = EXPLOSION_SMALL_MOB_DE
+		sound_effect.play()
 		die()
 	else:
 		health_bar.update_healthbar(health)
