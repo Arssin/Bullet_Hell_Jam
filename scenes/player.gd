@@ -30,7 +30,7 @@ func _ready() -> void:
 	if PlayerGlobals.big_char:
 		$Sprite2D.scale *= 3
 	if PlayerGlobals.random_pauses:
-		$PauseTimer.wait_time(randf_range(14, 23))
+		$PauseTimer.wait_time = randf_range(14, 23)
 		$PauseTimer.start()
 		
 func _process(delta: float) -> void:

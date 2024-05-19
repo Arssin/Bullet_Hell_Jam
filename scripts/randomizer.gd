@@ -33,17 +33,17 @@ func create_positive_text(number):
 func create_negative_text(number):
 	var number_negativo = number
 	if number_negativo == 0 && PlayerGlobals.additional_dmg <= 0:
-		number_negativo += 1
+		number_negativo = randi_range(10,15)
 	elif number_negativo == 1 && PlayerGlobals.player_move_speed <= 60:
-		number_negativo += 1
+		number_negativo = randi_range(10,15)
 	elif number_negativo == 2 && !PlayerGlobals.player2ndShoot:
-		number_negativo += 1
+		number_negativo = randi_range(10,15)
 	elif number_negativo == 3 && PlayerGlobals.invertet_inputs:
-		number_negativo -= 1
-	elif number_negativo == 4 && PlayerGlobals.random_pauses:
-		number_negativo += 1
-	elif number_negativo == 5 && PlayerGlobals.big_char:
-		number_negativo = randi_range(0,4)
+		number_negativo = randi_range(10,15)
+	elif number_negativo == 5 && PlayerGlobals.random_pauses:
+		number_negativo = randi_range(10,15)
+	elif number_negativo == 6 && PlayerGlobals.big_char:
+		number_negativo = randi_range(10,15)
 	else: number_negativo
 	
 	var negative_text: String
@@ -62,6 +62,12 @@ func create_negative_text(number):
 		negative_text = "RANDOM PAUSE"
 	elif number_negativo == 6:
 		negative_text = "BIG CHARACTER(SAME COLLISION)"
+	elif number_negativo > 6 && number_negativo < 8:
+		negative_text = "LESS DMG"
+	elif number_negativo >= 8 && number_negativo <= 10:
+		negative_text = "LESS SPEED"
+	elif number_negativo >10:
+		negative_text = "LUCKY YOU..."
 	else:
 		negative_text = 'AYAY NO BOOST'
 	return negative_text
@@ -99,8 +105,10 @@ func create_negative_bonus(neg_text):
 		PlayerGlobals.player_health -= 1
 	elif neg_text == "RANDOM PAUSE":
 		PlayerGlobals.random_pauses = true
-	elif neg_text == "BIG CHARACTER(SAME COLLISION)":
+	elif neg_text == "BIG MAGE(SAME COLLISION)":
 		PlayerGlobals.big_char = true
+	elif neg_text == "LUCKY YOU...":
+		pass
 	else: pass
 
 

@@ -297,7 +297,7 @@ theme_override_colors/font_color = Color(0.837066, 0.324324, 0.301115, 1)
 theme_override_colors/font_outline_color = Color(0.291317, 0.252188, 0.291499, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 50
-text = "MAGIC BULLET"
+text = "MAGIC OF CONSEQUENCES"
 horizontal_alignment = 1
 vertical_alignment = 1
 

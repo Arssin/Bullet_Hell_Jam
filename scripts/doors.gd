@@ -18,14 +18,14 @@ var negative_tex: String
 
 func _ready() -> void:
 	my_random_number_positive = rng.randi_range(0, 4)
-	my_random_number_negative = rng.randi_range(0, 5)
+	my_random_number_negative = rng.randi_range(0, 15)
 	if my_random_number_positive == my_random_number_negative:
 		if my_random_number_negative == 0:
-			my_random_number_negative == rng.randi_range(1,5)
+			my_random_number_negative == rng.randi_range(1,15)
 		elif my_random_number_negative >= 2:
-			my_random_number_negative == rng.randi_range(3,5)
+			my_random_number_negative == rng.randi_range(7,15)
 		else:
-			my_random_number_negative == rng.randi_range(0,2)
+			my_random_number_negative == rng.randi_range(0,1)
 			
 	positive_text = Randomizer.create_positive_text(my_random_number_positive)
 	negative_tex = Randomizer.create_negative_text(my_random_number_negative)
