@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://daxolcldxbd51"]
+[gd_scene load_steps=9 format=3 uid="uid://daxolcldxbd51"]
 
 [ext_resource type="Script" path="res://scripts/final_boss.gd" id="1_w4tke"]
 [ext_resource type="Texture2D" uid="uid://b7r2rqolm261t" path="res://assets/finalBoss.png" id="2_hpj16"]
@@ -6,6 +6,71 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujf85"]
 size = Vector2(46, 48)
+
+[sub_resource type="Animation" id="Animation_ota6f"]
+resource_name = "idle"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1.1, 1.3, 1.5, 1.7, 2.7, 5.5, 5.8, 6.2, 6.5, 6.8, 7.1, 9.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 5, 6, 7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_hhbsp"]
+resource_name = "get_hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.0257079, 0.390774, 0.670703, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r0evr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0257079, 0.390774, 0.670703, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dc4al"]
+_data = {
+"RESET": SubResource("Animation_r0evr"),
+"get_hit": SubResource("Animation_hhbsp"),
+"idle": SubResource("Animation_ota6f")
+}
 
 [node name="FinalBoss" type="CharacterBody2D"]
 collision_layer = 2
@@ -15,14 +80,20 @@ max_health = 1200
 health = 1200
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.0257079, 0.390774, 0.670703, 1)
 texture = ExtResource("2_hpj16")
 hframes = 8
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_ujf85")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dc4al")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -41,3 +112,5 @@ offset_right = 641.0
 offset_bottom = 618.0
 text = "Mag magowski
 "
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

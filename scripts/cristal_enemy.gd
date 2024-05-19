@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 var new_pattern: PatternLine = PatternLine.new()
 
 func attack_spawn():
-	if player && !static_lvl:
+	if player && !static_lvl && !player.player_dead:
 		new_pattern.offset = Vector2i(0,0)
 		new_pattern.bullet = "4"
 		new_pattern.nbr = 1
@@ -49,7 +49,7 @@ func attack_spawn():
 	
 		Spawning.spawn({"position": global_position, "rotation": $PlayerMarker.rotation}, "cristal", "two")		
 	
-	if player && static_lvl:
+	if player && static_lvl && !player.player_dead:
 		new_pattern.offset = Vector2i(0,0)
 		new_pattern.bullet = "5"
 		new_pattern.nbr = 1

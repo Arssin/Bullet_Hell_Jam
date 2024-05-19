@@ -7,6 +7,7 @@ const GET_HIT_ENEMY = preload("res://music/get_hit_enemy.wav")
 const ENEMY_DEAD = preload("res://music/enemy_dead.wav")
 
 func _ready() -> void:
+	$AnimationPlayer.play('idle')
 	health_bar.max_value = max_health
 	health_bar.value = health
 
@@ -25,7 +26,7 @@ func get_hit(value, props):
 	var sfx = get_node('/root/MainScene/SFX_ENEMY')
 	sfx.stream = GET_HIT_ENEMY
 	sfx.play() 
-	#$anim.play("get_hit")
+	$AnimationPlayer.play('get_hit')
 	if health <= 0:
 		sfx.stream = ENEMY_DEAD
 		sfx.play()
@@ -35,3 +36,8 @@ func get_hit(value, props):
 		health_bar.update_healthbar(health)
 		
 signal finalboss_died
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "get_hit":
+		$AnimationPlayer.play('idle')

@@ -15,6 +15,7 @@ var is_immortal = false
 var player_can_attack = true
 var dash_on_cd = false
 
+var player_dead = false
 
 
 func _ready() -> void:
@@ -111,6 +112,7 @@ func _on_dmg_taken(value):
 	update_player_healthbar(value)
 	
 func _player_death():
+	player_dead = true
 	var SFX = get_node("../../../SFX_PLAYER")
 	var showDead = get_node('../../../CanvasLayer/DEAD')
 	showDead.visible = true
