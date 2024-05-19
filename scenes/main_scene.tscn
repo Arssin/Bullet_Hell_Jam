@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cdfiit0ddj7u1"]
+[gd_scene load_steps=16 format=3 uid="uid://cdfiit0ddj7u1"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_vrhdb"]
 [ext_resource type="Theme" uid="uid://bogd8fyn22vwo" path="res://styles/btn_menu.tres" id="2_c8ngv"]
@@ -7,6 +7,18 @@
 [ext_resource type="Texture2D" uid="uid://dkd1tr4p5qd83" path="res://assets/bb.png" id="4_3imnp"]
 [ext_resource type="StyleBox" uid="uid://dnw60x0otm14c" path="res://styles/style-hover.tres" id="5_mumxf"]
 [ext_resource type="StyleBox" uid="uid://b31qeuijqal46" path="res://styles/style-normal.tres" id="5_u2pyk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dant7"]
+bg_color = Color(0.108242, 0.0432648, 0.0460359, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.340339, 0.340339, 0.340339, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fggcw"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 0.952941)
@@ -60,14 +72,28 @@ offset_right = 108.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD"]
+[node name="Time" type="Panel" parent="CanvasLayer/HUD"]
+unique_name_in_owner = true
+visible = false
+z_index = 4
 layout_mode = 0
-offset_left = -233.0
-offset_top = 6.0
-offset_right = -118.0
-offset_bottom = 29.0
-text = "STATS
-"
+offset_left = 443.0
+offset_top = 2.0
+offset_right = 591.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dant7")
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/HUD/Time"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "xxx"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DEAD" type="Control" parent="CanvasLayer"]
 visible = false

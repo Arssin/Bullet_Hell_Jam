@@ -7,6 +7,13 @@ extends Control
 var menu_song = load("res://music/menusong.wav")
 var game_song = load("res://music/BulletHellMainSong.wav")
 
+@onready var time_label: Label = %TimeLabel
+@onready var time: Panel = %Time
+
+var timee: float = 0.0
+var minutes: int = 0
+var seconds: int = 0
+
 @onready var dead: Control = $CanvasLayer/DEAD
 @onready var won: Control = $CanvasLayer/WON
 @onready var pause: Control = $CanvasLayer/PAUSE
@@ -35,7 +42,19 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	$CanvasLayer/HUD/Label.text = str(PlayerGlobals.additional_dmg) + " "  + str(PlayerGlobals.player_move_speed)
+	
+	if !%Menu.visible:
+		%Time.visible = true
+	else:
+		%Time.visible = false
+		
+	if %Time.visible:
+		timee += delta
+		seconds = fmod(timee,60)
+		minutes = fmod(timee,3600) / 60
+		var formatedSec = "%02d" % seconds
+		%TimeLabel.text = "TIME " + str(minutes) + ":" + formatedSec
+		$CanvasLayer/WON/Panel/VBoxContainer/Label.text = "YOU WON WITH A TIME:" + " " + str(minutes) + ":" + formatedSec
 
 
 func _on_start_game_pressed() -> void:
@@ -43,6 +62,7 @@ func _on_start_game_pressed() -> void:
 	music.stream = game_song
 	music.play()
 	%Menu.hide()
+	%Time.visible = true
 
 
 func _on_restart_pressed() -> void:
