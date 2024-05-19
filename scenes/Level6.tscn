@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cyo3ohq3kd0m"]
+[gd_scene load_steps=36 format=3 uid="uid://cyo3ohq3kd0m"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_n1b8b"]
 [ext_resource type="Script" path="res://scripts/Level6.gd" id="1_o5c2l"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://caf5bx8atum84" path="res://scenes/philar.tscn" id="11_3l2je"]
 [ext_resource type="PackedScene" uid="uid://csp0pjl6er5ri" path="res://scenes/doors.tscn" id="12_rdqmk"]
 [ext_resource type="PackedScene" uid="uid://bytrpdjymjajc" path="res://scenes/barrier.tscn" id="12_u6dch"]
+[ext_resource type="PackedScene" uid="uid://b1aore05i4xfn" path="res://scenes/gpu_particles_2d.tscn" id="15_uwbho"]
 
 [sub_resource type="Curve2D" id="Curve2D_8swfe"]
 
@@ -616,6 +617,9 @@ collision_layer = 130
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(617, 210)
 zoom = Vector2(2.01, 1.355)
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("15_uwbho")]
+position = Vector2(609, 78)
 
 [connection signal="black_knight_die" from="BlackFighter" to="." method="_on_black_fighter_black_knight_die"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

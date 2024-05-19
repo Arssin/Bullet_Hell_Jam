@@ -17,6 +17,9 @@ func _on_mini_totem_totem_died() -> void:
 	if totem_1_die && totem_2_die && totem_3_die && totem_4_die:
 		emit_signal('boss_open')
 	$Totemix2.queue_free()
+	$GPUParticles2D2.emitting = true
+	await get_tree().create_timer(2).timeout
+	$GPUParticles2D2.emitting = false
 	
 
 
@@ -25,6 +28,9 @@ func _on_mini_totem_2_totem_died() -> void:
 	if totem_1_die && totem_2_die && totem_3_die && totem_4_die:
 		emit_signal('boss_open')
 	$Totemix4.queue_free()
+	$GPUParticles2D.emitting = true
+	await get_tree().create_timer(2).timeout
+	$GPUParticles2D.emitting = false
 
 
 func _on_mini_totem_4_totem_died() -> void:
@@ -32,6 +38,9 @@ func _on_mini_totem_4_totem_died() -> void:
 	if totem_1_die && totem_2_die && totem_3_die && totem_4_die:
 		emit_signal('boss_open')
 	$Totemix3.queue_free()
+	$GPUParticles2D4.emitting = true
+	await get_tree().create_timer(2).timeout
+	$GPUParticles2D4.emitting = false
 
 
 func _on_mini_totem_3_totem_died() -> void:
@@ -39,6 +48,9 @@ func _on_mini_totem_3_totem_died() -> void:
 	if totem_1_die && totem_2_die && totem_3_die && totem_4_die:
 		emit_signal('boss_open')
 	$Totemix1.queue_free()
+	$GPUParticles2D3.emitting = true
+	await get_tree().create_timer(2).timeout
+	$GPUParticles2D3.emitting = false
 	
 signal boss_open
 
@@ -64,6 +76,9 @@ func _on_totem_boss_died() -> void:
 	$Doors.show()
 	$Label.show()
 	Spawning.reset_bullets()
+	$GPUParticles2D5.emitting = true
+	await get_tree().create_timer(2).timeout
+	$GPUParticles2D5.emitting = false
 
 
 func _on_angry_timeout() -> void:	

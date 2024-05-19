@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cpuxcpsl77aot"]
+[gd_scene load_steps=61 format=3 uid="uid://cpuxcpsl77aot"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_3pxwr"]
 [ext_resource type="Script" path="res://scripts/final.gd" id="1_t358g"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCustomPoints.gd" id="9_c3ne7"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="9_mkk5r"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="10_v1m4m"]
+[ext_resource type="PackedScene" uid="uid://b1aore05i4xfn" path="res://scenes/gpu_particles_2d.tscn" id="12_he5sq"]
 
 [sub_resource type="Curve2D" id="Curve2D_w45er"]
 
@@ -1129,5 +1130,8 @@ auto_start_after_time = 2.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
 trigger_container = NodePath("")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("12_he5sq")]
+position = Vector2(587, 102)
 
 [connection signal="finalboss_died" from="FinalBoss" to="." method="_on_final_boss_finalboss_died"]

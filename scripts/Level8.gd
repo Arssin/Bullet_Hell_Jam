@@ -57,11 +57,17 @@ func _on_black_fighter_black_knight_die() -> void:
 	dead = true
 	$Barrier.queue_free()
 	$Barrier2.queue_free()
+	$GPUParticles2D.emitting = true
+	await get_tree().create_timer(2).timeout
+	$GPUParticles2D.emitting = false
 
 
 func _on_black_fighter_2_black_knight_die() -> void:
 	$BF22.queue_free()
 	Spawning.reset_bullets()
+	$GPUParticles2D2.emitting = true
+	await get_tree().create_timer(2).timeout
+	$GPUParticles2D2.emitting = false
 
 
 func _on_coin_coin_took() -> void:

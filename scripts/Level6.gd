@@ -22,6 +22,9 @@ func _on_black_fighter_black_knight_die() -> void:
 	var doorsChildren = $Doors.get_children()
 	for door in doorsChildren:
 		door.colide_on()
+	$GPUParticles2D.emitting = true
+	await get_tree().create_timer(2).timeout
+	$GPUParticles2D.emitting = false
 	
 
 

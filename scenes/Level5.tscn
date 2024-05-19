@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dcapev7mne15c"]
+[gd_scene load_steps=77 format=3 uid="uid://dcapev7mne15c"]
 
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_e14j6"]
 [ext_resource type="Script" path="res://scripts/Level5.gd" id="1_p3qr0"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bytrpdjymjajc" path="res://scenes/barrier.tscn" id="15_phkbb"]
 [ext_resource type="PackedScene" uid="uid://csp0pjl6er5ri" path="res://scenes/doors.tscn" id="15_qfgxg"]
 [ext_resource type="PackedScene" uid="uid://caf5bx8atum84" path="res://scenes/philar.tscn" id="16_rab7r"]
+[ext_resource type="PackedScene" uid="uid://b1aore05i4xfn" path="res://scenes/gpu_particles_2d.tscn" id="17_33172"]
 
 [sub_resource type="Curve2D" id="Curve2D_y6c4h"]
 
@@ -1469,6 +1470,21 @@ wait_time = 2.0
 
 [node name="Angry" type="Timer" parent="."]
 wait_time = 2.5
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("17_33172")]
+position = Vector2(303, 528)
+
+[node name="GPUParticles2D2" parent="." instance=ExtResource("17_33172")]
+position = Vector2(306, 61)
+
+[node name="GPUParticles2D3" parent="." instance=ExtResource("17_33172")]
+position = Vector2(959, 62)
+
+[node name="GPUParticles2D4" parent="." instance=ExtResource("17_33172")]
+position = Vector2(959, 522)
+
+[node name="GPUParticles2D5" parent="." instance=ExtResource("17_33172")]
+position = Vector2(632, 274)
 
 [connection signal="boss_open" from="." to="." method="_on_boss_open"]
 [connection signal="boss_died" from="Totem" to="." method="_on_totem_boss_died"]
