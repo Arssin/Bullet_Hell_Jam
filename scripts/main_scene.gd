@@ -66,8 +66,26 @@ func _on_credentials_pressed() -> void:
 
 
 func _on_ms_pressed() -> void:
-	pass # Replace with function body.
+	if isMusicOn:
+		isMusicOn = false
+		%ms.icon = MUSIC_OFF
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("MUSIC"), true)
+	else: 
+		isMusicOn = true
+		%ms.icon = MUSIC_ON
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("MUSIC"), false)
 
 
 func _on_sfx_2_pressed() -> void:
-	pass # Replace with function body.
+	if sfxIsOn:
+		sfxIsOn = false
+		%sfx2.icon = MUSIC_OFF
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX_PLAYER"), true)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX_ENEMY"), true)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), true)
+	else: 
+		isMusicOn = true
+		%sfx2.icon = MUSIC_ON
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX_PLAYER"), false)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX_ENEMY"), false)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), false)
