@@ -53,17 +53,17 @@ func _on_boss_open() -> void:
 	
 func _on_totem_boss_died() -> void:
 	killed_boss = true
-	$Angry2.stop()
-	$Angry.stop()
 	$AngryNode.queue_free()
 	$Totemix5.queue_free()
-	Spawning.reset_bullets()
+	$Angry2.stop()
+	$Angry.stop()
 	var doorsChildren = $Doors.get_children()
 	for door in doorsChildren:
 		door.colide_on()
 			
 	$Doors.show()
 	$Label.show()
+	Spawning.reset_bullets()
 
 
 func _on_angry_timeout() -> void:	
@@ -86,6 +86,7 @@ func _on_angry_timeout() -> void:
 		}, "angry_boss7", "two")
 		Spawning.spawn({"position": $Totem.global_position, "rotation": 0
 		}, "angry_boss8", "two")
+
 
 	
 

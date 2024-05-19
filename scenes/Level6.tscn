@@ -568,8 +568,8 @@ laser_timer = 7.06
 [node name="BlackFighter" parent="." instance=ExtResource("4_assx2")]
 position = Vector2(608, 73)
 scale = Vector2(3, 3)
-max_health = 600
-hp = 600
+max_health = 800
+hp = 800
 emite_signal = true
 
 [node name="Doors" type="Node2D" parent="."]

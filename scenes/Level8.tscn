@@ -884,6 +884,8 @@ layer_0/tile_data = PackedInt32Array(17, 65536, 2, 65553, 0, 0, 18, 65536, 2, 19
 [node name="FinalBoss" parent="." instance=ExtResource("2_gw52k")]
 position = Vector2(588, 83)
 scale = Vector2(2, 2)
+max_health = 2000
+health = 2000
 
 [node name="Player" parent="." instance=ExtResource("4_h5188")]
 position = Vector2(586, 538)

@@ -19,9 +19,9 @@ var player_dead = false
 
 
 func _ready() -> void:
-	Spawning.create_pool("2","player",100)
-	Spawning.create_pool("111","player",100)
-	Spawning.create_pool("112","player",100)
+	Spawning.create_pool("2","player",200)
+	Spawning.create_pool("111","player",200)
+	Spawning.create_pool("112","player",200)
 	health_bar.max_value = PlayerGlobals.player_max_health
 	health_bar.value = PlayerGlobals.player_health
 	PlayerGlobals.player_get_dmg.connect(_on_dmg_taken)
