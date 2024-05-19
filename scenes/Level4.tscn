@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ju5rw4wwp1jr"]
+[gd_scene load_steps=7 format=3 uid="uid://ju5rw4wwp1jr"]
 
 [ext_resource type="Script" path="res://scripts/Level4.gd" id="1_doou2"]
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="1_xc1ix"]
 [ext_resource type="PackedScene" uid="uid://bwofc6vedhbhe" path="res://scenes/player.tscn" id="2_nj3vx"]
 [ext_resource type="PackedScene" uid="uid://bw35yw126p5jb" path="res://scenes/cristal_enemy.tscn" id="3_bph8d"]
+[ext_resource type="PackedScene" uid="uid://cmvtrhlc5emgo" path="res://scenes/lvl_info.tscn" id="5_7elpb"]
 [ext_resource type="PackedScene" uid="uid://csp0pjl6er5ri" path="res://scenes/doors.tscn" id="5_at8e1"]
 
 [node name="Level4" type="Node2D"]
@@ -61,13 +62,20 @@ position = Vector2(431, 390)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="lvl_info" parent="CanvasLayer" instance=ExtResource("5_7elpb")]
+offset_left = 462.0
+offset_top = 6.0
+offset_right = -448.0
+offset_bottom = -608.0
+
 [node name="TimerLvl4" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_left = 529.0
+offset_left = 426.0
 offset_top = 11.0
-offset_right = 850.0
+offset_right = 747.0
 offset_bottom = 81.0
 text = "LVL 4 TIMER:"
+horizontal_alignment = 1
 
 [node name="Doors" type="Node2D" parent="."]
 visible = false

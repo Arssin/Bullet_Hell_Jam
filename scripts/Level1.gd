@@ -4,11 +4,13 @@ extends Node2D
 @onready var label_test: Label = $LabelTest
 @onready var doors: Node = $Doors
 var level_end = false
+@onready var label: Label = $MarginContainer/Label
+
 
 var doors_sound = load("res://music/doors_open.wav")
 
 func _ready():
-	pass
+	$CanvasLayer/lvl_info.label.text = "LEVEL 1 - DEFEAT ENEMY"
 	
 func _process(delta: float) -> void:
 	if !level_end:
@@ -26,6 +28,7 @@ func _on_totem_boss_died() -> void:
 		door.colide_on()
 	$Node.queue_free()
 	label_test.show()
+	$CanvasLayer/lvl_info.label.text = "LEVEL 1 - CLEAR!"
 	show_doors()
 
 func show_doors():

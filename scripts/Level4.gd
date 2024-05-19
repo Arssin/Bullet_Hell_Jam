@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 		seconds = fmod(time,60)
 		minutes = fmod(time,3600) / 60
 		var formatedSec = "%02d" % seconds
-		%TimerLvl4.text = "TIME " + str(minutes) + ":" + formatedSec
+		%TimerLvl4.text = "SURVIVE! TIME LEFT: " + str(minutes) + ":" + formatedSec
 	elif time <= 0 && time_still_count:
 		time_still_count = false
 	elif !showed_all && !time_still_count:

@@ -1,4 +1,18 @@
-[gd_scene format=3 uid="uid://cmvtrhlc5emgo"]
+[gd_scene load_steps=3 format=3 uid="uid://cmvtrhlc5emgo"]
+
+[ext_resource type="Script" path="res://styles/lvl_info.gd" id="1_xxm42"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s8cc"]
+bg_color = Color(0.129415, 0.0654383, 0.053312, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.481789, 0.48179, 0.481789, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="lvl_info" type="Panel"]
 anchors_preset = 15
@@ -8,8 +22,17 @@ offset_right = -795.0
 offset_bottom = -561.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8s8cc")
+script = ExtResource("1_xxm42")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
