@@ -3,6 +3,9 @@ extends CharacterBody2D
 var max_health = 150
 var health = 150
 
+const GET_HIT_ENEMY = preload("res://music/get_hit_enemy.wav")
+const ENEMY_DEAD = preload("res://music/enemy_dead.wav")
+
 func _ready():
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
@@ -18,9 +21,14 @@ func get_hit(value,props):
 		additional += PlayerGlobals.additional_dmg
 	health = health - (value + additional)
 	$AnimatedSprite2D.play("get_hit")
+	var sfx = get_node('/root/MainScene/SFX_ENEMY')
+	sfx.stream = GET_HIT_ENEMY
+	sfx.play() 
 	$HealthBar.update_healthbar(health)
 	if health <= 0:
 		die()
+		sfx.stream = ENEMY_DEAD
+		sfx.play()
 		
 		
 func die():
