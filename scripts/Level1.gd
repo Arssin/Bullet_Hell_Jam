@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 			level_end = true
 	
 func _on_totem_boss_died() -> void:
+	$GPUParticles2D.emitting = true
 	var doorsChildren = $Doors.get_children()
 	Spawning.reset_bullets()
 	for door in doorsChildren:
@@ -32,3 +33,6 @@ func show_doors():
 	sfx.stream = doors_sound
 	sfx.play()
 	$Doors.show()
+	await get_tree().create_timer(2).timeout
+	$GPUParticles2D.emitting = false
+	

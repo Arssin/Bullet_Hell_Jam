@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 var previous_global_position = Vector2.ZERO
 
+
+
 @onready var player = get_node('../../Player')
 @onready var attack: Timer = $Attack
 

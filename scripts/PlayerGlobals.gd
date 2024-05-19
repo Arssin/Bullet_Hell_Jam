@@ -7,7 +7,7 @@ var max_speed = 180
 var player_max_health = 10
 var player_attack_speed = 200
 var player_move_speeds = 100
-var additional_dmgs = 10
+var additional_dmgs = 100
 
 
 var player_range_time = 1
