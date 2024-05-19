@@ -1,8 +1,8 @@
 extends Node2D
 
-var max_dmg_add = 30
-var max_speed = 180
-
+var max_dmg_add = 3000
+var max_speed = 18000
+#SPEED MAX 180 DMG MAX 30
 
 var player_max_health = 10
 var player_attack_speed = 200

@@ -62,9 +62,9 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	var input_direction
 	if PlayerGlobals.invertet_inputs:
-		Input.get_vector("move_right","move_left","move_down", "move_up")
+		input_direction = Input.get_vector("move_right","move_left","move_down", "move_up")
 	else:
-		Input.get_vector("move_left","move_right","move_up", "move_down")
+		input_direction = Input.get_vector("move_left","move_right","move_up", "move_down")
 		
 	if input_direction:
 		animation_player.play("Run")

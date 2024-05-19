@@ -23,7 +23,6 @@ func _physics_process(delta: float) -> void:
 	if is_colliding():
 		cast_point = to_local(get_collision_point())
 		var collider = get_collider()
-		print(collider, cast_point)
 		
 func appear() -> void:
 	var tween = create_tween()

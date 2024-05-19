@@ -13,19 +13,21 @@ var my_random_number_negative: int
 @onready var DoorsRewards = %DoorsRewards
 
 @onready var doorsShape = $StaticBody2D/CollisionShape2D
+var positive_text: String
+var negative_tex: String
 
 func _ready() -> void:
 	my_random_number_positive = rng.randi_range(0, 2)
-	my_random_number_negative = rng.randi_range(0, 2)
+	my_random_number_negative = rng.randi_range(0, 3)
 	if my_random_number_positive == my_random_number_negative:
-		if my_random_number_negative <= 0:
+		if my_random_number_negative == 0:
 			my_random_number_negative += 1
 		else:
 			my_random_number_negative -= 1
-	var positve_text = Randomizer.create_positive_text(my_random_number_positive)
-	var negative_text = Randomizer.create_negative_text(my_random_number_negative)
-	%DoorsRewards/Panel/Container/VBoxContainer/Text.text = positve_text
-	%DoorsRewards/Panel/Container/VBoxContainer/Text2.text = negative_text
+	positive_text = Randomizer.create_positive_text(my_random_number_positive)
+	negative_tex = Randomizer.create_negative_text(my_random_number_negative)
+	%DoorsRewards/Panel/Container/VBoxContainer/Text.text = positive_text
+	%DoorsRewards/Panel/Container/VBoxContainer/Text2.text = negative_tex
 	
 
 	
@@ -35,8 +37,8 @@ func _input(event):
 		var get_sfx = get_node('../../../../SFX')
 		get_sfx.stream = selected_doors
 		get_sfx.play()
-		Randomizer.create_positive_bonus()
-		Randomizer.create_negative_bonus()
+		Randomizer.create_positive_bonus(positive_text)
+		Randomizer.create_negative_bonus(negative_tex)
 		var lvlName = get_parent().get_parent().name
 		var lastChar = int(lvlName.substr(5, 1))
 		

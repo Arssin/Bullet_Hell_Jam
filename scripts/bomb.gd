@@ -9,7 +9,6 @@ func _physics_process(delta: float) -> void:
 	if player:
 		var distance_player = global_position.distance_to(player.global_position)
 		if chase && player && !stop:
-			print(distance_player)
 			velocity = (player.global_position - position).normalized() * 10
 		elif stop:
 			velocity = Vector2.ZERO
