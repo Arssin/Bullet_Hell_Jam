@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d11dag8tct7p3" path="res://assets/one.png" id="2_n8ts0"]
 [ext_resource type="Texture2D" uid="uid://dnsbpjshrxc3i" path="res://assets/ss.png" id="3_lh0cn"]
 [ext_resource type="Texture2D" uid="uid://dkd1tr4p5qd83" path="res://assets/bb.png" id="4_3imnp"]
+[ext_resource type="StyleBox" uid="uid://dnw60x0otm14c" path="res://styles/style-hover.tres" id="5_mumxf"]
 [ext_resource type="StyleBox" uid="uid://b31qeuijqal46" path="res://styles/style-normal.tres" id="5_u2pyk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkof6"]
@@ -16,14 +17,15 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ekbt"]
-
 [sub_resource type="Theme" id="Theme_n5esn"]
-Button/styles/hover = SubResource("StyleBoxFlat_7ekbt")
+Button/styles/hover = ExtResource("5_mumxf")
 Button/styles/normal = ExtResource("5_u2pyk")
+Button/styles/pressed = ExtResource("5_mumxf")
 
 [sub_resource type="Theme" id="Theme_vnhwa"]
+Button/styles/hover = ExtResource("5_mumxf")
 Button/styles/normal = ExtResource("5_u2pyk")
+Button/styles/pressed = ExtResource("5_mumxf")
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -277,8 +279,8 @@ z_index = 1
 layout_mode = 0
 offset_left = 241.0
 offset_top = 98.0
-offset_right = 307.0
-offset_bottom = 152.0
+offset_right = 300.0
+offset_bottom = 146.0
 theme = SubResource("Theme_n5esn")
 text = "X"
 
@@ -320,10 +322,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_eoe68")
 
 [node name="ButtonX" type="Button" parent="Credentials/Panel/Panel"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 20.0
-offset_right = 106.0
-offset_bottom = 91.0
+offset_left = 23.5
+offset_top = 14.5
+offset_right = 81.5
+offset_bottom = 63.5
 theme = SubResource("Theme_vnhwa")
 text = "X
 "
