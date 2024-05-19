@@ -153,7 +153,7 @@ collision_mask = 5
 [node name="ShapeManager" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("1")
-animation = &"0"
+animation = &"small_mob_bullet"
 
 [node name="0" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("2")

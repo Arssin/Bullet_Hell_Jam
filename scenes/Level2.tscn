@@ -1,15 +1,107 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2x7qjaocgn2j"]
+[gd_scene load_steps=16 format=3 uid="uid://c2x7qjaocgn2j"]
 
 [ext_resource type="PackedScene" uid="uid://bwofc6vedhbhe" path="res://scenes/player.tscn" id="1_2pb26"]
 [ext_resource type="Script" path="res://scripts/Level2.gd" id="1_3ksqn"]
 [ext_resource type="PackedScene" uid="uid://df3rvcxvib2rc" path="res://scenes/map_creator.tscn" id="2_1x4ms"]
 [ext_resource type="PackedScene" uid="uid://c6vsa8wpcnnc4" path="res://scenes/portal.tscn" id="3_8shao"]
 [ext_resource type="PackedScene" uid="uid://csp0pjl6er5ri" path="res://scenes/doors.tscn" id="5_5071w"]
+[ext_resource type="PackedScene" uid="uid://bhp5xynmos5ho" path="res://scenes/small_runing_mob.tscn" id="6_wt6tp"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHBulletProperties.gd" id="7_3fwq6"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/animStates.gd" id="8_8ehi5"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="8_tgn87"]
+
+[sub_resource type="Curve2D" id="Curve2D_0aexf"]
+
+[sub_resource type="Curve" id="Curve_p0x3i"]
+
+[sub_resource type="Resource" id="Resource_qgv27"]
+script = ExtResource("8_8ehi5")
+ID = ""
+texture = "small_mob_bullet"
+collision = ""
+SFX = ""
+tex_scale = 1.0
+tex_skew = 0.0
+
+[sub_resource type="Curve" id="Curve_fyioq"]
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_nfsnl"]
+script = ExtResource("8_tgn87")
+anim_idle = SubResource("Resource_qgv27")
+anim_more = Array[ExtResource("8_8ehi5")]([])
+damage = 1.0
+speed = 50.0
+scale = 1.0
+angle = 0.0
+groups = PackedStringArray()
+spec_bounces = 0
+spec_no_collision = false
+spec_modulate_loop = 0.0
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_rotating_speed = 0.0
+death_after_time = 15.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+a_direction_equation = ""
+a_curve_movement = 0
+a_speed_multiplier = SubResource("Curve_p0x3i")
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("../Player")
+homing_steer = 20.0
+homing_time_start = 1.0
+homing_duration = 999.0
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_fyioq")
+scale_multi_scale = 1.0
+r_randomisation_chances = 1.0
+r_speed_choice = PackedFloat32Array()
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = PackedFloat32Array()
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = PackedFloat32Array()
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = PackedInt32Array()
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = PackedFloat32Array()
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = PackedStringArray()
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = PackedStringArray()
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = PackedStringArray()
+r_group_target_choice = PackedStringArray()
+r_pos_target_choice = PackedVector2Array()
+r_steer_choice = PackedFloat32Array()
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = PackedFloat32Array()
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = PackedFloat32Array()
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hkuk2"]
-vertices = PackedVector2Array(126, 111, -142, 111, -140, -90, 126, -90)
+vertices = PackedVector2Array(249, -186, 259, 230, -292, 230, -279, -189)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-149.5, -100, -153, 120.5, 135.5, 121.5, 137, -100.5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-289, -200, -302, 240, 269, 240, 259, -196)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level2" type="Node2D"]
@@ -20,6 +112,12 @@ layer_0/tile_data = PackedInt32Array(589846, 65536, 0, 589847, 65536, 0, 589848,
 
 [node name="Player" parent="." instance=ExtResource("1_2pb26")]
 position = Vector2(583, 387)
+
+[node name="BulletPattern" type="Path2D" parent="."]
+curve = SubResource("Curve2D_0aexf")
+script = ExtResource("7_3fwq6")
+id = "3"
+props = SubResource("PackedDataContainer_nfsnl")
 
 [node name="Portal" parent="." instance=ExtResource("3_8shao")]
 position = Vector2(303, 250)
@@ -33,9 +131,52 @@ position = Vector2(304, 521)
 [node name="Portal4" parent="." instance=ExtResource("3_8shao")]
 position = Vector2(675, 533)
 
+[node name="mobs" type="Node2D" parent="."]
+
+[node name="Small_Runing_Mob" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(342, 229)
+
+[node name="Small_Runing_Mob2" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(644, 225)
+
+[node name="Small_Runing_Mob3" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(280, 281)
+
+[node name="Small_Runing_Mob4" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(256, 230)
+
+[node name="Small_Runing_Mob5" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(350, 292)
+
+[node name="Small_Runing_Mob6" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(253, 516)
+
+[node name="Small_Runing_Mob7" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(358, 547)
+
+[node name="Small_Runing_Mob8" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(288, 560)
+
+[node name="Small_Runing_Mob9" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(703, 540)
+
+[node name="Small_Runing_Mob10" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(574, 567)
+
+[node name="Small_Runing_Mob11" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(697, 294)
+
+[node name="Small_Runing_Mob12" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(540, 240)
+
+[node name="Small_Runing_Mob13" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(649, 569)
+
+[node name="Small_Runing_Mob14" parent="mobs" instance=ExtResource("6_wt6tp")]
+position = Vector2(461, 557)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(505, 374)
-scale = Vector2(2, 2)
 navigation_polygon = SubResource("NavigationPolygon_hkuk2")
 
 [node name="Timer" type="Timer" parent="."]

@@ -61,7 +61,7 @@ func create_negative_text(number):
 	elif number_negativo == 5:
 		negative_text = "RANDOM PAUSE"
 	elif number_negativo == 6:
-		negative_text = "BIG CHARACTER(SAME COLLISION)"
+		negative_text = "BIG MAGE"
 	elif number_negativo > 6 && number_negativo < 8:
 		negative_text = "LESS DMG"
 	elif number_negativo >= 8 && number_negativo <= 10:
@@ -105,7 +105,7 @@ func create_negative_bonus(neg_text):
 		PlayerGlobals.player_health -= 1
 	elif neg_text == "RANDOM PAUSE":
 		PlayerGlobals.random_pauses = true
-	elif neg_text == "BIG MAGE(SAME COLLISION)":
+	elif neg_text == "BIG MAGE":
 		PlayerGlobals.big_char = true
 	elif neg_text == "LUCKY YOU...":
 		pass

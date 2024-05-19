@@ -1404,15 +1404,6 @@ auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
 trigger_container = NodePath("")
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = 562.0
-offset_top = 95.0
-offset_right = 693.0
-offset_bottom = 118.0
-text = "LEVEL 6 LET'S GO
-"
-
 [node name="Doors" type="Node2D" parent="."]
 visible = false
 position = Vector2(-52, 41)

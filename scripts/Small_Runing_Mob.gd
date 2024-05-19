@@ -22,11 +22,11 @@ var players = null
 var move_direction: Vector2
 var home_position: Vector2
 
+var map
+
 func _ready() -> void:
-	Spawning.create_pool("3", "small_mob", 300)
-	if !isLookingPlayer:
-		$AttackCd.start()
-	attack_cd.wait_time = randf_range(2.3, 4.37)
+	attack_cd.wait_time = randf_range(1.4, 3.32)
+	$AttackCd.start()
 	home_position = self.global_position
 	health_bar.max_value = max_health
 	health_bar.value = health
@@ -61,7 +61,7 @@ func _on_navigation_agent_2d_target_reached() -> void:
 
 	
 func new_wander_pos():
-	var pos = home_position + random_offset() * randf_range(0, 300)
+	var pos = home_position + random_offset() * randf_range(0, 200)
 	move_to_position(pos)
 	
 func move_to_position (to_position: Vector2, adjust_pos: bool = true):
@@ -70,9 +70,10 @@ func move_to_position (to_position: Vector2, adjust_pos: bool = true):
 	
 
 	var map = get_world_2d().navigation_map
+	
+	agent.target_position = to_position
 
-	agent.target_position = NavigationServer2D.map_get_closest_point(map,to_position)
-		
+
 func random_offset () -> Vector2:
 	var offset = Vector2(randf_range(-10, 10),randf_range(-10, 10))
 	return offset.normalized()

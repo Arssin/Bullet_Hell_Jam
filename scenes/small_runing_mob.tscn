@@ -1,10 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhp5xynmos5ho"]
+[gd_scene load_steps=9 format=3 uid="uid://bhp5xynmos5ho"]
 
 [ext_resource type="Script" path="res://scripts/Small_Runing_Mob.gd" id="1_dhavm"]
 [ext_resource type="Texture2D" uid="uid://sl8xeagf8ee2" path="res://assets/small_mob_1.png" id="2_k0dgn"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHBulletProperties.gd" id="3_tt81c"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/animStates.gd" id="4_icf5a"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="4_kg4tj"]
 [ext_resource type="PackedScene" uid="uid://cc5tjpexngnx5" path="res://ui/health_bar.tscn" id="6_qy01c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_heei0"]
@@ -32,108 +29,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ittl"]
 size = Vector2(8, 11)
 
-[sub_resource type="Curve2D" id="Curve2D_2ort1"]
-
-[sub_resource type="Curve" id="Curve_wraij"]
-
-[sub_resource type="Resource" id="Resource_qupct"]
-script = ExtResource("4_icf5a")
-ID = "small_mobs"
-texture = "small_mob_bullet"
-collision = ""
-SFX = ""
-tex_scale = 1.0
-tex_skew = 0.0
-
-[sub_resource type="Curve" id="Curve_bnbph"]
-
-[sub_resource type="PackedDataContainer" id="PackedDataContainer_u8jm4"]
-script = ExtResource("4_kg4tj")
-anim_idle = SubResource("Resource_qupct")
-anim_more = Array[ExtResource("4_icf5a")]([])
-damage = 1.0
-speed = 50.0
-scale = 1.0
-angle = 0.0
-groups = PackedStringArray()
-spec_bounces = 0
-spec_no_collision = false
-spec_modulate_loop = 0.0
-spec_trail_length = 0.0
-spec_trail_width = 0.0
-spec_trail_modulate = Color(1, 1, 1, 1)
-spec_rotating_speed = 0.0
-death_after_time = 15.0
-death_outside_box = Rect2(0, 0, 0, 0)
-death_from_collision = true
-a_direction_equation = ""
-a_curve_movement = 0
-a_speed_multiplier = SubResource("Curve_wraij")
-a_speed_multi_iterations = 0
-a_speed_multi_scale = 0.0
-trigger_container = ""
-trigger_wait_for_shot = true
-homing_type = 3
-homing_group = "Player"
-homing_select_in_group = 0
-homing_steer = 20.0
-homing_time_start = 1.0
-homing_duration = 999.0
-scale_multi_iterations = 0
-scale_multiplier = SubResource("Curve_bnbph")
-scale_multi_scale = 1.0
-r_randomisation_chances = 0.0
-r_speed_choice = PackedFloat32Array()
-r_speed_variation = Vector3(0, 0, 0)
-r_scale_choice = PackedFloat32Array()
-r_scale_variation = Vector3(0, 0, 0)
-r_angle_choice = PackedFloat32Array()
-r_angle_variation = Vector3(0, 0, 0)
-r_group_choice = []
-r_bounce_choice = PackedInt32Array()
-r_bounce_variation = Vector3(0, 0, 0)
-r_no_coll_chances = 0.0
-r_modulate_variation = Vector3(0, 0, 0)
-r_trail_length_variation = Vector3(0, 0, 0)
-r_trail_color_variation = Vector3(0, 0, 0)
-r_rotating_variation = Vector3(0, 0, 0)
-r_death_after_choice = PackedFloat32Array()
-r_death_after_variation = Vector3(0, 0, 0)
-r_death_outside_chances = 0.0
-r_dir_equation_choice = PackedStringArray()
-r_curve_choice = []
-r_speed_multi_curve_choice = []
-r_speed_multi_iter_variation = Vector3(0, 0, 0)
-r_speed_multi_scale_variation = Vector3(0, 0, 0)
-r_trigger_choice = PackedStringArray()
-r_wait_for_shot_chances = 0.0
-r_homing_target_choice = []
-r_special_target_choice = PackedStringArray()
-r_group_target_choice = PackedStringArray()
-r_pos_target_choice = PackedVector2Array()
-r_steer_choice = PackedFloat32Array()
-r_steer_variation = Vector3(0, 0, 0)
-r_homing_delay_choice = PackedFloat32Array()
-r_homing_delay_variation = Vector3(0, 0, 0)
-r_homing_dur_choice = PackedFloat32Array()
-r_homing_dur_variation = Vector3(0, 0, 0)
-r_scale_multi_curve_choice = []
-r_scale_multi_iter_variation = Vector3(0, 0, 0)
-r_scale_multi_scale_variation = Vector3(0, 0, 0)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_8van0"]
 radius = 247.002
 
 [node name="Small_Runing_Mob" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 21
 script = ExtResource("1_dhavm")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 40.0
-target_desired_distance = 50.0
+target_desired_distance = 300.0
 path_max_distance = 200.0
-avoidance_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_abarx")
@@ -154,16 +62,8 @@ wait_time = 1.5
 unique_name_in_owner = true
 position = Vector2(6, 1)
 
-[node name="Bullet" type="Node2D" parent="."]
-position = Vector2(-1, 2)
-
-[node name="BulletPattern" type="Path2D" parent="Bullet"]
-curve = SubResource("Curve2D_2ort1")
-script = ExtResource("3_tt81c")
-id = "3"
-props = SubResource("PackedDataContainer_u8jm4")
-
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4
 monitorable = false

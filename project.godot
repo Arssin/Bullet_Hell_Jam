@@ -11,11 +11,11 @@ config_version=5
 [application]
 
 config/name="Magic of Consequences"
+config/description="Bullet Hell Jam 5 project using GODOT by Mateusz Binięda"
 run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.103744, 0.103744, 0.103744, 1)
 boot_splash/image="res://assets/title.png"
-config/icon="res://icon.svg"
 boot_splash/minimum_display_time=100
 
 [autoload]
@@ -31,6 +31,7 @@ Randomizer="*res://scripts/randomizer.gd"
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 mouse_cursor/custom_image="res://assets/cursor.png"
 mouse_cursor/custom_image_hotspot=Vector2(7.5, 7.5)
 
@@ -100,3 +101,5 @@ pause={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/anisotropic_filtering_level=1
+limits/description="Bulle"
