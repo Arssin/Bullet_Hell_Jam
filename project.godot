@@ -28,6 +28,8 @@ Randomizer="*res://scripts/randomizer.gd"
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://assets/cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(7.5, 7.5)
 
 [dotnet]
 

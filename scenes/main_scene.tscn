@@ -220,7 +220,7 @@ offset_right = 25.5
 offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 70
 alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/PAUSE/Panel/VBoxContainer"]
@@ -424,7 +424,7 @@ offset_right = 115.0
 offset_bottom = 116.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 60
+theme_override_constants/separation = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/Panel/VBoxContainer"]
 layout_mode = 2
@@ -486,7 +486,7 @@ horizontal_alignment = 1
 [node name="GridContainer" type="GridContainer" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/v_separation = 20
+theme_override_constants/v_separation = 15
 columns = 3
 
 [node name="Label2" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
@@ -535,6 +535,19 @@ layout_mode = 2
 [node name="Label12" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
 layout_mode = 2
 text = "MOUSE"
+horizontal_alignment = 1
+
+[node name="Label13" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "PAUSE"
+
+[node name="Label14" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="Label15" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "ESCAPE
+"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Control/Panel"]
