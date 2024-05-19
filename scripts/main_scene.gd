@@ -40,3 +40,11 @@ func _on_button_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_button_x_pressed() -> void:
+	%Credentials.hide()
+
+
+func _on_credentials_pressed() -> void:
+	%Credentials.show()
