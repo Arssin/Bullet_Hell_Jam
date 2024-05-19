@@ -28,3 +28,15 @@ func _on_start_game_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	GlobalManager.restart_game()
+
+
+func _on_controls_and_options_pressed() -> void:
+	$Control.show()
+
+
+func _on_button_pressed() -> void:
+	$Control.hide()
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
