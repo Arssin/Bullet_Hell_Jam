@@ -9,10 +9,25 @@ var game_song = load("res://music/BulletHellMainSong.wav")
 
 @onready var dead: Control = $CanvasLayer/DEAD
 
+@onready var MUSIC_OFF = preload("res://assets/music off.png")
+@onready var MUSIC_ON = preload("res://assets/music on.png")
+
+var isMusicOn = true
+var sfxIsOn = true
 
 func _ready():
 	music.stream = menu_song
 	music.play()
+	
+	if isMusicOn:
+		%ms.icon = MUSIC_ON
+	else:
+		%ms.icon = MUSIC_OFF
+		
+	if sfxIsOn:
+		%sfx2.icon = MUSIC_ON
+	else:
+		%sfx2.icon = MUSIC_OFF
 
 
 func _process(delta: float) -> void:
@@ -48,3 +63,11 @@ func _on_button_x_pressed() -> void:
 
 func _on_credentials_pressed() -> void:
 	%Credentials.show()
+
+
+func _on_ms_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_sfx_2_pressed() -> void:
+	pass # Replace with function body.

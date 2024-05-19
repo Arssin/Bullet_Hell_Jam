@@ -18,11 +18,13 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_n5esn"]
+Button/styles/focus = ExtResource("5_mumxf")
 Button/styles/hover = ExtResource("5_mumxf")
 Button/styles/normal = ExtResource("5_u2pyk")
 Button/styles/pressed = ExtResource("5_mumxf")
 
 [sub_resource type="Theme" id="Theme_vnhwa"]
+Button/styles/focus = ExtResource("5_mumxf")
 Button/styles/hover = ExtResource("5_mumxf")
 Button/styles/normal = ExtResource("5_u2pyk")
 Button/styles/pressed = ExtResource("5_mumxf")
@@ -240,7 +242,6 @@ position = Vector2(577, 310)
 bus = &"SFX_ENEMY"
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,6 +274,57 @@ offset_bottom = 241.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_eoe68")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -116.5
+offset_right = 115.0
+offset_bottom = 116.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="ms2" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "MUSIC:"
+
+[node name="ms" type="Button" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="sf" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="sfx2" type="Button" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "CONTROLS"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Control/Panel"]
 z_index = 1
@@ -312,10 +364,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -359.5
-offset_top = -241.5
-offset_right = 359.5
-offset_bottom = 241.5
+offset_left = -277.5
+offset_top = -227.5
+offset_right = 277.5
+offset_bottom = 227.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_eoe68")
@@ -330,10 +382,55 @@ theme = SubResource("Theme_vnhwa")
 text = "X
 "
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Credentials/Panel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -159.0
+offset_right = 184.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="Credentials/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Game, assets and music 
+created by Mateusz \"Arssin\" Binięda"
+horizontal_alignment = 1
+
+[node name="LinkButton" type="LinkButton" parent="Credentials/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.996882, 0.454799, 0.391193, 1)
+text = "itch.io: Arssin"
+uri = "https://arssin.itch.io/"
+
+[node name="LinkButton2" type="LinkButton" parent="Credentials/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.43903, 0.635325, 1, 1)
+text = "X / Twitter: @BiniedaMat"
+uri = "https://twitter.com/BiniedaMat"
+
+[node name="Label2" type="Label" parent="Credentials/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.428777, 0.379722, 0.336836, 1)
+theme_override_font_sizes/font_size = 12
+text = "Bullethell engine : BulletUpHell by Dark Peace"
+
 [connection signal="pressed" from="CanvasLayer/DEAD/Panel/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Controls And Options" to="." method="_on_controls_and_options_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Credentials" to="." method="_on_credentials_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer/ms" to="." method="_on_ms_pressed"]
+[connection signal="pressed" from="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer/sfx2" to="." method="_on_sfx_2_pressed"]
 [connection signal="pressed" from="Control/Panel/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Credentials/Panel/Panel/ButtonX" to="." method="_on_button_x_pressed"]
