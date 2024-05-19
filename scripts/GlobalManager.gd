@@ -25,13 +25,14 @@ func load_level(level_name: String):
 				
 				
 func new_game():
-	GlobalManager.load_level("Level1")
+	GlobalManager.load_level("Level8")
 
 func restart_game():
 	Spawning.reset()
 	var mainScene = get_node('/root/MainScene')
 	mainScene.menu.visible = true
 	mainScene.dead.visible = false
+	mainScene.won.visible = false
 	mainScene.music.stream = MENUSONG
 	mainScene.music.play()
 	PlayerGlobals.reset_all()

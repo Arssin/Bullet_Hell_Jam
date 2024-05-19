@@ -84,21 +84,13 @@ func _on_dmg_taken(value):
 	
 func _player_death():
 	player_dead = true
+	update_player_healthbar(0)
 	var SFX = get_node("../../../SFX_PLAYER")
 	var showDead = get_node('../../../CanvasLayer/DEAD')
 	showDead.visible = true
 	get_tree().paused = true
 	
 
-
-func _on_ghost_timer_timeout() -> void:
-	set_collision_layer_value(3,true)
-	#add_ghost()
-	
-
-
-func _on_dash_cd_timeout() -> void:
-	dash_on_cd = false
 	
 	
 var new_pattern: PatternLine = PatternLine.new()

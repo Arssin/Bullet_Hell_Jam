@@ -8,6 +8,8 @@ var menu_song = load("res://music/menusong.wav")
 var game_song = load("res://music/BulletHellMainSong.wav")
 
 @onready var dead: Control = $CanvasLayer/DEAD
+@onready var won: Control = $CanvasLayer/WON
+
 
 @onready var MUSIC_OFF = preload("res://assets/music off.png")
 @onready var MUSIC_ON = preload("res://assets/music on.png")
@@ -89,3 +91,7 @@ func _on_sfx_2_pressed() -> void:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX_PLAYER"), false)
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX_ENEMY"), false)
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), false)
+
+
+func _on_button_w_pressed() -> void:
+	GlobalManager.restart_game()

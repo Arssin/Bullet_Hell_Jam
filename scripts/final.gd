@@ -1,15 +1,6 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_final_boss_finalboss_died() -> void:
 	$Pattern1.queue_free()
@@ -24,4 +15,9 @@ func _on_final_boss_finalboss_died() -> void:
 	$GPUParticles2D.emitting = true
 	await get_tree().create_timer(2).timeout
 	$GPUParticles2D.emitting = false
+	var won = get_node("/root/MainScene/CanvasLayer/WON")
+	won.visible = true
+	get_tree().paused = true
+	
+	
 	

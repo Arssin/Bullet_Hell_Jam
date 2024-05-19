@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdfiit0ddj7u1"]
+[gd_scene load_steps=15 format=3 uid="uid://cdfiit0ddj7u1"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_vrhdb"]
 [ext_resource type="Theme" uid="uid://bogd8fyn22vwo" path="res://styles/btn_menu.tres" id="2_c8ngv"]
@@ -10,6 +10,12 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fggcw"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 0.952941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1anwt"]
+bg_color = Color(0.00634683, 0.00883782, 0.00883794, 0.92549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8okqa"]
+bg_color = Color(0, 0, 0, 0.796078)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkof6"]
 bg_color = Color(0.099986, 0.099986, 0.099986, 0.831373)
@@ -71,6 +77,7 @@ text = "STATS
 
 [node name="DEAD" type="Control" parent="CanvasLayer"]
 visible = false
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,10 +131,108 @@ theme = ExtResource("2_c8ngv")
 text = "BACK TO MENU"
 
 [node name="WON" type="Control" parent="CanvasLayer"]
+visible = false
+z_index = 4
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/WON"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1anwt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/WON/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -31.0
+offset_right = 20.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="CanvasLayer/WON/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.352158, 0.755153, 0.340305, 1)
+theme_override_colors/font_outline_color = Color(0.255659, 0.255659, 0.255659, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "YOU WON WITH A TIME:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/WON/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.567538, 0.524687, 0.535715, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "THANKS FOR PLAYING!"
+horizontal_alignment = 1
+
+[node name="ButtonW" type="Button" parent="CanvasLayer/WON/Panel/VBoxContainer"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_c8ngv")
+text = "BACK TO MENU"
+
+[node name="PAUSE" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PAUSE"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8okqa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PAUSE/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -23.5
+offset_right = 25.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PAUSE/Panel/VBoxContainer"]
+layout_mode = 2
+text = "PAUSE
+"
+
+[node name="Return" type="Button" parent="CanvasLayer/PAUSE/Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_c8ngv")
+
+[node name="Exitto" type="Button" parent="CanvasLayer/PAUSE/Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_c8ngv")
 
 [node name="Menu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -521,6 +626,7 @@ theme_override_font_sizes/font_size = 12
 text = "Bullethell engine : BulletUpHell by Dark Peace"
 
 [connection signal="pressed" from="CanvasLayer/DEAD/Panel/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/WON/Panel/VBoxContainer/ButtonW" to="." method="_on_button_w_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Controls And Options" to="." method="_on_controls_and_options_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Credentials" to="." method="_on_credentials_pressed"]
