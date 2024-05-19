@@ -33,14 +33,17 @@ func reset_all():
 	get:
 		return player_health
 	set(value):
-		
-		if value <= 0:
+		if value >= player_max_health:
+			player_health = 10
+		elif value <= 0:
 			player_alive = false
 			emit_signal("player_dead")
+			player_health = value
 		elif value > 0:
 			emit_signal("player_get_dmg", value)
+			player_health = value
 		
-		player_health = value
+		
 
 @export var additional_dmg = additional_dmgs:
 	get:

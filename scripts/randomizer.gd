@@ -52,6 +52,8 @@ func create_negative_text(number):
 		negative_text = "BULLET - 1"
 	elif number_negativo == 3:
 		negative_text = "INVERTED INPUTS"
+	elif number_negativo == 4:
+		negative_text = "-1 HEALTH"
 	else:
 		negative_text = 'AYAY NO BOOST'
 	return negative_text
@@ -85,6 +87,8 @@ func create_negative_bonus(neg_text):
 		if PlayerGlobals.player3rdShoot:
 			PlayerGlobals.player3rdShoot = false
 		else: PlayerGlobals.player2ndShoot = false
+	elif neg_text == "-1 HEALTH":
+		PlayerGlobals.player_health -= 1
 	else: pass
 
 

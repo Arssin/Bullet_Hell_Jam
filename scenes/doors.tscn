@@ -84,11 +84,11 @@ disabled = true
 unique_name_in_owner = true
 visible = false
 z_index = 2
-offset_left = -60.6667
-offset_top = -62.6667
-offset_right = 241.333
-offset_bottom = 82.3333
-scale = Vector2(0.4, 0.3)
+offset_left = -58.6667
+offset_top = -62.0
+offset_right = 227.333
+offset_bottom = 83.0
+scale = Vector2(0.41, 0.3)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

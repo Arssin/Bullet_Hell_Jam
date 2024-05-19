@@ -189,11 +189,11 @@ scale = Vector2(1.6, 1.6)
 
 [node name="LabelTest" type="Label" parent="."]
 visible = false
-offset_left = 615.0
-offset_top = 236.0
-offset_right = 702.0
-offset_bottom = 259.0
-text = "BOSS DIED!"
+offset_left = 595.0
+offset_top = 8.0
+offset_right = 722.0
+offset_bottom = 31.0
+text = "I WILL RETURN..."
 
 [node name="Node" type="Node2D" parent="."]
 position = Vector2(658, 14)
