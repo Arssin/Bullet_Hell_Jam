@@ -9,6 +9,8 @@ var game_song = load("res://music/BulletHellMainSong.wav")
 
 @onready var dead: Control = $CanvasLayer/DEAD
 @onready var won: Control = $CanvasLayer/WON
+@onready var pause: Control = $CanvasLayer/PAUSE
+
 
 
 @onready var MUSIC_OFF = preload("res://assets/music off.png")
@@ -94,4 +96,13 @@ func _on_sfx_2_pressed() -> void:
 
 
 func _on_button_w_pressed() -> void:
+	GlobalManager.restart_game()
+
+
+func _on_return_pressed() -> void:
+	$CanvasLayer/PAUSE.visible = false
+	get_tree().paused = false
+
+
+func _on_exitto_pressed() -> void:
 	GlobalManager.restart_game()

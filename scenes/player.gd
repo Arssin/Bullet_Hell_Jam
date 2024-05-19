@@ -34,6 +34,12 @@ func _process(delta: float) -> void:
 		attack_spawn()
 		$PlayerAttack.start()
 		player_can_attack = false
+		
+	if Input.is_action_just_pressed("pause"):
+		var pause = get_node("/root/MainScene/CanvasLayer/PAUSE")
+		pause.visible = true
+		get_tree().paused = true
+		
 	
 
 func _physics_process(delta: float) -> void:

@@ -33,6 +33,7 @@ func restart_game():
 	mainScene.menu.visible = true
 	mainScene.dead.visible = false
 	mainScene.won.visible = false
+	mainScene.pause.visible = false
 	mainScene.music.stream = MENUSONG
 	mainScene.music.play()
 	PlayerGlobals.reset_all()

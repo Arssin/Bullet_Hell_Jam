@@ -190,6 +190,7 @@ theme = ExtResource("2_c8ngv")
 text = "BACK TO MENU"
 
 [node name="PAUSE" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -219,20 +220,30 @@ offset_right = 25.5
 offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/PAUSE/Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.877616, 0.877616, 0.877616, 1)
+theme_override_colors/font_outline_color = Color(0.237539, 0.237539, 0.237539, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 40
 text = "PAUSE
 "
+horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="CanvasLayer/PAUSE/Panel/VBoxContainer"]
+process_mode = 2
 layout_mode = 2
 theme = ExtResource("2_c8ngv")
+text = "RETURN"
 
 [node name="Exitto" type="Button" parent="CanvasLayer/PAUSE/Panel/VBoxContainer"]
+process_mode = 2
 layout_mode = 2
 theme = ExtResource("2_c8ngv")
+text = "BACK TO MENU"
 
 [node name="Menu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -627,6 +638,8 @@ text = "Bullethell engine : BulletUpHell by Dark Peace"
 
 [connection signal="pressed" from="CanvasLayer/DEAD/Panel/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayer/WON/Panel/VBoxContainer/ButtonW" to="." method="_on_button_w_pressed"]
+[connection signal="pressed" from="CanvasLayer/PAUSE/Panel/VBoxContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="CanvasLayer/PAUSE/Panel/VBoxContainer/Exitto" to="." method="_on_exitto_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Controls And Options" to="." method="_on_controls_and_options_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Credentials" to="." method="_on_credentials_pressed"]
