@@ -27,7 +27,12 @@ func _ready() -> void:
 	PlayerGlobals.player_get_dmg.connect(_on_dmg_taken)
 	PlayerGlobals.player_dead.connect(_player_death)
 	animation_player.play("Idle")
-	
+	if PlayerGlobals.big_char:
+		$Sprite2D.scale *= 3
+	if PlayerGlobals.random_pauses:
+		$PauseTimer.wait_time(randf_range(14, 23))
+		$PauseTimer.start()
+		
 func _process(delta: float) -> void:
 	var input_direction = Input.get_vector("move_left","move_right","move_up", "move_down")
 	if Input.is_action_just_pressed("attack") && player_can_attack or Input.is_action_pressed("attack") && player_can_attack:
@@ -138,3 +143,9 @@ func attack_spawn():
 
 
 
+
+
+func _on_pause_timer_timeout() -> void:
+	var pause = get_node("/root/MainScene/CanvasLayer/PAUSE")
+	pause.visible = true
+	get_tree().paused = true

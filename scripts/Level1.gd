@@ -38,3 +38,7 @@ func show_doors():
 	await get_tree().create_timer(2).timeout
 	$GPUParticles2D.emitting = false
 	
+
+
+
+	

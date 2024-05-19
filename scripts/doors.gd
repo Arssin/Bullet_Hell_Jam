@@ -18,12 +18,15 @@ var negative_tex: String
 
 func _ready() -> void:
 	my_random_number_positive = rng.randi_range(0, 4)
-	my_random_number_negative = rng.randi_range(0, 4)
+	my_random_number_negative = rng.randi_range(0, 5)
 	if my_random_number_positive == my_random_number_negative:
 		if my_random_number_negative == 0:
-			my_random_number_negative == rng.randi_range(1,4)
+			my_random_number_negative == rng.randi_range(1,5)
+		elif my_random_number_negative >= 2:
+			my_random_number_negative == rng.randi_range(3,5)
 		else:
-			my_random_number_negative = rng.randi_range(0,3)
+			my_random_number_negative == rng.randi_range(0,2)
+			
 	positive_text = Randomizer.create_positive_text(my_random_number_positive)
 	negative_tex = Randomizer.create_negative_text(my_random_number_negative)
 	%DoorsRewards/Panel/Container/VBoxContainer/Text.text = positive_text

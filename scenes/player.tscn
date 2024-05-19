@@ -432,4 +432,7 @@ script = ExtResource("8_5671t")
 id = "112"
 props = SubResource("PackedDataContainer_j25vw")
 
+[node name="PauseTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="PlayerAttack" to="." method="_on_player_attack_timeout"]
+[connection signal="timeout" from="PauseTimer" to="." method="_on_pause_timer_timeout"]

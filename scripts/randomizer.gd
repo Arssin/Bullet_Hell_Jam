@@ -40,6 +40,10 @@ func create_negative_text(number):
 		number_negativo += 1
 	elif number_negativo == 3 && PlayerGlobals.invertet_inputs:
 		number_negativo -= 1
+	elif number_negativo == 4 && PlayerGlobals.random_pauses:
+		number_negativo += 1
+	elif number_negativo == 5 && PlayerGlobals.big_char:
+		number_negativo = randi_range(0,4)
 	else: number_negativo
 	
 	var negative_text: String
@@ -54,6 +58,10 @@ func create_negative_text(number):
 		negative_text = "INVERTED INPUTS"
 	elif number_negativo == 4:
 		negative_text = "-1 HEALTH"
+	elif number_negativo == 5:
+		negative_text = "RANDOM PAUSE"
+	elif number_negativo == 6:
+		negative_text = "BIG CHARACTER(SAME COLLISION)"
 	else:
 		negative_text = 'AYAY NO BOOST'
 	return negative_text
@@ -89,6 +97,10 @@ func create_negative_bonus(neg_text):
 		else: PlayerGlobals.player2ndShoot = false
 	elif neg_text == "-1 HEALTH":
 		PlayerGlobals.player_health -= 1
+	elif neg_text == "RANDOM PAUSE":
+		PlayerGlobals.random_pauses = true
+	elif neg_text == "BIG CHARACTER(SAME COLLISION)":
+		PlayerGlobals.big_char = true
 	else: pass
 
 
