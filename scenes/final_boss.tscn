@@ -77,10 +77,9 @@ value_healthbar = 1200.0
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 526.0
-offset_top = 595.0
-offset_right = 641.0
-offset_bottom = 618.0
-text = "Mag magowski
-"
+offset_top = 599.0
+offset_right = 652.0
+offset_bottom = 622.0
+text = "DEMONIC MAGE"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

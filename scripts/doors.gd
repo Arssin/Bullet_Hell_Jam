@@ -35,8 +35,8 @@ func _input(event):
 		var get_sfx = get_node('../../../../SFX')
 		get_sfx.stream = selected_doors
 		get_sfx.play()
-		Randomizer.create_positive_bonus(my_random_number_positive)
-		Randomizer.create_negative_bonus(my_random_number_negative)
+		Randomizer.create_positive_bonus()
+		Randomizer.create_negative_bonus()
 		var lvlName = get_parent().get_parent().name
 		var lastChar = int(lvlName.substr(5, 1))
 		

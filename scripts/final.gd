@@ -11,6 +11,9 @@ func _on_final_boss_finalboss_died() -> void:
 	$Pattern6.queue_free()
 	$Pattern7.queue_free()
 	$Pattern8.queue_free()
+	$Pattern9.queue_free()
+	$Pattern10.queue_free()
+	$Pattern11.queue_free()
 	Spawning.reset_bullets()
 	$GPUParticles2D.emitting = true
 	await get_tree().create_timer(2).timeout

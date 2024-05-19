@@ -9,6 +9,7 @@ var player_attack_speed = 200
 var player_move_speeds = 300
 var additional_dmgs = 1000
 
+
 # attck 10 speed 100
 
 var player_range_time = 1
@@ -16,6 +17,7 @@ var additional_time = 0
 
 var player2ndShoot = false
 var player3rdShoot = false
+var invertet_inputs = false
 
 var player_alive = true
 
@@ -25,6 +27,7 @@ func reset_all():
 	player_move_speed = player_move_speeds
 	player3rdShoot = false
 	player2ndShoot = false
+	invertet_inputs = false
 
 @export var player_health = player_max_health:
 	get:
