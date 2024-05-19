@@ -242,6 +242,7 @@ position = Vector2(577, 310)
 bus = &"SFX_ENEMY"
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -292,30 +293,43 @@ theme_override_constants/separation = 60
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.435422, 0.691576, 0.830352, 1)
+theme_override_colors/font_outline_color = Color(0.230315, 0.230315, 0.230315, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 20
 text = "OPTIONS"
 horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 140
+size_flags_horizontal = 4
 theme_override_constants/v_separation = 20
-columns = 2
+columns = 3
 
 [node name="ms2" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "MUSIC
 "
 
+[node name="Label" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
 [node name="ms" type="Button" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="sf" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "SFX"
+
+[node name="Label2" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
 
 [node name="sfx2" type="Button" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
@@ -323,14 +337,46 @@ layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/Panel/Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="Label2" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.162475, 0.734282, 0.601406, 1)
+theme_override_colors/font_outline_color = Color(0.281187, 0.281187, 0.281187, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 20
 text = "CONTROLS"
 horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="Label2" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "MOVE"
+
+[node name="Label5" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "WSAD/ARROWS"
+
+[node name="Label3" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "INTERACT"
+
+[node name="Label6" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Control/Panel/Panel/VBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "E"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Control/Panel"]
 z_index = 1

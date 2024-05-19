@@ -84,7 +84,7 @@ func _on_sfx_2_pressed() -> void:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX_ENEMY"), true)
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), true)
 	else: 
-		isMusicOn = true
+		sfxIsOn = true
 		%sfx2.icon = MUSIC_ON
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX_PLAYER"), false)
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX_ENEMY"), false)
